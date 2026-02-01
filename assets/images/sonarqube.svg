@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid">
+  <g fill="#1b171b">
+    <circle cx="128" cy="128" r="45"/>
+  </g>
+  <g fill="#4e9bcd">
+    <path d="M213.5 209.5c0-45-37-82-82-82v-7c49 0 89 40 89 89z"/>
+    <path d="M218 167c-7-28-30-51-58-60l1-4c30 9 54 33 62 63z"/>
+    <path d="M222 142c-7-15-19-28-33-37l2-3c15 9 27 23 35 39z"/>
+  </g>
+</svg>

@@ -1,0 +1,55 @@
+%%{init: {'theme':'dark', 'flowchart': {'nodeSpacing': 25, 'rankSpacing': 35}, 'themeVariables': { 'primaryColor':'#0f3460','primaryTextColor':'#fff','primaryBorderColor':'#4a90e2','lineColor':'#4a90e2','secondaryColor':'#1a1a2e','tertiaryColor':'#16213e'}}}%%
+graph TB
+    subgraph Frontend["🖥️ Frontend · Next.js 15"]
+        Pages[Pages]
+        Components[Components]
+        Hooks[Hooks]
+        Auth[Auth MFA]
+    end
+
+    subgraph API["🔌 API · Hono 4.6"]
+        OpenAPI[OpenAPI 149 endpoints]
+        Routes[Routes]
+        Middleware[HMAC + JWT]
+    end
+
+    subgraph Backend["⚙️ Backend Logic"]
+        Services[Services]
+        Rules[Business Rules]
+        Validation[Zod]
+    end
+
+    subgraph Data["🗄️ Data"]
+        Drizzle[Drizzle ORM]
+        Postgres[(PostgreSQL 16)]
+    end
+
+    subgraph Docs["📚 Governance"]
+        ADRs[74 ADRs]
+        AGENTS[AGENTS.md]
+    end
+
+    Pages --> Components
+    Components --> Hooks
+    Hooks --> Auth
+
+    Auth --> OpenAPI
+    OpenAPI --> Routes
+    Routes --> Middleware
+
+    Middleware --> Services
+    Services --> Rules
+    Services --> Validation
+
+    Services --> Drizzle
+    Drizzle --> Postgres
+
+    ADRs -.-> Services
+    ADRs -.-> OpenAPI
+    AGENTS -.-> Services
+
+    style Frontend fill:#0f3460
+    style API fill:#16213e
+    style Backend fill:#1a1a2e
+    style Data fill:#0f3460
+    style Docs fill:#27ae60

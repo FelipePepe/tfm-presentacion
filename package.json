@@ -1,0 +1,37 @@
+{
+  "name": "tfm-presentation",
+  "version": "1.0.0",
+  "description": "Presentación TFM - TeamHub: Sistema de Gestión de Equipos",
+  "main": "index.js",
+  "scripts": {
+    "start": "npx serve -p 8080",
+    "dev": "npx serve -p 8080 --cors",
+    "screenshots": "npx ts-node scripts/capture-screenshots.ts",
+    "capture-slide": "npx ts-node scripts/capture-slide.ts",
+    "slide-walk": "npx ts-node scripts/slide-walk.ts",
+    "check-slides": "npx ts-node scripts/check-slides-playwright.ts",
+    "review-slides": "npx ts-node scripts/review-slides-playwright.ts",
+    "pdf": "npx decktape reveal http://localhost:8080 tfm-presentation.pdf",
+    "lint": "npx prettier --check .",
+    "format": "npx prettier --write ."
+  },
+  "keywords": [
+    "tfm",
+    "reveal.js",
+    "presentation",
+    "teamhub"
+  ],
+  "author": "Felipe José Pérez Gómez",
+  "license": "MIT",
+  "type": "commonjs",
+  "dependencies": {
+    "reveal.js": "^5.2.1"
+  },
+  "devDependencies": {
+    "@mermaid-js/mermaid-cli": "^11.12.0",
+    "@playwright/test": "^1.58.1",
+    "@types/node": "^25.1.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
+  }
+}

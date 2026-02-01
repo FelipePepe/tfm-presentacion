@@ -1,0 +1,33 @@
+%%{init: {'theme':'dark', 'flowchart': {'nodeSpacing': 30, 'rankSpacing': 40}, 'themeVariables': { 'primaryColor':'#0f3460','primaryTextColor':'#fff','primaryBorderColor':'#4a90e2','lineColor':'#4a90e2','secondaryColor':'#1a1a2e','tertiaryColor':'#16213e'}}}%%
+graph TB
+    Prev([API →]) --> Services
+
+    subgraph Backend["⚙️ Backend Logic"]
+        Services[Services]
+        Rules[Business Rules]
+        Validation[Zod]
+    end
+
+    subgraph Data["🗄️ Data Layer"]
+        Drizzle[Drizzle ORM]
+        Postgres[(PostgreSQL 16)]
+    end
+
+    subgraph Docs["📚 Governance"]
+        ADRs[74 ADRs]
+        AGENTS[AGENTS.md]
+    end
+
+    Services --> Rules
+    Services --> Validation
+
+    Services --> Drizzle
+    Drizzle --> Postgres
+
+    ADRs -.-> Services
+    AGENTS -.-> Services
+
+    style Prev fill:#4a90e2
+    style Backend fill:#1a1a2e
+    style Data fill:#0f3460
+    style Docs fill:#27ae60

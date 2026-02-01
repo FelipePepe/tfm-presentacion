@@ -1,0 +1,52 @@
+%%{init: {'theme':'dark', 'gitGraph': {'mainBranchName': 'main', 'showCommitLabel': true, 'rotateCommitLabel': false}, 'themeVariables': { 'primaryColor':'#0f3460','primaryTextColor':'#fff','primaryBorderColor':'#4a90e2','lineColor':'#4a90e2','secondaryColor':'#1a1a2e','tertiaryColor':'#16213e', 'git0': '#4a5568', 'git1': '#e91e8c', 'git2': '#5a9fd4', 'git3': '#c87137', 'git4': '#cc3333', 'git5': '#7b2d8e', 'git6': '#cc8800', 'git7': '#2d8e4e', 'commitLabelFontSize': '12px', 'tagLabelFontSize': '11px'}}}%%
+gitGraph
+    commit id: "Init"
+    commit id: "AGENTS"
+    branch develop
+    checkout develop
+    commit id: "ADRs"
+
+    branch feat/dept
+    checkout feat/dept
+    commit id: "Dept CRUD"
+    commit id: "Dept Tests"
+    checkout develop
+    merge feat/dept tag: "PR#1"
+
+    branch feat/empl
+    checkout feat/empl
+    commit id: "Empl CRUD"
+    commit id: "Empl Tests"
+    checkout develop
+    merge feat/empl tag: "PR#2"
+
+    branch feat/onboard1
+    checkout feat/onboard1
+    commit id: "Templates"
+    checkout develop
+    merge feat/onboard1 tag: "PR#30"
+
+    branch feat/onboard2
+    checkout feat/onboard2
+    commit id: "Processes"
+    checkout develop
+    merge feat/onboard2 tag: "PR#32"
+
+    branch feat/projects
+    checkout feat/projects
+    commit id: "Projects"
+    checkout develop
+    merge feat/projects tag: "PR#61"
+
+    branch release/1.0
+    checkout release/1.0
+    commit id: "v1.0.0"
+    checkout main
+    merge release/1.0 tag: "v1.0.0"
+
+    checkout develop
+    branch release/1.3
+    checkout release/1.3
+    commit id: "v1.3.0"
+    checkout main
+    merge release/1.3 tag: "v1.3.0"

@@ -1,0 +1,20 @@
+%%{init: {'theme':'dark', 'themeVariables': { 'primaryColor':'#0f3460','primaryTextColor':'#fff','primaryBorderColor':'#4a90e2','lineColor':'#4a90e2','secondaryColor':'#1a1a2e','tertiaryColor':'#16213e'}, 'flowchart': {'nodeSpacing': 30, 'rankSpacing': 45}}}%%
+flowchart TD
+    PR([Pull Request]) --> Review{Code Review}
+
+    Review -->|Cambios| Fix[Corregir]
+    Fix --> Review
+
+    Review -->|✓| Merge[Merge develop]
+
+    Merge --> Release{¿Release?}
+
+    Release -->|Sí| Tag[Tag + main]
+    Release -->|No| End([Fin])
+
+    Tag --> End
+
+    style PR fill:#4a90e2
+    style Merge fill:#27ae60
+    style Tag fill:#27ae60
+    style End fill:#4a90e2

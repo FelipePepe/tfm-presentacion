@@ -1,0 +1,38 @@
+# Dependencies
+node_modules/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE / editor
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs and env
+*.log
+.env
+.env.local
+.env.*.local
+
+# Build / output
+dist/
+build/
+review-slides-screenshots/
+notes/
+*.local
+
+# Backups
+index-backup-*.html
+*-backup-*
+
+# Playwright / test
+test-results/
+playwright-report/
+playwright/.cache/
+
+# Optional: descomenta si no quieres versionar reportes generados
+# check-slides-report.txt
+# review-slides-report.txt

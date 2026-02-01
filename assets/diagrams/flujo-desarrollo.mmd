@@ -1,0 +1,39 @@
+%%{init: {'theme':'dark', 'themeVariables': { 'primaryColor':'#0f3460','primaryTextColor':'#fff','primaryBorderColor':'#4a90e2','lineColor':'#4a90e2','secondaryColor':'#1a1a2e','tertiaryColor':'#16213e'}, 'flowchart': {'nodeSpacing': 30, 'rankSpacing': 40}}}%%
+flowchart TD
+    Start([Requisito]) --> ADR{¿ADR?}
+
+    ADR -->|Sí| CreateADR[Crear ADR]
+    ADR -->|No| OpenAPI
+
+    CreateADR --> OpenAPI[OpenAPI]
+
+    OpenAPI --> Codex[Copilot genera código]
+
+    Codex --> Tests[Tests obligatorios]
+
+    Tests --> Hooks{¿Hooks OK?}
+
+    Hooks -->|No| Fix[Corregir]
+    Fix --> Hooks
+
+    Hooks -->|Sí| PR[Pull Request]
+
+    PR --> Review{Code Review}
+
+    Review -->|Cambios| Fix
+
+    Review -->|✓| Merge[Merge develop]
+
+    Merge --> Release{¿Release?}
+
+    Release -->|Sí| Tag[Tag + main]
+    Release -->|No| End([Fin])
+
+    Tag --> End
+
+    style Start fill:#4a90e2
+    style CreateADR fill:#0f3460
+    style Codex fill:#0f3460
+    style Merge fill:#27ae60
+    style Tag fill:#27ae60
+    style End fill:#4a90e2

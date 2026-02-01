@@ -1,0 +1,28 @@
+%%{init: {'theme':'dark', 'flowchart': {'nodeSpacing': 30, 'rankSpacing': 40}, 'themeVariables': { 'primaryColor':'#0f3460','primaryTextColor':'#fff','primaryBorderColor':'#4a90e2','lineColor':'#4a90e2','secondaryColor':'#1a1a2e','tertiaryColor':'#16213e'}}}%%
+graph TB
+    subgraph Frontend["🖥️ Frontend · Next.js 15 + React 19"]
+        Pages[Pages App Router]
+        Components[Components Storybook]
+        Hooks[Custom Hooks]
+        Auth[Auth MFA]
+    end
+
+    subgraph API["🔌 API · Hono 4.6 · OpenAPI"]
+        OpenAPI[149 endpoints]
+        Routes[Routes Handlers]
+        Middleware[HMAC + JWT]
+    end
+
+    Pages --> Components
+    Components --> Hooks
+    Hooks --> Auth
+
+    Auth --> OpenAPI
+    OpenAPI --> Routes
+    Routes --> Middleware
+
+    Middleware --> Next([→ Backend])
+
+    style Frontend fill:#0f3460
+    style API fill:#16213e
+    style Next fill:#4a90e2

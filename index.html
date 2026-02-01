@@ -1,0 +1,1708 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TFM - Desarrollo de software asistido por IA</title>
+    <link rel="stylesheet" href="node_modules/reveal.js/dist/reset.css" />
+    <link rel="stylesheet" href="node_modules/reveal.js/dist/reveal.css" />
+    <link rel="stylesheet" href="node_modules/reveal.js/dist/theme/black.css" />
+    <link
+      rel="stylesheet"
+      href="node_modules/reveal.js/plugin/highlight/monokai.css"
+    />
+    <link rel="stylesheet" href="css/custom.css" />
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <!-- ============================================ -->
+        <!-- SLIDE 1: PORTADA -->
+        <!-- ============================================ -->
+        <section
+          data-background-gradient="linear-gradient(135deg, #0f3460 0%, #1a1a2e 100%)"
+          role="region"
+          aria-label="Portada: Desarrollo de software asistido por IA"
+        >
+          <div class="title-slide">
+            <div class="brand-badge">
+              <img
+                src="assets/images/big-school-logo.svg"
+                alt="Big School"
+                class="brand-logo"
+              />
+            </div>
+            <h1 class="gradient-text">
+              Desarrollo de software asistido por IA
+            </h1>
+            <h3>TFM aplicado: TeamHub</h3>
+            <p class="subtitle">Trabajo Fin de Máster</p>
+            <p class="slide-explainer">
+              Este TFM responde a la necesidad de actualización profesional para
+              mantener vigencia en el mercado. TeamHub actúa como caso práctico
+              para validar y documentar el uso de IA en un proyecto real.
+            </p>
+            <div class="author-info">
+              <p><strong>Felipe José Pérez Gómez</strong></p>
+              <p>Máster en Desarrollo con IA</p>
+              <p>Big School</p>
+              <p class="date">Febrero 2026</p>
+            </div>
+          </div>
+          <aside class="notes">
+            Bienvenidos a la presentación del TFM. El foco es el proceso de
+            desarrollo asistido por IA y las lecciones aprendidas durante la
+            construcción del caso práctico TeamHub.
+          </aside>
+        </section>
+
+        <!-- ============================================ -->
+        <!-- SLIDE 2: AGENDA -->
+        <!-- ============================================ -->
+        <section
+          data-background-gradient="linear-gradient(135deg, #0f3460 0%, #1a1a2e 100%)"
+          class="agenda-slide"
+          role="region"
+          aria-label="Agenda"
+        >
+          <h2>Agenda</h2>
+          <p class="slide-explainer">
+            La agenda estructura el discurso: presentación del proyecto,
+            motivación, metodología, decisiones y resultados. Cada bloque
+            responde a una pregunta clave del proceso.
+          </p>
+          <div class="agenda-grid">
+            <a
+              href="#/2"
+              class="agenda-item fragment"
+              data-fragment-index="1"
+              aria-label="Ir a slide: Presentación del proyecto"
+            >
+              <span class="agenda-number">01</span>
+              <div class="agenda-content">
+                <h4>Presentación del proyecto</h4>
+                <p>
+                  Qué es TeamHub, para quién va dirigido y qué funcionalidades
+                  incluye (6 fases)
+                </p>
+              </div>
+            </a>
+            <a
+              href="#/3"
+              class="agenda-item fragment"
+              data-fragment-index="2"
+              aria-label="Ir a slide: Motivación y contexto"
+            >
+              <span class="agenda-number">02</span>
+              <div class="agenda-content">
+                <h4>Motivación y contexto</h4>
+                <p>Por qué este TFM y qué problema profesional se aborda</p>
+              </div>
+            </a>
+            <a
+              href="#/5"
+              class="agenda-item fragment"
+              data-fragment-index="3"
+              aria-label="Ir a slide: Pregunta e hipótesis"
+            >
+              <span class="agenda-number">03</span>
+              <div class="agenda-content">
+                <h4>Pregunta e hipótesis</h4>
+                <p>Marco de investigación y métricas de validación</p>
+              </div>
+            </a>
+            <a
+              href="#/6"
+              class="agenda-item fragment"
+              data-fragment-index="4"
+              aria-label="Ir a slide: Alcance y criterios de éxito"
+            >
+              <span class="agenda-number">04</span>
+              <div class="agenda-content">
+                <h4>Alcance y criterios de éxito</h4>
+                <p>Qué se incluye, qué se excluye y cómo se mide el avance</p>
+              </div>
+            </a>
+            <a
+              href="#/7"
+              class="agenda-item fragment"
+              data-fragment-index="5"
+              aria-label="Ir a slide: Metodología y ejemplos"
+            >
+              <span class="agenda-number">05</span>
+              <div class="agenda-content">
+                <h4>Metodología y ejemplos</h4>
+                <p>Iteraciones, prompts y casos reales con LLMs</p>
+              </div>
+            </a>
+            <a
+              href="#/12"
+              class="agenda-item fragment"
+              data-fragment-index="6"
+              aria-label="Ir a slide: Gobernanza, ADRs y seguridad"
+            >
+              <span class="agenda-number">06</span>
+              <div class="agenda-content">
+                <h4>Gobernanza, ADRs y seguridad</h4>
+                <p>Reglas, decisiones técnicas y seguridad por diseño</p>
+              </div>
+            </a>
+            <a
+              href="#/17"
+              class="agenda-item fragment"
+              data-fragment-index="7"
+              aria-label="Ir a slide: Arquitectura y stack resultante"
+            >
+              <span class="agenda-number">07</span>
+              <div class="agenda-content">
+                <h4>Arquitectura y stack resultante</h4>
+                <p>Decisiones técnicas como resultado del proceso</p>
+              </div>
+            </a>
+            <a
+              href="#/19"
+              class="agenda-item fragment"
+              data-fragment-index="8"
+              aria-label="Ir a slide: Resultados, límites y lecciones"
+            >
+              <span class="agenda-number">08</span>
+              <div class="agenda-content">
+                <h4>Resultados, límites y lecciones</h4>
+                <p>Qué funciona, qué no, y próximos pasos</p>
+              </div>
+            </a>
+          </div>
+          <aside class="notes">
+            La presentación está centrada en el proceso de desarrollo con IA, no
+            en la funcionalidad de la aplicación. Revisaremos metodología,
+            decisiones, calidad y lecciones aprendidas.
+          </aside>
+        </section>
+
+        <!-- ============================================ -->
+        <!-- SLIDE 3: PRESENTACIÓN DEL PROYECTO (TEAMHUB) -->
+        <!-- ============================================ -->
+        <section
+          data-background-gradient="linear-gradient(135deg, #0f3460 0%, #1a1a2e 100%)"
+          role="region"
+          aria-label="Presentación del proyecto TeamHub"
+        >
+          <h2>El proyecto TeamHub</h2>
+          <p class="slide-explainer">
+            TeamHub es el caso práctico del TFM: un sistema de gestión que
+            integra RRHH, proyectos, registro de tiempo y tareas. La aplicación
+            permite validar el desarrollo asistido por IA en un contexto real y
+            con requisitos de calidad documentados en decisiones.md.
+          </p>
+          <div class="problem-grid">
+            <div class="problem-card fragment">
+              <div class="problem-icon">🎯</div>
+              <h4>Qué es TeamHub</h4>
+              <p>
+                Sistema de gestión para organizaciones: dashboards por rol,
+                gestión de empleados, onboarding, proyectos, timetracking y
+                sistema de tareas (Jira-like). Desarrollado con Next.js 15,
+                Hono, PostgreSQL y Drizzle ORM, con API OpenAPI v1.0.0 y 149
+                endpoints documentados.
+              </p>
+            </div>
+            <div class="problem-card fragment">
+              <div class="problem-icon">👥</div>
+              <h4>Para quién</h4>
+              <p>
+                La aplicación está diseñada para cuatro roles (según ADR-049):
+                Admin, RRHH, Manager y Empleado. Cada rol dispone de un
+                dashboard específico con métricas y gráficos D3.js adaptados a
+                su contexto, con AuthProvider y estado de autenticación global.
+              </p>
+            </div>
+            <div class="problem-card fragment">
+              <div class="problem-icon">📋</div>
+              <h4>Funcionalidades clave (6 fases)</h4>
+              <p>
+                <strong>Fase 1:</strong> Auth (Login, MFA, JWT)<br>
+                <strong>Fase 2:</strong> Departamentos y Empleados<br>
+                <strong>Fase 3:</strong> Onboarding (plantillas, procesos)<br>
+                <strong>Fase 4:</strong> Proyectos (asignaciones)<br>
+                <strong>Fase 5:</strong> Timetracking (Gantt D3.js)<br>
+                <strong>Fase 6:</strong> Dashboards por rol
+              </p>
+            </div>
+            <div class="problem-card fragment">
+              <div class="problem-icon">✅</div>
+              <h4>Estado actual</h4>
+              <p>
+                457 tests pasando (226 backend + 231 frontend), 74 ADRs
+                documentados, seguridad OWASP 96.5%, MFA obligatorio y diseño
+                responsive con WCAG AA. Releases v1.0.0 a v1.3.0 desplegadas; el
+                proyecto sirve como evidencia del proceso de desarrollo asistido
+                por IA.
+              </p>
+            </div>
+          </div>
+          <aside class="notes">
+            Esta slide cumple el requisito del TFM de incluir una presentación
+            del proyecto. TeamHub es el caso práctico; las cifras y fases
+            provienen exclusivamente de decisiones.md.
+          </aside>
+        </section>
+
+        <!-- ============================================ -->
+        <!-- SLIDE 4: MOTIVACIÓN PROFESIONAL -->
+        <!-- ============================================ -->
+        <section
+          data-background-gradient="linear-gradient(135deg, #0f3460 0%, #1a1a2e 100%)"
+          role="region"
+          aria-label="Motivación profesional"
+        >
+          <h2>Motivación Profesional</h2>
+          <p class="slide-explainer">
+            La IA ya impacta en el desarrollo de software y exige una
+            actualización continua. Este TFM busca reducir el riesgo de
+            obsolescencia y mantener competitividad profesional.
+          </p>
+          <div class="problem-grid">
+            <div class="problem-card fragment">
+              <div class="problem-icon">📌</div>
+              <h4>Actualización continua</h4>
+              <p>
+                El mercado exige dominar flujos asistidos por IA y nuevas
+                prácticas de trabajo.
+              </p>
+            </div>
+            <div class="problem-card fragment">
+              <div class="problem-icon">⚠️</div>
+              <h4>Evitar obsolescencia</h4>
+              <p>
+                No adoptar estas herramientas implica perder relevancia frente a
+                perfiles más actualizados.
+              </p>
+            </div>
+            <div class="problem-card fragment">
+              <div class="problem-icon">🎯</div>
+              <h4>Productividad con calidad</h4>
+              <p>
+                El objetivo es acelerar sin sacrificar estándares técnicos ni
+                trazabilidad.
+              </p>
+            </div>
+            <div class="problem-card fragment">
+              <div class="problem-icon">🧪</div>
+              <h4>Caso práctico real</h4>
+              <p>
+                TeamHub permite evaluar el método en un proyecto completo y
+                realista.
+              </p>
+            </div>
+          </div>
+          <aside class="notes">
+            La motivación principal es la actualización profesional ante el
+            avance de la IA. Se busca demostrar un camino práctico para mantener
+            vigencia y calidad.
+          </aside>
+        </section>
+
+        <!-- ============================================ -->
+        <!-- SLIDE 5: CONTEXTO Y OBJETIVO -->
+        <!-- ============================================ -->
+        <section
+          data-background-gradient="linear-gradient(135deg, #0f3460 0%, #1a1a2e 100%)"
+          role="region"
+          aria-label="Contexto y objetivo"
+          class="context-slide"
+        >
+          <h2>Contexto y Objetivo</h2>
+          <p class="slide-explainer">
+            El foco del TFM es actualizar competencias profesionales con IA para
+            mantener vigencia. Se prioriza un proceso real, con calidad y
+            trazabilidad.
+          </p>
+          <div class="problem-grid">
+            <div class="problem-card fragment">
+              <div class="problem-icon">🎓</div>
+              <h4>Actualizar competencias con IA</h4>
+              <p>
+                Explorar cómo un profesional puede desarrollar software real con
+                apoyo de LLMs, manteniendo criterio técnico y control del
+                resultado.
+              </p>
+            </div>
+            <div class="problem-card fragment">
+              <div class="problem-icon">🧩</div>
+              <h4>Proyecto completo y trazable</h4>
+              <p>
+                Crear una app funcional como caso práctico y registrar cada
+                decisión para justificar el porqué de cada cambio.
+              </p>
+            </div>
+            <div class="problem-card fragment">
+              <div class="problem-icon">📈</div>
+              <h4>Calidad como requisito</h4>
+              <p>
+                Tests, seguridad, accesibilidad y diseño responsive forman parte
+                del proceso desde el inicio, no como tareas finales.
+              </p>
+            </div>
+            <div class="problem-card fragment">
+              <div class="problem-icon">📚</div>
+              <h4>Guía reutilizable</h4>
+              <p>
+                Convertir el proceso en una guía que otros puedan seguir para
+                replicar resultados con menos ensayo y error.
+              </p>
+            </div>
+          </div>
+          <aside class="notes">
+            El objetivo no es solo construir una aplicación, sino demostrar un
+            proceso de actualización y desarrollo asistido por IA que sea
+            replicable.
+          </aside>
+        </section>
+
+        <!-- ============================================ -->
+        <!-- SLIDE 6: PREGUNTA E HIPÓTESIS -->
+        <!-- ============================================ -->
+        <section
+          data-background-gradient="linear-gradient(135deg, #0f3460 0%, #1a1a2e 100%)"
+          role="region"
+          aria-label="Pregunta e hipótesis"
+        >
+          <h2>Pregunta e Hipótesis</h2>
+          <p class="slide-explainer">
+            Se plantea una pregunta medible y una hipótesis verificable. El
+            objetivo es comprobar la viabilidad del enfoque en un caso real.
+          </p>
+          <div class="problem-grid">
+            <div class="problem-card fragment">
+              <div class="problem-icon">❓</div>
+              <h4>Pregunta principal</h4>
+              <p>
+                ¿Puede un profesional construir software mantenible usando IA
+                como apoyo continuo sin degradar calidad ni control?
+              </p>
+            </div>
+            <div class="problem-card fragment">
+              <div class="problem-icon">💡</div>
+              <h4>Hipótesis</h4>
+              <p>
+                Con reglas claras y validación automática, la IA acelera el
+                desarrollo sin perder calidad ni coherencia técnica.
+              </p>
+            </div>
+            <div class="problem-card fragment">
+              <div class="problem-icon">📊</div>
+              <h4>Indicadores</h4>
+              <p>
+                Calidad de código, trazabilidad, tiempo de iteración y
+                documentación para medir impacto real y consistencia.
+              </p>
+            </div>
+            <div class="problem-card fragment">
+              <div class="problem-icon">🧭</div>
+              <h4>Enfoque</h4>
+              <p>
+                Proceso guiado por decisiones, tests y estándares para que los
+                prompts no sustituyan el criterio técnico.
+              </p>
+            </div>
+          </div>
+          <aside class="notes">
+            La hipótesis se valida con un proceso disciplinado: reglas,
+            documentación, tests y control de calidad en cada iteración.
+          </aside>
+        </section>
+
+        <!-- ============================================ -->
+        <!-- SLIDE 7: ALCANCE Y CRITERIOS DE ÉXITO -->
+        <!-- ============================================ -->
+        <section
+          data-background-gradient="linear-gradient(135deg, #0f3460 0%, #1a1a2e 100%)"
+          role="region"
+          aria-label="Alcance y criterios de éxito"
+        >
+          <h2>Alcance y Criterios de Éxito</h2>
+          <p class="slide-explainer">
+            El éxito se define por un proceso reproducible y con calidad
+            verificable. El alcance se acota para asegurar foco y ejecución.
+          </p>
+          <p class="solution-tagline">
+            El objetivo es el proceso, no la aplicación final
+          </p>
+          <div class="problem-grid">
+            <div class="problem-card fragment">
+              <div class="problem-icon">✅</div>
+              <h4>MVP funcional</h4>
+              <p>
+                Producto mínimo viable completo para validar el flujo
+                end-to-end.
+              </p>
+            </div>
+            <div class="problem-card fragment">
+              <div class="problem-icon">🧭</div>
+              <h4>ADRs actualizados</h4>
+              <p>
+                Decisiones documentadas con contexto, decisión y consecuencias.
+              </p>
+            </div>
+            <div class="problem-card fragment">
+              <div class="problem-icon">🧪</div>
+              <h4>Tests automatizados</h4>
+              <p>Suite de tests para asegurar calidad y evitar regresiones.</p>
+            </div>
+            <div class="problem-card fragment">
+              <div class="problem-icon">🔐</div>
+              <h4>Seguridad aplicada</h4>
+              <p>
+                Security by default y Security by design desde el primer día.
+              </p>
+            </div>
+            <div class="problem-card fragment">
+              <div class="problem-icon">📘</div>
+              <h4>Documentación viva</h4>
+              <p>
+                Documentos sincronizados con el código y con el avance real.
+              </p>
+            </div>
+            <div class="problem-card fragment">
+              <div class="problem-icon">🔁</div>
+              <h4>Proceso reproducible</h4>
+              <p>Pasos claros para repetir el método en otros proyectos.</p>
+            </div>
+          </div>
+          <aside class="notes">
+            El éxito se mide por la trazabilidad, la calidad y la capacidad de
+            repetir el proceso, no por la complejidad de la app.
+          </aside>
+        </section>
+
+        <!-- ============================================ -->
+        <!-- SLIDE 8: METODOLOGÍA -->
+        <!-- ============================================ -->
+        <section
+          data-background-gradient="linear-gradient(135deg, #0f3460 0%, #1a1a2e 100%)"
+          role="region"
+          aria-label="Metodología de trabajo"
+        >
+          <h2>Metodología de Trabajo</h2>
+          <p class="slide-explainer">
+            Se trabaja en iteraciones cortas: tareas pequeñas, prompts claros y
+            revisión crítica. Cada ciclo termina con validación y documentación.
+          </p>
+          <div class="problem-grid">
+            <div class="problem-card fragment">
+              <div class="problem-icon">🧩</div>
+              <h4>1. Definir tareas</h4>
+              <p>
+                Se descompone el trabajo en unidades pequeñas, con objetivos
+                verificables y criterios de cierre claros.
+              </p>
+            </div>
+            <div class="problem-card fragment">
+              <div class="problem-icon">✍️</div>
+              <h4>2. Diseñar prompts</h4>
+              <p>
+                Se prepara el contexto, se señalan fuentes de verdad y se fijan
+                restricciones para guiar la respuesta.
+              </p>
+            </div>
+            <div class="problem-card fragment">
+              <div class="problem-icon">🛠️</div>
+              <h4>3. Implementar + revisar</h4>
+              <p>
+                Se implementa en ciclos cortos y se revisa el resultado con
+                criterio técnico antes de avanzar.
+              </p>
+            </div>
+            <div class="problem-card fragment">
+              <div class="problem-icon">📌</div>
+              <h4>4. Validar y documentar</h4>
+              <p>
+                Se valida con tests y se documentan decisiones (ADRs) para
+                mantener trazabilidad y calidad.
+              </p>
+            </div>
+          </div>
+          <aside class="notes">
+            El flujo se repite de forma iterativa. Cada paso tiene validación y
+            documentación para evitar errores acumulados.
+          </aside>
+        </section>
+
+        <!-- ============================================ -->
+        <!-- SLIDE 9: FLUJO DE DESARROLLO CON IA -->
+        <!-- ============================================ -->
+        <section
+          data-background-gradient="linear-gradient(135deg, #0f3460 0%, #1a1a2e 100%)"
+          role="region"
+          aria-label="Flujo de desarrollo asistido por IA"
+        >
+          <h2>Flujo de Desarrollo Asistido por IA</h2>
+          <p class="slide-explainer">
+            Ciclo continuo: brief → prompt → código → tests → documentación. La
+            IA acelera, pero el control reside en la verificación.
+          </p>
+          <div class="problem-grid">
+            <div class="problem-card fragment">
+              <div class="problem-icon">📋</div>
+              <h4>1. Brief</h4>
+              <p>
+                Definir objetivo y contexto claro antes de iniciar cada tarea.
+              </p>
+            </div>
+            <div class="problem-card fragment">
+              <div class="problem-icon">✍️</div>
+              <h4>2. Prompt</h4>
+              <p>
+                Preparar reglas, fuentes de verdad y restricciones para guiar la
+                respuesta.
+              </p>
+            </div>
+            <div class="problem-card fragment">
+              <div class="problem-icon">💻</div>
+              <h4>3. Código</h4>
+              <p>
+                Implementación guiada por la IA con revisión técnica constante.
+              </p>
+            </div>
+            <div class="problem-card fragment">
+              <div class="problem-icon">🧪</div>
+              <h4>4. Tests</h4>
+              <p>
+                Validación automática para detectar errores y alucinaciones.
+              </p>
+            </div>
+            <div class="problem-card fragment">
+              <div class="problem-icon">📝</div>
+              <h4>5. Documentación</h4>
+              <p>
+                Registrar decisiones en ADRs y notas para mantener trazabilidad.
+              </p>
+            </div>
+          </div>
+          <aside class="notes">
+            La IA acelera la generación de código, pero el valor está en el
+            ciclo: prompt, validación, documentación y mejora continua.
+          </aside>
+        </section>
+
+        <!-- ============================================ -->
+        <!-- SLIDE 9B: DIAGRAMA FLUJO DE DESARROLLO -->
+        <!-- ============================================ -->
+        <section
+          class="diagram-slide"
+          data-background-gradient="linear-gradient(135deg, #0f3460 0%, #1a1a2e 100%)"
+          role="region"
+          aria-label="Diagrama del flujo de desarrollo - Parte 1"
+        >
+          <h2>Flujo de Desarrollo: Diagrama (1/2)</h2>
+          <p class="slide-subtitle">Desde el requisito hasta el Pull Request</p>
+          <div class="diagram-stage">
+            <img
+              src="assets/diagrams/flujo-desarrollo-1.svg"
+              alt="Diagrama de flujo parte 1: desde requisito hasta pull request"
+              class="diagram-img"
+            />
+          </div>
+          <aside class="notes">
+            Primera parte del flujo: Requisito → ¿ADR? → OpenAPI → Codex genera código → Tests → Hooks → PR.
+          </aside>
+        </section>
+
+        <!-- ============================================ -->
+        <!-- SLIDE 9B: FLUJO DE DESARROLLO DIAGRAMA (2/2) -->
+        <!-- ============================================ -->
+        <section
+          class="diagram-slide"
+          data-background-gradient="linear-gradient(135deg, #0f3460 0%, #1a1a2e 100%)"
+          role="region"
+          aria-label="Diagrama del flujo de desarrollo - Parte 2"
+        >
+          <h2>Flujo de Desarrollo: Diagrama (2/2)</h2>
+          <p class="slide-subtitle">Desde Code Review hasta Release</p>
+          <div class="diagram-stage">
+            <img
+              src="assets/diagrams/flujo-desarrollo-2.svg"
+              alt="Diagrama de flujo parte 2: desde code review hasta release"
+              class="diagram-img"
+            />
+          </div>
+          <aside class="notes">
+            Segunda parte del flujo: PR → Code Review → Merge → ¿Release? → Tag → Fin.
+          </aside>
+        </section>
+
+        <!-- ============================================ -->
+        <!-- SLIDE 10: GITFLOW Y QUALITY GATES -->
+        <!-- ============================================ -->
+        <section
+          data-background-gradient="linear-gradient(135deg, #0f3460 0%, #1a1a2e 100%)"
+          role="region"
+          aria-label="GitFlow y Quality Gates"
+        >
+          <h2>GitFlow y Quality Gates</h2>
+          <p class="slide-explainer">
+            Estrategia de branching y validación automática para mantener
+            calidad con IA. Hooks obligatorios previenen código roto.
+          </p>
+          <div class="problem-grid">
+            <div class="problem-card fragment">
+              <div class="problem-icon">🌲</div>
+              <h4>Branching Strategy</h4>
+              <p>
+                <strong>main</strong> (producción), <strong>develop</strong>
+                (integración), <strong>feature/</strong> (nuevas
+                funcionalidades), <strong>bugfix/</strong> (correcciones),
+                <strong>release/</strong> (preparación), <strong>hotfix/</strong>
+                (urgentes). 78 branches de trabajo creados.
+              </p>
+            </div>
+            <div class="problem-card fragment">
+              <div class="problem-icon">📝</div>
+              <h4>Conventional Commits</h4>
+              <p>
+                Formato <code>tipo(scope): descripción</code>. Tipos:
+                feat, fix, docs, refactor, test, chore. 100% de commits con
+                formato consistente.
+              </p>
+            </div>
+            <div class="problem-card fragment">
+              <div class="problem-icon">🔒</div>
+              <h4>Quality Gates (Husky)</h4>
+              <p>
+                <strong>pre-commit</strong>: ESLint + Prettier.
+                <strong>pre-push</strong>: Tests obligatorios + validación OpenAPI.
+                <strong>commit-msg</strong>: Validación formato. Prohibido
+                --no-verify.
+              </p>
+            </div>
+            <div class="problem-card fragment">
+              <div class="problem-icon">📊</div>
+              <h4>Resultados</h4>
+              <p>
+                21+ PRs mergeados, 5 releases (1.0.0 → 1.3.0), 0 commits sin
+                tests, 0 push directo a main/develop. GitFlow + IA = calidad
+                sostenible.
+              </p>
+            </div>
+          </div>
+          <aside class="notes">
+            GitFlow disciplinado permite que la IA acelere sin romper nada. Los
+            hooks automáticos son quality gates que previenen código roto
+            incluso con alta velocidad de desarrollo.
+          </aside>
+        </section>
+
+        <!-- ============================================ -->
+        <!-- SLIDE 10B: DIAGRAMA GITFLOW -->
+        <!-- ============================================ -->
+        <section
+          class="diagram-slide"
+          data-background-gradient="linear-gradient(135deg, #0f3460 0%, #1a1a2e 100%)"
+          role="region"
+          aria-label="Diagrama GitFlow"
+        >
+          <h2>GitFlow: Diagrama</h2>
+          <div class="diagram-stage">
+            <img
+              src="assets/diagrams/gitflow.svg"
+              alt="Diagrama GitFlow mostrando branches main, develop, feature, release y sus merges"
+              class="diagram-img"
+            />
+          </div>
+          <aside class="notes">
+            Visualización del GitFlow real del proyecto: main/develop como branches principales,
+            feature branches para cada funcionalidad, y releases v1.0.0 → v1.3.0.
+          </aside>
+        </section>
+
+        <!-- ============================================ -->
+        <!-- SLIDE 11: LLMs Y HERRAMIENTAS USADAS -->
+        <!-- ============================================ -->
+        <section
+          data-background-gradient="linear-gradient(135deg, #0f3460 0%, #1a1a2e 100%)"
+          role="region"
+          aria-label="LLMs y herramientas usadas"
+        >
+          <h2>LLMs y Herramientas Usadas</h2>
+          <p class="slide-explainer">
+            Se emplean modelos con roles diferenciados para crear, asistir y
+            revisar. El desarrollo se realizó con los IDEs VSCode y Cursor; los
+            CLIs (Codex, Copilot CLI, Claude CLI) se usan puntualmente en modo
+            script.
+          </p>
+          <div class="problem-grid">
+            <div class="problem-card fragment">
+              <div class="problem-icon">🖥️</div>
+              <h4>IDEs: VSCode y Cursor</h4>
+              <p>Cursor para generación y mejora iterativa con AGENTS.md; VSCode para edición con extensiones.</p>
+            </div>
+            <div class="problem-card fragment">
+              <div class="problem-icon">🤖</div>
+              <h4>OpenAI Codex (CLI)</h4>
+              <p>Automatización de tareas y refactorizaciones con contexto del repo.</p>
+            </div>
+            <div class="problem-card fragment">
+              <div class="problem-icon">🧠</div>
+              <h4>GitHub Copilot + Sonnet 4.5</h4>
+              <p>Sugerencias in-editor para acelerar la escritura sin perder intención.</p>
+            </div>
+            <div class="problem-card fragment">
+              <div class="problem-icon">⚡</div>
+              <h4>Claude CLI + Opus 4.5</h4>
+              <p>Revisión crítica y síntesis de decisiones para detectar riesgos.</p>
+            </div>
+            <div class="problem-card fragment">
+              <div class="problem-icon">🗂️</div>
+              <h4>Fuentes de verdad (4)</h4>
+              <p>
+                <strong>ADRs</strong> (74 decisiones) - Arquitectura inmutable<br>
+                <strong>OpenAPI</strong> (149 endpoints) - Contrato API<br>
+                <strong>Storybook</strong> - Componentes UI y variantes<br>
+                <strong>Business Rules</strong> - Reglas de negocio centralizadas
+              </p>
+            </div>
+          </div>
+          <aside class="notes">
+            IDEs: VSCode y Cursor. GitHub Copilot CLI y Claude CLI en modo
+            script cuando se necesitan. Varios LLMs con roles diferenciados; el
+            contexto y las reglas (ADRs, OpenAPI) fueron tan importantes como el
+            modelo. ADR-056 (sistema multi-LLM formal) fue rechazado al final.
+          </aside>
+        </section>
+
+        <!-- ============================================ -->
+        <!-- SLIDE 12: EJEMPLOS OPUS 4.5 -->
+        <!-- ============================================ -->
+        <section
+          data-background-gradient="linear-gradient(135deg, #0f3460 0%, #1a1a2e 100%)"
+          role="region"
+          aria-label="Ejemplos reales con Claude Opus 4.5"
+        >
+          <h2>Ejemplos Reales: Claude Opus 4.5 (ADR-064)</h2>
+          <p class="slide-explainer">
+            ADR-064 documenta el uso productivo de Opus 4.5 en fases avanzadas.
+            Entregas representativas con calidad validada: 6 módulos completos
+            (Auth, Usuarios, Onboarding, Proyectos, Timetracking, Dashboards).
+          </p>
+          <div class="problem-grid">
+            <div class="problem-card fragment">
+              <div class="problem-icon">🚀</div>
+              <h4>Proyectos y Timetracking (PR #61)</h4>
+              <p>
+                Implementación guiada por fases y checklist: primero Proyectos,
+                luego Timetracking. Hooks useProyectos (440 LOC) y
+                useTimetracking (356 LOC) alineados 100% con OpenAPI. Tests
+                pasando en ese PR.
+              </p>
+            </div>
+            <div class="problem-card fragment">
+              <div class="problem-icon">🎨</div>
+              <h4>Componentes UI (PR #64)</h4>
+              <p>
+                Componentes base tras cerrar fases funcionales: Calendar
+                (react-day-picker v9), Popover y Textarea. 104 tests frontend,
+                suite completa según decisiones.md.
+              </p>
+            </div>
+            <div class="problem-card fragment">
+              <div class="problem-icon">📊</div>
+              <h4>Gantt Chart D3.js (9512ed4)</h4>
+              <p>
+                Weekly timesheet + Gantt interactivo con zoom, tooltips, progress
+                bars. +2326 líneas en single commit. Calidad directa en primera
+                iteración (ADR-064, 065).
+              </p>
+            </div>
+            <div class="problem-card fragment">
+              <div class="problem-icon">⚡</div>
+              <h4>Onboarding: 8 PRs en 1 día</h4>
+              <p>
+                Plantillas reutilizables, editor drag&drop, procesos, tareas, modal
+                iniciar, widget dashboard. Velocidad extrema sin sacrificar
+                calidad: tests obligatorios en cada PR.
+              </p>
+            </div>
+          </div>
+          <aside class="notes">
+            Detalle técnico: PR #61 hooks use-proyectos (440 líneas) y
+            use-timetracking (356 líneas). PR #64 con 104 tests frontend. Commit
+            9512ed4: +2326 líneas, Gantt con D3. Velocidad alta con calidad
+            mantenida (ADR-064).
+          </aside>
+        </section>
+
+        <!-- ============================================ -->
+        <!-- SLIDE 13: GOBERNANZA Y ESTÁNDARES -->
+        <!-- ============================================ -->
+        <section
+          data-background-gradient="linear-gradient(135deg, #0f3460 0%, #1a1a2e 100%)"
+          role="region"
+          aria-label="Gobernanza y estándares"
+        >
+          <h2>Gobernanza y Estándares (AGENTS.md)</h2>
+          <p class="slide-explainer">
+            AGENTS.md define calidad, seguridad y fuentes de verdad. Sin
+            gobernanza, la IA introduce inconsistencias.
+          </p>
+          <div class="problem-grid">
+            <div class="problem-card fragment">
+              <div class="problem-icon">🧭</div>
+              <h4>Fuentes de verdad</h4>
+              <p>
+                ADRs → OpenAPI → Storybook → reglas de negocio para asegurar
+                coherencia entre arquitectura, API y UI.
+              </p>
+            </div>
+            <div class="problem-card fragment">
+              <div class="problem-icon">🧹</div>
+              <h4>Calidad y refactor</h4>
+              <p>
+                Complejidad baja, eliminación de code smells y funciones puras
+                para mantener mantenibilidad a largo plazo.
+              </p>
+            </div>
+            <div class="problem-card fragment">
+              <div class="problem-icon">🔒</div>
+              <h4>Seguridad</h4>
+              <p>
+                MFA obligatorio, CSP y validación fail-fast con Zod como
+                controles mínimos de seguridad.
+              </p>
+            </div>
+            <div class="problem-card fragment">
+              <div class="problem-icon">🧪</div>
+              <h4>Gates de calidad</h4>
+              <p>
+                Lint, tests y PRs sin atajos ni --no-verify para garantizar
+                calidad en cada entrega.
+              </p>
+            </div>
+          </div>
+          <aside class="notes">
+            AGENTS.md actúa como contrato operativo. Sin reglas claras, la IA
+            produce código inconsistente y difícil de mantener.
+          </aside>
+        </section>
+
+        <!-- ============================================ -->
+        <!-- SLIDE 14: CRONOLOGÍA DE IMPLEMENTACIÓN -->
+        <!-- ============================================ -->
+        <section
+          data-background-gradient="linear-gradient(135deg, #0f3460 0%, #1a1a2e 100%)"
+          role="region"
+          aria-label="Cronología de implementación"
+        >
+          <h2>Cronología de Implementación (7 días)</h2>
+          <p class="slide-explainer">
+            Del 25 al 31 de enero de 2026: de estructura vacía a MVP completo
+            con 6 módulos funcionales, guiado por AGENTS.md y ADRs.
+          </p>
+          <div class="problem-grid">
+            <div class="problem-card fragment">
+              <div class="problem-icon">📅</div>
+              <h4>Día 1-2: Fundamentos</h4>
+              <p>
+                Día 1: Setup inicial con AGENTS.md (fuentes de verdad). Día 2:
+                ADR-052-055 (GitFlow, seguridad, validación Zod).
+              </p>
+            </div>
+            <div class="problem-card fragment">
+              <div class="problem-icon">🚀</div>
+              <h4>Día 3-4: Primeras features</h4>
+              <p>
+                Departamentos y Empleados (hooks + páginas), CI/CD con tests,
+                HMAC authentication (ADR-059).
+              </p>
+            </div>
+            <div class="problem-card fragment">
+              <div class="problem-icon">🔥</div>
+              <h4>Día 5: Explosión (8 PRs)</h4>
+              <p>
+                Onboarding completo en 1 día: plantillas, procesos, tareas,
+                editor, modal, widget dashboard. Tests pasando en cada PR.
+              </p>
+            </div>
+            <div class="problem-card fragment">
+              <div class="problem-icon">📊</div>
+              <h4>Día 6-7: Visualizaciones</h4>
+              <p>
+                Proyectos + Timetracking (PR #61). Gantt D3.js +2326 LOC
+                (commit 9512ed4). Sistema tareas jerárquico. 5 releases.
+              </p>
+            </div>
+          </div>
+          <aside class="notes">
+            La velocidad se mantuvo sin sacrificar calidad: tests obligatorios,
+            OpenAPI como contrato, ADRs documentando cada decisión. El día 5
+            demuestra que con reglas claras la IA acelera sin perder control.
+          </aside>
+        </section>
+
+        <!-- ============================================ -->
+        <!-- SLIDE 14B: DIAGRAMA CRONOLOGÍA -->
+        <!-- ============================================ -->
+        <section
+          class="diagram-slide"
+          data-background-gradient="linear-gradient(135deg, #0f3460 0%, #1a1a2e 100%)"
+          role="region"
+          aria-label="Diagrama de cronología"
+        >
+          <h2>Cronología: Diagrama Gantt</h2>
+          <div class="diagram-stage">
+            <img
+              src="assets/diagrams/cronologia.svg"
+              alt="Diagrama Gantt mostrando la cronología de implementación del 25 al 31 de enero"
+              class="diagram-img"
+            />
+          </div>
+          <aside class="notes">
+            Gantt real del proyecto: 7 días de desarrollo intensivo. El día 5 (barra roja) muestra
+            el pico de velocidad con 8 PRs de Onboarding en un solo día.
+          </aside>
+        </section>
+
+        <!-- ============================================ -->
+        <!-- SLIDE 15: DECISIONES (ADR) -->
+        <!-- ============================================ -->
+        <section
+          data-background-gradient="linear-gradient(135deg, #0f3460 0%, #1a1a2e 100%)"
+          role="region"
+          aria-label="Decisiones técnicas"
+        >
+          <h2>Decisiones Técnicas (ADR)</h2>
+          <p class="slide-explainer">
+            Cada decisión queda registrada y es trazable en el tiempo. Los ADRs
+            constituyen la base de la memoria del TFM.
+          </p>
+          <div class="problem-grid">
+            <div class="problem-card fragment">
+              <div class="problem-icon">📚</div>
+              <h4>ADRs como contrato</h4>
+              <p>
+                74 ADRs documentan cambios, riesgos y consecuencias para
+                justificar cada elección técnica.
+              </p>
+            </div>
+            <div class="problem-card fragment">
+              <div class="problem-icon">🧩</div>
+              <h4>Decisiones clave</h4>
+              <p>
+                Next.js 15, Hono, Drizzle ORM, MFA siempre activo por criterios
+                de rendimiento y control.
+              </p>
+            </div>
+            <div class="problem-card fragment">
+              <div class="problem-icon">🔁</div>
+              <h4>Sincronización</h4>
+              <p>
+                El código se actualiza junto con <code>decisiones.md</code> para
+                mantener trazabilidad real.
+              </p>
+            </div>
+            <div class="problem-card fragment">
+              <div class="problem-icon">🧾</div>
+              <h4>Trazabilidad</h4>
+              <p>
+                Base para la memoria del TFM y la evaluación, con evidencia de
+                cada decisión.
+              </p>
+            </div>
+          </div>
+          <aside class="notes">
+            La documentación de decisiones permite entender por qué se eligió
+            cada tecnología y cómo evolucionó el proyecto.
+          </aside>
+        </section>
+
+        <!-- ============================================ -->
+        <!-- SLIDE 16: SEGURIDAD Y LLMs -->
+        <!-- ============================================ -->
+        <section
+          data-background-gradient="linear-gradient(135deg, #0f3460 0%, #1a1a2e 100%)"
+          role="region"
+          aria-label="Seguridad y LLMs"
+        >
+          <h2>Seguridad y LLMs: Security by Design & Default</h2>
+          <p class="slide-explainer">
+            ADR-064 parte de un contexto sensible: datos personales, salarios y
+            operaciones críticas. La seguridad se integra por diseño y por
+            defecto, no como capa final.
+          </p>
+          <div class="problem-grid">
+            <div class="problem-card fragment">
+              <div class="problem-icon">🧱</div>
+              <h4>Security by Design</h4>
+              <p>
+                CSP restrictivo, X-Frame-Options DENY, RBAC y validación con Zod
+                desde la arquitectura.
+              </p>
+            </div>
+            <div class="problem-card fragment">
+              <div class="problem-icon">✅</div>
+              <h4>Security by Default</h4>
+              <p>
+                MFA obligatorio (Google Authenticator), password policy 12+ y
+                rate limiting (100 req/min global, 5/min login).
+              </p>
+            </div>
+            <div class="problem-card fragment">
+              <div class="problem-icon">🧾</div>
+              <h4>Trazabilidad</h4>
+              <p>
+                Logs estructurados, sin tokens ni passwords, con contexto para
+                auditoría.
+              </p>
+            </div>
+            <div class="problem-card fragment">
+              <div class="problem-icon">🧠</div>
+              <h4>Riesgos LLM</h4>
+              <p>
+                Evitar exposición de datos sensibles y exigir revisión humana
+                continua.
+              </p>
+            </div>
+          </div>
+          <aside class="notes">
+            La seguridad se alinea con OWASP y RGPD. Se prioriza defensa en
+            profundidad y validación.
+          </aside>
+        </section>
+
+        <!-- ============================================ -->
+        <!-- SLIDE 17: STACK TECNOLÓGICO -->
+        <!-- ============================================ -->
+        <section
+          data-background-gradient="linear-gradient(135deg, #0f3460 0%, #1a1a2e 100%)"
+          role="region"
+          aria-label="Stack tecnológico resultante"
+        >
+          <h2>Stack Tecnológico Resultante</h2>
+          <p class="slide-explainer">
+            El stack es resultado del proceso y de los ADRs, no de la moda. Se
+            eligen tecnologías por mantenibilidad y control.
+          </p>
+          <div class="problem-grid">
+            <div class="problem-card fragment">
+              <div class="problem-icon">🖥️</div>
+              <h4>Frontend</h4>
+              <div class="tech-items">
+                <div class="tech-item">
+                  <img
+                    src="assets/images/nextjs.svg"
+                    alt="Next.js"
+                    class="tech-logo"
+                  />
+                  <span>Next.js 15</span>
+                </div>
+                <div class="tech-item">
+                  <img
+                    src="assets/images/react.svg"
+                    alt="React"
+                    class="tech-logo"
+                  />
+                  <span>React 19</span>
+                </div>
+                <div class="tech-item">
+                  <img
+                    src="assets/images/typescript.svg"
+                    alt="TypeScript"
+                    class="tech-logo"
+                  />
+                  <span>TypeScript</span>
+                </div>
+                <div class="tech-item">
+                  <img
+                    src="assets/images/tailwind.svg"
+                    alt="Tailwind"
+                    class="tech-logo"
+                  />
+                  <span>Tailwind CSS</span>
+                </div>
+              </div>
+            </div>
+            <div class="problem-card fragment">
+              <div class="problem-icon">⚙️</div>
+              <h4>Backend</h4>
+              <div class="tech-items">
+                <div class="tech-item">
+                  <img
+                    src="assets/images/hono.svg"
+                    alt="Hono"
+                    class="tech-logo"
+                  />
+                  <span>Hono</span>
+                </div>
+                <div class="tech-item">
+                  <img
+                    src="assets/images/drizzle.svg"
+                    alt="Drizzle"
+                    class="tech-logo"
+                  />
+                  <span>Drizzle ORM</span>
+                </div>
+                <div class="tech-item">
+                  <img
+                    src="assets/images/postgresql.svg"
+                    alt="PostgreSQL"
+                    class="tech-logo"
+                  />
+                  <span>PostgreSQL</span>
+                </div>
+                <div class="tech-item">
+                  <img
+                    src="assets/images/openapi.svg"
+                    alt="OpenAPI"
+                    class="tech-logo"
+                  />
+                  <span>OpenAPI</span>
+                </div>
+                <div class="tech-item">
+                  <img
+                    src="assets/images/swagger.svg"
+                    alt="Swagger"
+                    class="tech-logo"
+                  />
+                  <span>Swagger</span>
+                </div>
+              </div>
+            </div>
+            <div class="problem-card fragment">
+              <div class="problem-icon">📊</div>
+              <h4>Visualización</h4>
+              <div class="tech-items">
+                <div class="tech-item">
+                  <img
+                    src="assets/images/d3.svg"
+                    alt="D3.js"
+                    class="tech-logo"
+                  />
+                  <span>D3.js</span>
+                </div>
+                <div class="tech-item">
+                  <img
+                    src="assets/images/recharts.svg"
+                    alt="Recharts"
+                    class="tech-logo"
+                  />
+                  <span>Recharts</span>
+                </div>
+              </div>
+            </div>
+            <div class="problem-card fragment">
+              <div class="problem-icon">🧪</div>
+              <h4>Testing, calidad y CI/CD</h4>
+              <div class="tech-items">
+                <div class="tech-item">
+                  <img
+                    src="assets/images/vitest.svg"
+                    alt="Vitest"
+                    class="tech-logo"
+                  />
+                  <span>Vitest</span>
+                </div>
+                <div class="tech-item">
+                  <img
+                    src="assets/images/playwright.svg"
+                    alt="Playwright"
+                    class="tech-logo"
+                  />
+                  <span>Playwright</span>
+                </div>
+                <div class="tech-item">
+                  <img
+                    src="assets/images/sonarqube.svg"
+                    alt="SonarQube"
+                    class="tech-logo"
+                  />
+                  <span>SonarQube</span>
+                </div>
+                <div class="tech-item">
+                  <img
+                    src="assets/images/github-actions.svg"
+                    alt="GitHub Actions"
+                    class="tech-logo"
+                  />
+                  <span>GitHub Actions</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <aside class="notes">
+            El stack es resultado del proceso y está documentado en ADRs. Se
+            priorizó type-safety, DX y trazabilidad.
+          </aside>
+        </section>
+
+        <!-- ============================================ -->
+        <!-- SLIDE 18: ARQUITECTURA RESULTANTE -->
+        <!-- ============================================ -->
+        <section
+          data-background-gradient="linear-gradient(135deg, #0f3460 0%, #1a1a2e 100%)"
+          role="region"
+          aria-label="Arquitectura resultante"
+        >
+          <h2>Arquitectura Resultante</h2>
+          <p class="slide-explainer">
+            Vista simplificada para entender responsabilidades por capa. OpenAPI
+            actúa como contrato y MFA es innegociable.
+          </p>
+          <div class="problem-grid">
+            <div class="problem-card fragment">
+              <div class="problem-icon">🖥️</div>
+              <h4>Frontend</h4>
+              <p>
+                Next.js 15 · React 19. Interfaz de usuario con SSR y componentes
+                reutilizables.
+              </p>
+            </div>
+            <div class="problem-card fragment">
+              <div class="problem-icon">🔌</div>
+              <h4>API</h4>
+              <p>
+                Hono · OpenAPI. Capa de servicios con contrato tipado y
+                documentación automática.
+              </p>
+            </div>
+            <div class="problem-card fragment">
+              <div class="problem-icon">🗄️</div>
+              <h4>Datos</h4>
+              <p>
+                PostgreSQL · Drizzle ORM. Persistencia relacional con
+                migraciones controladas.
+              </p>
+            </div>
+            <div class="problem-card fragment">
+              <div class="problem-icon">📦</div>
+              <h4>Monorepo</h4>
+              <p>
+                Frontend + backend en un solo repositorio para facilitar cambios
+                coordinados.
+              </p>
+            </div>
+            <div class="problem-card fragment">
+              <div class="problem-icon">🔐</div>
+              <h4>Auth</h4>
+              <p>
+                MFA siempre activo. Autenticación con segundo factor obligatorio
+                en producción.
+              </p>
+            </div>
+            <div class="problem-card fragment">
+              <div class="problem-icon">🚀</div>
+              <h4>Despliegue</h4>
+              <p>
+                Frontend en Vercel · Backend en Render · BBDD en Aiven Cloud.
+              </p>
+            </div>
+          </div>
+          <aside class="notes">
+            La arquitectura final refleja decisiones documentadas y validación
+            constante. Despliegue: frontend en Vercel, backend en Render, base
+            de datos en Aiven Cloud.
+          </aside>
+        </section>
+
+        <!-- ============================================ -->
+        <!-- SLIDE 18B: DIAGRAMA ARQUITECTURA (1/2) -->
+        <!-- ============================================ -->
+        <section
+          class="diagram-slide"
+          data-background-gradient="linear-gradient(135deg, #0f3460 0%, #1a1a2e 100%)"
+          role="region"
+          aria-label="Diagrama de arquitectura - Parte 1"
+        >
+          <h2>Arquitectura: Diagrama (1/2)</h2>
+          <p class="slide-subtitle">Frontend y API Layer</p>
+          <div class="diagram-stage">
+            <img
+              src="assets/diagrams/arquitectura-1.svg"
+              alt="Diagrama de arquitectura parte 1: Frontend y API Layer"
+              class="diagram-img"
+            />
+          </div>
+          <aside class="notes">
+            Parte 1: Frontend (Next.js 15 + React 19) con Pages, Components, Hooks, Auth.
+            API Layer (Hono 4.6) con OpenAPI, Routes, Middleware HMAC+JWT.
+          </aside>
+        </section>
+
+        <!-- ============================================ -->
+        <!-- SLIDE 18C: DIAGRAMA ARQUITECTURA (2/2) -->
+        <!-- ============================================ -->
+        <section
+          class="diagram-slide"
+          data-background-gradient="linear-gradient(135deg, #0f3460 0%, #1a1a2e 100%)"
+          role="region"
+          aria-label="Diagrama de arquitectura - Parte 2"
+        >
+          <h2>Arquitectura: Diagrama (2/2)</h2>
+          <p class="slide-subtitle">Backend, Data y Governance</p>
+          <div class="diagram-stage">
+            <img
+              src="assets/diagrams/arquitectura-2.svg"
+              alt="Diagrama de arquitectura parte 2: Backend, Data y Governance"
+              class="diagram-img"
+            />
+          </div>
+          <aside class="notes">
+            Parte 2: Backend Logic (Services, Business Rules, Zod).
+            Data Layer (Drizzle ORM, PostgreSQL 16). Governance (74 ADRs, AGENTS.md).
+          </aside>
+        </section>
+
+        <!-- ============================================ -->
+        <!-- SLIDE 19: VALIDACIÓN Y CALIDAD -->
+        <!-- ============================================ -->
+        <section
+          data-background-gradient="linear-gradient(135deg, #0f3460 0%, #1a1a2e 100%)"
+          role="region"
+          aria-label="Validación y calidad"
+        >
+          <h2>Validación y Calidad</h2>
+          <p class="slide-explainer">
+            La IA acelera, pero la validación asegura resultados fiables. Se han
+            seguido las pruebas prácticas y las indicaciones aportadas por
+            SonarQube. Sin tests ni quality gates no hay confianza.
+          </p>
+          <div class="problem-grid">
+            <div class="problem-card fragment">
+              <div class="problem-icon">🧪</div>
+              <h4>Testing: 457 tests pasando</h4>
+              <p>
+                Pruebas prácticas, unitarios, integración y E2E para validar
+                comportamiento y evitar regresiones.
+              </p>
+            </div>
+            <div class="problem-card fragment">
+              <div class="problem-icon">🧯</div>
+              <h4>Quality Gates y SonarQube</h4>
+              <p>
+                CI obligatorio. Lint, coverage, indicaciones de SonarQube y PRs
+                revisadas como filtros antes de merge.
+              </p>
+            </div>
+            <div class="problem-card fragment">
+              <div class="problem-icon">📚</div>
+              <h4>Documentación: 74 ADRs</h4>
+              <p>
+                Decisiones auditables para mantener contexto y justificar
+                cambios futuros.
+              </p>
+            </div>
+            <div class="problem-card fragment">
+              <div class="problem-icon">🔐</div>
+              <h4>Seguridad: MFA no desactivable</h4>
+              <p>
+                Validación fail-fast con Zod y MFA innegociable en entornos
+                productivos.
+              </p>
+            </div>
+          </div>
+          <aside class="notes">
+            Pruebas prácticas y SonarQube como guía. La calidad se asegura con
+            gates estrictos, tests y documentación obligatoria.
+          </aside>
+        </section>
+
+        <!-- ============================================ -->
+        <!-- SLIDE 20: RESULTADOS DEL PROCESO -->
+        <!-- ============================================ -->
+        <section
+          data-background-gradient="linear-gradient(135deg, #0f3460 0%, #1a1a2e 100%)"
+          role="region"
+          aria-label="Resultados del proceso"
+        >
+          <h2>Resultados del Proceso</h2>
+          <p class="slide-explainer">
+            Métricas cuantitativas del desarrollo asistido por IA: 7 días (25-31
+            enero) produciendo ~24k líneas con calidad profesional verificada.
+          </p>
+          <div class="problem-grid">
+            <div class="problem-card fragment">
+              <div class="problem-icon">📊</div>
+              <h4>Código y documentación</h4>
+              <p>
+                ~23,693 líneas (16,311 frontend + 7,382 backend). 74 ADRs
+                documentados. 149 endpoints API. 21 PRs mergeados.
+              </p>
+            </div>
+            <div class="problem-card fragment">
+              <div class="problem-icon">✅</div>
+              <h4>Calidad verificada</h4>
+              <p>
+                457 tests pasando (226 backend + 231 frontend). Zero ESLint
+                warnings. 100% coverage hooks críticos. Type-safe end-to-end.
+              </p>
+            </div>
+            <div class="problem-card fragment">
+              <div class="problem-icon">🚀</div>
+              <h4>Velocidad extraordinaria</h4>
+              <p>
+                6 módulos en 7 días. Día 5: 8 PRs Onboarding. Día 6: Gantt +2326
+                LOC. 5 releases (1.0.0 → 1.3.0).
+              </p>
+            </div>
+            <div class="problem-card fragment">
+              <div class="problem-icon">🎯</div>
+              <h4>MVP completo</h4>
+              <p>
+                Auth (MFA), Usuarios, Departamentos, Onboarding, Proyectos,
+                Timetracking, Dashboards. Responsive mobile-first.
+              </p>
+            </div>
+            <div class="problem-card fragment">
+              <div class="problem-icon">📘</div>
+              <h4>Proceso reproducible</h4>
+              <p>
+                AGENTS.md + 4 fuentes verdad + tests obligatorios = calidad
+                sostenible con IA.
+              </p>
+            </div>
+            <div class="problem-card fragment">
+              <div class="problem-icon">🧰</div>
+              <h4>Stack justificado</h4>
+              <p>
+                Next.js 15, React 19, Hono 4.6, PostgreSQL 16. Cada tecnología
+                con ADR que justifica su elección.
+              </p>
+            </div>
+          </div>
+          <aside class="notes">
+            Los resultados se resumen en una app funcional y, sobre todo, en un
+            proceso auditable y repetible.
+          </aside>
+        </section>
+
+        <!-- ============================================ -->
+        <!-- SLIDE 21: LIMITACIONES Y RIESGOS -->
+        <!-- ============================================ -->
+        <section
+          data-background-gradient="linear-gradient(135deg, #0f3460 0%, #1a1a2e 100%)"
+          role="region"
+          aria-label="Limitaciones y riesgos"
+        >
+          <h2>Limitaciones y Riesgos</h2>
+          <p class="slide-explainer">
+            La IA no es infalible: requiere contexto preciso y validación
+            constante. También existen riesgos de costes, privacidad y sesgos.
+          </p>
+          <div class="problem-grid">
+            <div class="problem-card fragment">
+              <div class="problem-icon">⚠️</div>
+              <h4>Dependencia del contexto</h4>
+              <p>
+                Prompts pobres generan código pobre si no se revisa con
+                criterio.
+              </p>
+            </div>
+            <div class="problem-card fragment">
+              <div class="problem-icon">🧪</div>
+              <h4>Validación obligatoria</h4>
+              <p>
+                La IA puede introducir errores sutiles que solo se detectan con
+                tests.
+              </p>
+            </div>
+            <div class="problem-card fragment">
+              <div class="problem-icon">🔐</div>
+              <h4>Privacidad y costes</h4>
+              <p>
+                Gestionar datos sensibles y consumo de API de forma controlada.
+              </p>
+            </div>
+            <div class="problem-card fragment">
+              <div class="problem-icon">🧠</div>
+              <h4>Sesgo de soluciones</h4>
+              <p>
+                Requiere criterio humano continuo para no adoptar respuestas
+                incorrectas.
+              </p>
+            </div>
+          </div>
+          <aside class="notes">
+            La IA no elimina la necesidad de revisión humana. De hecho, aumenta
+            la responsabilidad sobre validación y seguridad.
+          </aside>
+        </section>
+
+        <!-- ============================================ -->
+        <!-- SLIDE 22: LECCIONES APRENDIDAS -->
+        <!-- ============================================ -->
+        <section
+          data-background-gradient="linear-gradient(135deg, #0f3460 0%, #1a1a2e 100%)"
+          role="region"
+          aria-label="Lecciones aprendidas"
+        >
+          <h2>Lecciones Aprendidas</h2>
+          <p class="slide-explainer">
+            El contexto y las reglas pesan más que el modelo. Velocidad extrema
+            es posible sin sacrificar calidad con proceso disciplinado.
+          </p>
+          <div class="problem-grid">
+            <div class="problem-card fragment">
+              <div class="problem-icon">🧭</div>
+              <h4>Fuentes de verdad ANTES</h4>
+              <p>
+                AGENTS.md + ADRs + OpenAPI previos al código evitaron alucinaciones.
+                La IA fue productiva desde día 1.
+              </p>
+            </div>
+            <div class="problem-card fragment">
+              <div class="problem-icon">🔥</div>
+              <h4>Velocidad extrema con reglas</h4>
+              <p>
+                Día 5: 8 PRs Onboarding. Día 6: Gantt +2326 LOC. Reglas claras
+                permiten acelerar sin caos.
+              </p>
+            </div>
+            <div class="problem-card fragment">
+              <div class="problem-icon">🧪</div>
+              <h4>Tests obligatorios siempre</h4>
+              <p>
+                Tests obligatorios en cada PR. Sin tests, velocidad IA genera
+                deuda técnica insostenible.
+              </p>
+            </div>
+            <div class="problem-card fragment">
+              <div class="problem-icon">🧠</div>
+              <h4>La IA no sustituye criterio</h4>
+              <p>
+                Acelera, pero requiere validación humana continua. Disciplina en
+                docs ↔ código es clave.
+              </p>
+            </div>
+          </div>
+          <aside class="notes">
+            La lección clave es que la IA amplifica el proceso existente: si es
+            bueno, acelera; si es malo, empeora resultados.
+          </aside>
+        </section>
+
+        <!-- ============================================ -->
+        <!-- SLIDE 23: SIGUIENTES PASOS -->
+        <!-- ============================================ -->
+        <section
+          data-background-gradient="linear-gradient(135deg, #0f3460 0%, #1a1a2e 100%)"
+          role="region"
+          aria-label="Siguientes pasos"
+        >
+          <h2>Siguientes Pasos</h2>
+          <p class="slide-explainer">
+            Los siguientes pasos buscan medir impacto real y generalizar la
+            guía. El objetivo es reutilizar el método en otros proyectos.
+          </p>
+          <div class="problem-grid">
+            <div class="problem-card fragment">
+              <div class="problem-icon">⏱️</div>
+              <h4>Corto Plazo</h4>
+              <p>
+                Refinar guías de prompt y plantillas. Completar dataset de
+                ejemplos útiles. Normalizar checklist de validación.
+              </p>
+            </div>
+            <div class="problem-card fragment">
+              <div class="problem-icon">📅</div>
+              <h4>Medio Plazo</h4>
+              <p>
+                Automatizar evaluación de calidad con métricas. Comparar tiempos
+                con y sin IA. Mejorar visualización de decisiones.
+              </p>
+            </div>
+            <div class="problem-card fragment">
+              <div class="problem-icon">🎯</div>
+              <h4>Largo Plazo</h4>
+              <p>
+                Replicar el proceso en otros proyectos. Estudiar impacto en
+                equipos. Publicar guía abierta de buenas prácticas.
+              </p>
+            </div>
+            <div class="problem-card fragment">
+              <div class="problem-icon">🔄</div>
+              <h4>Objetivo final</h4>
+              <p>
+                Convertir el método en una guía reproducible que otros
+                profesionales puedan seguir para obtener resultados similares.
+              </p>
+            </div>
+          </div>
+          <aside class="notes">
+            Los siguientes pasos se centran en medir mejor el impacto y
+            reutilizar el proceso como guía formativa.
+          </aside>
+        </section>
+
+        <!-- ============================================ -->
+        <!-- SLIDE 24: Q&A -->
+        <!-- ============================================ -->
+        <section
+          data-background-gradient="linear-gradient(135deg, #0f3460 0%, #1a1a2e 100%)"
+          role="region"
+          aria-label="Cierre y preguntas"
+        >
+          <div class="qa-slide">
+            <h1 class="gradient-text">¿Preguntas?</h1>
+            <p class="slide-explainer compact">
+              Gracias por la atención. Quedo disponible para ampliar cualquier
+              punto del proceso y del uso de IA.
+            </p>
+            <div class="qa-info">
+              <p class="qa-thanks">Gracias por su atención</p>
+              <div class="contact-info fragment">
+                <p><strong>Felipe José Pérez Gómez</strong></p>
+                <p>Máster en Desarrollo con IA</p>
+              </div>
+              <div class="repo-link fragment">
+                <p>Repositorio del proyecto:</p>
+                <a
+                  href="https://github.com/FelipePepe/TeamHub"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <code>github.com/FelipePepe/TeamHub</code>
+                </a>
+              </div>
+            </div>
+          </div>
+          <aside class="notes">
+            Gracias por su atención. Estoy disponible para responder preguntas
+            sobre metodología, decisiones y uso de IA.
+          </aside>
+        </section>
+      </div>
+    </div>
+
+    <script src="node_modules/reveal.js/dist/reveal.js"></script>
+    <script src="node_modules/reveal.js/plugin/notes/notes.js"></script>
+    <script src="node_modules/reveal.js/plugin/markdown/markdown.js"></script>
+    <script src="node_modules/reveal.js/plugin/highlight/highlight.js"></script>
+    <script src="node_modules/reveal.js/plugin/zoom/zoom.js"></script>
+    <script>
+      Reveal.initialize({
+        hash: true,
+        slideNumber: "c/t",
+        showSlideNumber: "all",
+        controls: true,
+        progress: true,
+        center: true,
+        transition: "slide",
+        backgroundTransition: "fade",
+        plugins: [RevealNotes, RevealMarkdown, RevealHighlight, RevealZoom],
+        // Configuración para presentación de 30+ minutos
+        // ~2 minutos por slide, 22 slides
+        autoSlide: 0, // Desactivado por defecto
+        loop: false,
+        // Keyboard shortcuts
+        keyboard: {
+          27: function () {
+            // ESC - toggle overview
+            Reveal.toggleOverview();
+          },
+          66: function () {
+            // B - black screen
+            document.querySelector(".reveal").classList.toggle("blackout");
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
