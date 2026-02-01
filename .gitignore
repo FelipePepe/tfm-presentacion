@@ -22,7 +22,7 @@ dist/
 !vendor/reveal/dist/
 build/
 review-slides-screenshots/
-notes/
+drafts/
 *.local
 
 # Backups
