@@ -1768,8 +1768,11 @@
       function buildCecSummary() {
         const sections = document.querySelectorAll(".slides > section");
         sections.forEach((section, index) => {
-          // Mantener portada y guía de lectura limpias: sin bloque CEC en slides 1-2.
-          if (index <= 1) return;
+          // Mantener portada y guía de lectura limpias.
+          const ariaLabel = (section.getAttribute("aria-label") || "").toLowerCase();
+          const isCover = ariaLabel.includes("portada");
+          const isReadingGuide = ariaLabel.includes("guía de lectura") || ariaLabel.includes("guia de lectura");
+          if (index <= 1 || isCover || isReadingGuide) return;
 
           const heading = section.querySelector("h2, h1, h3");
           const explainer = section.querySelector(".slide-explainer");
