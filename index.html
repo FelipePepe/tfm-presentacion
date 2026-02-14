@@ -1768,8 +1768,8 @@
       function buildCecSummary() {
         const sections = document.querySelectorAll(".slides > section");
         sections.forEach((section, index) => {
-          // Mantener la portada limpia: sin bloque CEC en la primera slide.
-          if (index === 0) return;
+          // Mantener portada y guía de lectura limpias: sin bloque CEC en slides 1-2.
+          if (index <= 1) return;
 
           const heading = section.querySelector("h2, h1, h3");
           const explainer = section.querySelector(".slide-explainer");
