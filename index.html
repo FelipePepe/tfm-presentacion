@@ -57,23 +57,23 @@
         </section>
 
         <!-- ============================================ -->
-        <!-- SLIDE 2: AGENDA -->
+        <!-- SLIDE 2: GUIA DE LECTURA -->
         <!-- ============================================ -->
         <section
           data-background-gradient="linear-gradient(135deg, #0f3460 0%, #1a1a2e 100%)"
           class="agenda-slide"
           role="region"
-          aria-label="Agenda"
+          aria-label="Guía de lectura de la presentación"
         >
-          <h2>Agenda</h2>
+          <h2>Guía de lectura</h2>
           <p class="slide-explainer">
-            La agenda estructura el discurso: presentación del proyecto,
-            motivación, metodología, decisiones y resultados. Cada bloque
-            responde a una pregunta clave del proceso.
+            Esta presentación está diseñada para evaluación asíncrona. Cada
+            bloque es autoexplicativo y contiene contexto, evidencia y
+            conclusión para que pueda revisarse sin exposición oral.
           </p>
           <div class="agenda-grid">
             <a
-              href="#/2"
+              href="#/3"
               class="agenda-item fragment"
               data-fragment-index="1"
               aria-label="Ir a slide: Presentación del proyecto"
@@ -88,7 +88,7 @@
               </div>
             </a>
             <a
-              href="#/3"
+              href="#/4"
               class="agenda-item fragment"
               data-fragment-index="2"
               aria-label="Ir a slide: Motivación y contexto"
@@ -100,7 +100,7 @@
               </div>
             </a>
             <a
-              href="#/5"
+              href="#/6"
               class="agenda-item fragment"
               data-fragment-index="3"
               aria-label="Ir a slide: Pregunta e hipótesis"
@@ -112,7 +112,7 @@
               </div>
             </a>
             <a
-              href="#/6"
+              href="#/7"
               class="agenda-item fragment"
               data-fragment-index="4"
               aria-label="Ir a slide: Alcance y criterios de éxito"
@@ -124,7 +124,7 @@
               </div>
             </a>
             <a
-              href="#/7"
+              href="#/8"
               class="agenda-item fragment"
               data-fragment-index="5"
               aria-label="Ir a slide: Metodología y ejemplos"
@@ -136,7 +136,7 @@
               </div>
             </a>
             <a
-              href="#/12"
+              href="#/13"
               class="agenda-item fragment"
               data-fragment-index="6"
               aria-label="Ir a slide: Gobernanza, ADRs y seguridad"
@@ -148,7 +148,7 @@
               </div>
             </a>
             <a
-              href="#/17"
+              href="#/18"
               class="agenda-item fragment"
               data-fragment-index="7"
               aria-label="Ir a slide: Arquitectura y stack resultante"
@@ -160,7 +160,7 @@
               </div>
             </a>
             <a
-              href="#/19"
+              href="#/20"
               class="agenda-item fragment"
               data-fragment-index="8"
               aria-label="Ir a slide: Resultados, límites y lecciones"
@@ -180,7 +180,61 @@
         </section>
 
         <!-- ============================================ -->
-        <!-- SLIDE 3: PRESENTACIÓN DEL PROYECTO (TEAMHUB) -->
+        <!-- SLIDE 3: OBJETIVO DE ESTA PRESENTACIÓN -->
+        <!-- ============================================ -->
+        <section
+          data-background-gradient="linear-gradient(135deg, #0f3460 0%, #1a1a2e 100%)"
+          role="region"
+          aria-label="Objetivo de esta presentación"
+        >
+          <h2>Objetivo de esta presentación</h2>
+          <p class="slide-explainer">
+            Las slides están pensadas para enseñar el proyecto a alguien: cómo
+            se ha creado, qué problema resuelve y cómo funciona.
+          </p>
+          <div class="problem-grid">
+            <div class="problem-card fragment">
+              <div class="problem-icon">📖</div>
+              <h4>Enseñar el proyecto</h4>
+              <p>
+                Presentar TeamHub de forma clara para que cualquier persona
+                entienda qué es, para quién va y qué ofrece.
+              </p>
+            </div>
+            <div class="problem-card fragment">
+              <div class="problem-icon">🛠️</div>
+              <h4>Cómo se ha creado</h4>
+              <p>
+                Mostrar el proceso: metodología, decisiones (ADRs), fases de
+                implementación y desarrollo asistido por IA.
+              </p>
+            </div>
+            <div class="problem-card fragment">
+              <div class="problem-icon">🎯</div>
+              <h4>Qué problema resuelve</h4>
+              <p>
+                Explicar la motivación, el contexto profesional y el alcance:
+                por qué existe el proyecto y qué necesidad cubre.
+              </p>
+            </div>
+            <div class="problem-card fragment">
+              <div class="problem-icon">⚙️</div>
+              <h4>Cómo funciona</h4>
+              <p>
+                Describir la arquitectura, el stack tecnológico, la calidad y
+                los resultados; conectar decisiones técnicas con el producto
+                final.
+              </p>
+            </div>
+          </div>
+          <aside class="notes">
+            Esta slide fija el criterio de toda la presentación: enseñar el
+            proyecto, cómo se creó, qué problema resuelve y cómo funciona.
+          </aside>
+        </section>
+
+        <!-- ============================================ -->
+        <!-- SLIDE 4: PRESENTACIÓN DEL PROYECTO (TEAMHUB) -->
         <!-- ============================================ -->
         <section
           data-background-gradient="linear-gradient(135deg, #0f3460 0%, #1a1a2e 100%)"
@@ -232,11 +286,10 @@
               <div class="problem-icon">✅</div>
               <h4>Estado actual</h4>
               <p>
-                457 tests pasando (226 backend + 231 frontend), 74 ADRs
-                documentados, seguridad OWASP 96.5%, MFA obligatorio y diseño
-                responsive con WCAG AA. Releases v1.0.0 a v1.3.0 desplegadas; el
-                proyecto sirve como evidencia del proceso de desarrollo asistido
-                por IA.
+                Estado documentado a 14/02/2026: 1,038 tests (655 backend + 383
+                frontend), cobertura global 85.54% y decisiones registradas
+                hasta ADR-107. MFA obligatorio, diseño responsive WCAG AA y
+                evolución continua con releases v1.0.0-v1.3.0 y v1.4.0 en curso.
               </p>
             </div>
           </div>
@@ -248,7 +301,7 @@
         </section>
 
         <!-- ============================================ -->
-        <!-- SLIDE 4: MOTIVACIÓN PROFESIONAL -->
+        <!-- SLIDE 5: MOTIVACIÓN PROFESIONAL -->
         <!-- ============================================ -->
         <section
           data-background-gradient="linear-gradient(135deg, #0f3460 0%, #1a1a2e 100%)"
@@ -360,7 +413,7 @@
         </section>
 
         <!-- ============================================ -->
-        <!-- SLIDE 6: PREGUNTA E HIPÓTESIS -->
+        <!-- SLIDE 7: PREGUNTA E HIPÓTESIS -->
         <!-- ============================================ -->
         <section
           data-background-gradient="linear-gradient(135deg, #0f3460 0%, #1a1a2e 100%)"
@@ -413,7 +466,7 @@
         </section>
 
         <!-- ============================================ -->
-        <!-- SLIDE 7: ALCANCE Y CRITERIOS DE ÉXITO -->
+        <!-- SLIDE 8: ALCANCE Y CRITERIOS DE ÉXITO -->
         <!-- ============================================ -->
         <section
           data-background-gradient="linear-gradient(135deg, #0f3460 0%, #1a1a2e 100%)"
@@ -476,7 +529,7 @@
         </section>
 
         <!-- ============================================ -->
-        <!-- SLIDE 8: METODOLOGÍA -->
+        <!-- SLIDE 9: METODOLOGÍA -->
         <!-- ============================================ -->
         <section
           data-background-gradient="linear-gradient(135deg, #0f3460 0%, #1a1a2e 100%)"
@@ -632,7 +685,7 @@
         </section>
 
         <!-- ============================================ -->
-        <!-- SLIDE 10: GITFLOW Y QUALITY GATES -->
+        <!-- SLIDE 11: GITFLOW Y QUALITY GATES -->
         <!-- ============================================ -->
         <section
           data-background-gradient="linear-gradient(135deg, #0f3460 0%, #1a1a2e 100%)"
@@ -653,7 +706,8 @@
                 (integración), <strong>feature/</strong> (nuevas
                 funcionalidades), <strong>bugfix/</strong> (correcciones),
                 <strong>release/</strong> (preparación), <strong>hotfix/</strong>
-                (urgentes). 78 branches de trabajo creados.
+                (urgentes). Estrategia aplicada de forma consistente durante
+                toda la ejecución del proyecto.
               </p>
             </div>
             <div class="problem-card fragment">
@@ -661,8 +715,8 @@
               <h4>Conventional Commits</h4>
               <p>
                 Formato <code>tipo(scope): descripción</code>. Tipos:
-                feat, fix, docs, refactor, test, chore. 100% de commits con
-                formato consistente.
+                feat, fix, docs, refactor, test, chore. Uso consistente del
+                formato para mantener trazabilidad del historial.
               </p>
             </div>
             <div class="problem-card fragment">
@@ -679,9 +733,9 @@
               <div class="problem-icon">📊</div>
               <h4>Resultados</h4>
               <p>
-                21+ PRs mergeados, 5 releases (1.0.0 → 1.3.0), 0 commits sin
-                tests, 0 push directo a main/develop. GitFlow + IA = calidad
-                sostenible.
+                Integración continua mediante PRs, releases estables
+                v1.0.0-v1.3.0 y rama v1.4.0 en preparación. 0 push directo a
+                main/develop y validaciones obligatorias en cada integración.
               </p>
             </div>
           </div>
@@ -711,7 +765,8 @@
           </div>
           <aside class="notes">
             Visualización del GitFlow real del proyecto: main/develop como branches principales,
-            feature branches para cada funcionalidad, y releases v1.0.0 → v1.3.0.
+            feature branches para cada funcionalidad, releases v1.0.0-v1.3.0 y
+            evolución hacia v1.4.0.
           </aside>
         </section>
 
@@ -771,7 +826,7 @@
         </section>
 
         <!-- ============================================ -->
-        <!-- SLIDE 12: EJEMPLOS OPUS 4.5 -->
+        <!-- SLIDE 13: EJEMPLOS OPUS 4.5 -->
         <!-- ============================================ -->
         <section
           data-background-gradient="linear-gradient(135deg, #0f3460 0%, #1a1a2e 100%)"
@@ -885,17 +940,18 @@
         </section>
 
         <!-- ============================================ -->
-        <!-- SLIDE 14: CRONOLOGÍA DE IMPLEMENTACIÓN -->
+        <!-- SLIDE 15: CRONOLOGÍA DE IMPLEMENTACIÓN -->
         <!-- ============================================ -->
         <section
           data-background-gradient="linear-gradient(135deg, #0f3460 0%, #1a1a2e 100%)"
           role="region"
           aria-label="Cronología de implementación"
         >
-          <h2>Cronología de Implementación (7 días)</h2>
+          <h2>Cronología de Implementación: Hito Inicial (7 días)</h2>
           <p class="slide-explainer">
-            Del 25 al 31 de enero de 2026: de estructura vacía a MVP completo
-            con 6 módulos funcionales, guiado por AGENTS.md y ADRs.
+            Del 25 al 31 de enero de 2026 se completó el hito inicial: de
+            estructura vacía a MVP funcional. El proyecto siguió evolucionando
+            en febrero con cobertura, SonarQube y nuevas decisiones ADR.
           </p>
           <div class="problem-grid">
             <div class="problem-card fragment">
@@ -927,7 +983,8 @@
               <h4>Día 6-7: Visualizaciones</h4>
               <p>
                 Proyectos + Timetracking (PR #61). Gantt D3.js +2326 LOC
-                (commit 9512ed4). Sistema tareas jerárquico. 5 releases.
+                (commit 9512ed4). Sistema tareas jerárquico y cierre del MVP
+                inicial.
               </p>
             </div>
           </div>
@@ -956,13 +1013,13 @@
             />
           </div>
           <aside class="notes">
-            Gantt real del proyecto: 7 días de desarrollo intensivo. El día 5 (barra roja) muestra
+            Gantt del hito inicial (25-31 enero). El día 5 (barra roja) muestra
             el pico de velocidad con 8 PRs de Onboarding en un solo día.
           </aside>
         </section>
 
         <!-- ============================================ -->
-        <!-- SLIDE 15: DECISIONES (ADR) -->
+        <!-- SLIDE 16: DECISIONES (ADR) -->
         <!-- ============================================ -->
         <section
           data-background-gradient="linear-gradient(135deg, #0f3460 0%, #1a1a2e 100%)"
@@ -979,8 +1036,8 @@
               <div class="problem-icon">📚</div>
               <h4>ADRs como contrato</h4>
               <p>
-                74 ADRs documentan cambios, riesgos y consecuencias para
-                justificar cada elección técnica.
+                El registro llega hasta ADR-107 e incluye cambios, riesgos y
+                consecuencias para justificar cada elección técnica.
               </p>
             </div>
             <div class="problem-card fragment">
@@ -1069,7 +1126,7 @@
         </section>
 
         <!-- ============================================ -->
-        <!-- SLIDE 17: STACK TECNOLÓGICO -->
+        <!-- SLIDE 18: STACK TECNOLÓGICO -->
         <!-- ============================================ -->
         <section
           data-background-gradient="linear-gradient(135deg, #0f3460 0%, #1a1a2e 100%)"
@@ -1346,12 +1403,13 @@
           </div>
           <aside class="notes">
             Parte 2: Backend Logic (Services, Business Rules, Zod).
-            Data Layer (Drizzle ORM, PostgreSQL 16). Governance (74 ADRs, AGENTS.md).
+            Data Layer (Drizzle ORM, PostgreSQL 16). Governance (ADRs hasta
+            ADR-107, AGENTS.md).
           </aside>
         </section>
 
         <!-- ============================================ -->
-        <!-- SLIDE 19: VALIDACIÓN Y CALIDAD -->
+        <!-- SLIDE 20: VALIDACIÓN Y CALIDAD -->
         <!-- ============================================ -->
         <section
           data-background-gradient="linear-gradient(135deg, #0f3460 0%, #1a1a2e 100%)"
@@ -1367,10 +1425,11 @@
           <div class="problem-grid">
             <div class="problem-card fragment">
               <div class="problem-icon">🧪</div>
-              <h4>Testing: 457 tests pasando</h4>
+              <h4>Testing: 1,038 tests pasando</h4>
               <p>
-                Pruebas prácticas, unitarios, integración y E2E para validar
-                comportamiento y evitar regresiones.
+                Estado a 14/02/2026: 655 backend + 383 frontend. Pruebas
+                unitarias, integración y E2E para validar comportamiento y
+                evitar regresiones.
               </p>
             </div>
             <div class="problem-card fragment">
@@ -1383,10 +1442,10 @@
             </div>
             <div class="problem-card fragment">
               <div class="problem-icon">📚</div>
-              <h4>Documentación: 74 ADRs</h4>
+              <h4>Documentación: ADR-107</h4>
               <p>
-                Decisiones auditables para mantener contexto y justificar
-                cambios futuros.
+                Trazabilidad auditada en decisiones.md con histórico de
+                decisiones y actualizaciones continuas hasta febrero 2026.
               </p>
             </div>
             <div class="problem-card fragment">
@@ -1405,7 +1464,7 @@
         </section>
 
         <!-- ============================================ -->
-        <!-- SLIDE 20: RESULTADOS DEL PROCESO -->
+        <!-- SLIDE 21: RESULTADOS DEL PROCESO -->
         <!-- ============================================ -->
         <section
           data-background-gradient="linear-gradient(135deg, #0f3460 0%, #1a1a2e 100%)"
@@ -1414,24 +1473,25 @@
         >
           <h2>Resultados del Proceso</h2>
           <p class="slide-explainer">
-            Métricas cuantitativas del desarrollo asistido por IA: 7 días (25-31
-            enero) produciendo ~24k líneas con calidad profesional verificada.
+            Resultado consolidado a 14/02/2026: hito inicial de 7 días +
+            evolución posterior en calidad, cobertura y deuda técnica.
           </p>
           <div class="problem-grid">
             <div class="problem-card fragment">
               <div class="problem-icon">📊</div>
               <h4>Código y documentación</h4>
               <p>
-                ~23,693 líneas (16,311 frontend + 7,382 backend). 74 ADRs
-                documentados. 149 endpoints API. 21 PRs mergeados.
+                Hito inicial con alto volumen de implementación, endpoints
+                OpenAPI documentados y decisiones trazadas hasta ADR-107 para
+                cubrir evolución técnica y operativa.
               </p>
             </div>
             <div class="problem-card fragment">
               <div class="problem-icon">✅</div>
               <h4>Calidad verificada</h4>
               <p>
-                457 tests pasando (226 backend + 231 frontend). Zero ESLint
-                warnings. 100% coverage hooks críticos. Type-safe end-to-end.
+                1,038 tests pasando (655 backend + 383 frontend). Cobertura:
+                backend 81.01%, frontend 90.07%, global 85.54% (14/02/2026).
               </p>
             </div>
             <div class="problem-card fragment">
@@ -1439,7 +1499,8 @@
               <h4>Velocidad extraordinaria</h4>
               <p>
                 6 módulos en 7 días. Día 5: 8 PRs Onboarding. Día 6: Gantt +2326
-                LOC. 5 releases (1.0.0 → 1.3.0).
+                LOC. Base creada en enero y endurecida en febrero con SonarQube
+                y mejoras de cobertura.
               </p>
             </div>
             <div class="problem-card fragment">
@@ -1526,7 +1587,7 @@
         </section>
 
         <!-- ============================================ -->
-        <!-- SLIDE 22: LECCIONES APRENDIDAS -->
+        <!-- SLIDE 23: LECCIONES APRENDIDAS -->
         <!-- ============================================ -->
         <section
           data-background-gradient="linear-gradient(135deg, #0f3460 0%, #1a1a2e 100%)"
@@ -1579,7 +1640,7 @@
         </section>
 
         <!-- ============================================ -->
-        <!-- SLIDE 23: SIGUIENTES PASOS -->
+        <!-- SLIDE 24: SIGUIENTES PASOS -->
         <!-- ============================================ -->
         <section
           data-background-gradient="linear-gradient(135deg, #0f3460 0%, #1a1a2e 100%)"
@@ -1632,18 +1693,18 @@
         </section>
 
         <!-- ============================================ -->
-        <!-- SLIDE 24: Q&A -->
+        <!-- SLIDE 25: CIERRE -->
         <!-- ============================================ -->
         <section
           data-background-gradient="linear-gradient(135deg, #0f3460 0%, #1a1a2e 100%)"
           role="region"
-          aria-label="Cierre y preguntas"
+          aria-label="Cierre de la presentación"
         >
           <div class="qa-slide">
-            <h1 class="gradient-text">¿Preguntas?</h1>
+            <h1 class="gradient-text">Cierre</h1>
             <p class="slide-explainer compact">
-              Gracias por la atención. Quedo disponible para ampliar cualquier
-              punto del proceso y del uso de IA.
+              Documento final de proyecto: el proceso, las decisiones y las
+              evidencias quedan trazados para evaluación independiente.
             </p>
             <div class="qa-info">
               <div class="contact-info fragment">
@@ -1663,8 +1724,8 @@
             </div>
           </div>
           <aside class="notes">
-            Gracias por su atención. Estoy disponible para responder preguntas
-            sobre metodología, decisiones y uso de IA.
+            Cierre documental del TFM: metodología, decisiones y evidencia de
+            ejecución quedan consolidadas para evaluación independiente.
           </aside>
         </section>
       </div>
@@ -1676,12 +1737,92 @@
     <script src="./vendor/reveal/plugin/highlight/highlight.js"></script>
     <script src="./vendor/reveal/plugin/zoom/zoom.js"></script>
     <script>
+      function firstSentence(text) {
+        if (!text) return "";
+        const normalized = text.replace(/\s+/g, " ").trim();
+        const match = normalized.match(/^[^.!?]+[.!?]?/);
+        return match ? match[0].trim() : normalized;
+      }
+
+      function collectEvidence(section) {
+        const images = section.querySelectorAll("img").length;
+        const cards = section.querySelectorAll(".problem-card, .metric-card").length;
+        const agendaItems = section.querySelectorAll(".agenda-item").length;
+        const links = section.querySelectorAll("a[href]").length;
+        const codeBlocks = section.querySelectorAll("code, pre").length;
+
+        const parts = [];
+        if (images > 0) parts.push(images + " recurso(s) visual(es)");
+        if (cards > 0) parts.push(cards + " bloque(s) estructurado(s)");
+        if (agendaItems > 0) parts.push(agendaItems + " punto(s) de navegación");
+        if (links > 0) parts.push(links + " enlace(s) de soporte");
+        if (codeBlocks > 0) parts.push(codeBlocks + " referencia(s) técnica(s)");
+
+        if (parts.length === 0) {
+          return "Se aporta evidencia textual y estructural dentro de la propia diapositiva.";
+        }
+
+        return "La evidencia se apoya en " + parts.join(", ") + ".";
+      }
+
+      function buildCecSummary() {
+        const sections = document.querySelectorAll(".slides > section");
+        sections.forEach((section) => {
+          const heading = section.querySelector("h2, h1, h3");
+          const explainer = section.querySelector(".slide-explainer");
+          const title = heading ? heading.textContent.trim() : "Contenido de la diapositiva";
+          const explainerText = explainer ? firstSentence(explainer.textContent) : "";
+
+          const contextText =
+            "Esta diapositiva desarrolla el bloque \"" + title + "\" dentro del flujo del TFM.";
+          const evidenceText = collectEvidence(section);
+          const conclusionText =
+            explainerText ||
+            "El contenido deja trazado el estado y la justificación del bloque presentado.";
+
+          const cec = document.createElement("div");
+          cec.className = "cec-strip";
+          cec.setAttribute("aria-label", "Resumen autoexplicativo de la diapositiva");
+
+          function addCecItem(label, text) {
+            const item = document.createElement("div");
+            item.className = "cec-item";
+
+            const labelEl = document.createElement("span");
+            labelEl.className = "cec-label";
+            labelEl.textContent = label;
+
+            const textEl = document.createElement("p");
+            textEl.className = "cec-text";
+            textEl.textContent = text;
+
+            item.appendChild(labelEl);
+            item.appendChild(textEl);
+            cec.appendChild(item);
+          }
+
+          addCecItem("Contexto", contextText);
+          addCecItem("Evidencia", evidenceText);
+          addCecItem("Conclusión", conclusionText);
+
+          const notes = section.querySelector("aside.notes");
+          if (notes) {
+            section.insertBefore(cec, notes);
+          } else {
+            section.appendChild(cec);
+          }
+        });
+      }
+
+      buildCecSummary();
+
       Reveal.initialize({
         hash: true,
         slideNumber: "c/t",
         showSlideNumber: "all",
         controls: true,
         progress: true,
+        fragments: false,
         center: true,
         transition: "slide",
         backgroundTransition: "fade",
