@@ -1213,14 +1213,11 @@ a.agenda-item:focus-visible {
 
 /* --- Ajuste final de maquetación (entrega asíncrona) --- */
 .problem-grid {
-  align-items: stretch;
+  align-items: start;
 }
 
 .problem-card {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  min-height: 210px;
+  display: block;
 }
 
 .problem-card h4 {
@@ -1245,12 +1242,6 @@ a.agenda-item:focus-visible {
 
 .cec-text {
   line-height: 1.32;
-}
-
-@media (max-width: 1000px) {
-  .problem-card {
-    min-height: auto;
-  }
 }
 
 @media (max-width: 640px) {
