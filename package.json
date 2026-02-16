@@ -4,8 +4,9 @@
   "description": "Presentación TFM - TeamHub: Sistema de Gestión de Equipos",
   "main": "index.js",
   "scripts": {
-    "start": "npx serve -p 8080",
-    "dev": "npx serve -p 8080 --cors",
+    "build": "node scripts/build.js",
+    "start": "npm run build && npx serve -p 8080",
+    "dev": "npm run build && npx serve -p 8080 --cors",
     "screenshots": "npx ts-node scripts/capture-screenshots.ts",
     "capture-slide": "npx ts-node scripts/capture-slide.ts",
     "slide-walk": "npx ts-node scripts/slide-walk.ts",

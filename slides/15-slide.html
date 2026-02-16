@@ -1,0 +1,51 @@
+<section
+          data-background-gradient="linear-gradient(135deg, #0f3460 0%, #1a1a2e 100%)"
+          role="region"
+          aria-label="LLMs y herramientas usadas"
+        >
+          <h2>LLMs y Herramientas Usadas</h2>
+          <p class="slide-explainer">
+            Se emplean modelos con roles diferenciados para crear, asistir y
+            revisar. El desarrollo se realizó con los IDEs VSCode y Cursor; los
+            CLIs (Codex, Copilot CLI, Claude CLI) se usan puntualmente en modo
+            script.
+          </p>
+          <div class="problem-grid">
+            <div class="problem-card fragment">
+              <div class="problem-icon">🖥️</div>
+              <h4>IDEs: VSCode y Cursor</h4>
+              <p>Cursor para generación y mejora iterativa con AGENTS.md; VSCode para edición con extensiones.</p>
+            </div>
+            <div class="problem-card fragment">
+              <div class="problem-icon">🤖</div>
+              <h4>OpenAI Codex (CLI)</h4>
+              <p>Automatización de tareas y refactorizaciones con contexto del repo.</p>
+            </div>
+            <div class="problem-card fragment">
+              <div class="problem-icon">🧠</div>
+              <h4>GitHub Copilot + Sonnet 4.5</h4>
+              <p>Sugerencias in-editor para acelerar la escritura sin perder intención.</p>
+            </div>
+            <div class="problem-card fragment">
+              <div class="problem-icon">⚡</div>
+              <h4>Claude CLI + Opus 4.5</h4>
+              <p>Revisión crítica y síntesis de decisiones para detectar riesgos.</p>
+            </div>
+            <div class="problem-card fragment">
+              <div class="problem-icon">🗂️</div>
+              <h4>Fuentes de verdad (4)</h4>
+              <p>
+                <strong>ADRs</strong> (74 decisiones) - Arquitectura inmutable<br>
+                <strong>OpenAPI</strong> (149 endpoints) - Contrato API<br>
+                <strong>Storybook</strong> - Componentes UI y variantes<br>
+                <strong>Business Rules</strong> - Reglas de negocio centralizadas
+              </p>
+            </div>
+          </div>
+          <aside class="notes">
+            IDEs: VSCode y Cursor. GitHub Copilot CLI y Claude CLI en modo
+            script cuando se necesitan. Varios LLMs con roles diferenciados; el
+            contexto y las reglas (ADRs, OpenAPI) fueron tan importantes como el
+            modelo. ADR-056 (sistema multi-LLM formal) fue rechazado al final.
+          </aside>
+        </section>

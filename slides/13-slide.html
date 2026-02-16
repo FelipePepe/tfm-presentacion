@@ -1,0 +1,58 @@
+<section
+          data-background-gradient="linear-gradient(135deg, #0f3460 0%, #1a1a2e 100%)"
+          role="region"
+          aria-label="GitFlow y Quality Gates"
+        >
+          <h2>GitFlow y Quality Gates</h2>
+          <p class="slide-explainer">
+            Estrategia de branching y validación automática para mantener
+            calidad con IA. Hooks obligatorios previenen código roto.
+          </p>
+          <div class="problem-grid">
+            <div class="problem-card fragment">
+              <div class="problem-icon">🌲</div>
+              <h4>Branching Strategy</h4>
+              <p>
+                <strong>main</strong> (producción), <strong>develop</strong>
+                (integración), <strong>feature/</strong> (nuevas
+                funcionalidades), <strong>bugfix/</strong> (correcciones),
+                <strong>release/</strong> (preparación), <strong>hotfix/</strong>
+                (urgentes). Estrategia aplicada de forma consistente durante
+                toda la ejecución del proyecto.
+              </p>
+            </div>
+            <div class="problem-card fragment">
+              <div class="problem-icon">📝</div>
+              <h4>Conventional Commits</h4>
+              <p>
+                Formato <code>tipo(scope): descripción</code>. Tipos:
+                feat, fix, docs, refactor, test, chore. Uso consistente del
+                formato para mantener trazabilidad del historial.
+              </p>
+            </div>
+            <div class="problem-card fragment">
+              <div class="problem-icon">🔒</div>
+              <h4>Quality Gates (Husky)</h4>
+              <p>
+                <strong>pre-commit</strong>: ESLint + Prettier.
+                <strong>pre-push</strong>: Tests obligatorios + validación OpenAPI.
+                <strong>commit-msg</strong>: Validación formato. Prohibido
+                --no-verify.
+              </p>
+            </div>
+            <div class="problem-card fragment">
+              <div class="problem-icon">📊</div>
+              <h4>Resultados</h4>
+              <p>
+                Integración continua mediante PRs, releases estables
+                v1.0.0-v1.3.0 y rama v1.4.0 en preparación. 0 push directo a
+                main/develop y validaciones obligatorias en cada integración.
+              </p>
+            </div>
+          </div>
+          <aside class="notes">
+            GitFlow disciplinado permite que la IA acelere sin romper nada. Los
+            hooks automáticos son quality gates que previenen código roto
+            incluso con alta velocidad de desarrollo.
+          </aside>
+        </section>

@@ -1,0 +1,65 @@
+<section
+          data-background-gradient="linear-gradient(135deg, #0f3460 0%, #1a1a2e 100%)"
+          role="region"
+          aria-label="Arquitectura resultante"
+        >
+          <h2>Arquitectura Resultante</h2>
+          <p class="slide-explainer">
+            Vista simplificada para entender responsabilidades por capa. OpenAPI
+            actúa como contrato y MFA es innegociable.
+          </p>
+          <div class="problem-grid">
+            <div class="problem-card fragment">
+              <div class="problem-icon">🖥️</div>
+              <h4>Frontend</h4>
+              <p>
+                Next.js 15 · React 19. Interfaz de usuario con SSR y componentes
+                reutilizables.
+              </p>
+            </div>
+            <div class="problem-card fragment">
+              <div class="problem-icon">🔌</div>
+              <h4>API</h4>
+              <p>
+                Hono · OpenAPI. Capa de servicios con contrato tipado y
+                documentación automática.
+              </p>
+            </div>
+            <div class="problem-card fragment">
+              <div class="problem-icon">🗄️</div>
+              <h4>Datos</h4>
+              <p>
+                PostgreSQL · Drizzle ORM. Persistencia relacional con
+                migraciones controladas.
+              </p>
+            </div>
+            <div class="problem-card fragment">
+              <div class="problem-icon">📦</div>
+              <h4>Monorepo</h4>
+              <p>
+                Frontend + backend en un solo repositorio para facilitar cambios
+                coordinados.
+              </p>
+            </div>
+            <div class="problem-card fragment">
+              <div class="problem-icon">🔐</div>
+              <h4>Auth</h4>
+              <p>
+                MFA siempre activo. Autenticación con segundo factor obligatorio
+                en producción.
+              </p>
+            </div>
+            <div class="problem-card fragment">
+              <div class="problem-icon">🚀</div>
+              <h4>Despliegue</h4>
+              <p>
+                Frontend en Vercel · Backend en Render · BBDD en Aiven Cloud.
+              </p>
+            </div>
+          </div>
+          <aside class="notes">
+            La arquitectura final refleja decisiones documentadas y validación
+            constante. Despliegue: frontend en Vercel, backend en Render, base
+            de datos en Aiven Cloud.
+          </aside>
+        </section>

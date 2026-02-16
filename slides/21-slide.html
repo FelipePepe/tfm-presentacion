@@ -1,0 +1,50 @@
+<section
+          data-background-gradient="linear-gradient(135deg, #0f3460 0%, #1a1a2e 100%)"
+          role="region"
+          aria-label="Seguridad y LLMs"
+        >
+          <h2>Seguridad y LLMs: Security by Design & Default</h2>
+          <p class="slide-explainer">
+            ADR-064 parte de un contexto sensible: datos personales, salarios y
+            operaciones críticas. La seguridad se integra por diseño y por
+            defecto, no como capa final.
+          </p>
+          <div class="problem-grid">
+            <div class="problem-card fragment">
+              <div class="problem-icon">🧱</div>
+              <h4>Security by Design</h4>
+              <p>
+                CSP restrictivo, X-Frame-Options DENY, RBAC y validación con Zod
+                desde la arquitectura.
+              </p>
+            </div>
+            <div class="problem-card fragment">
+              <div class="problem-icon">✅</div>
+              <h4>Security by Default</h4>
+              <p>
+                MFA obligatorio (Google Authenticator), password policy 12+ y
+                rate limiting (100 req/min global, 5/min login).
+              </p>
+            </div>
+            <div class="problem-card fragment">
+              <div class="problem-icon">🧾</div>
+              <h4>Trazabilidad</h4>
+              <p>
+                Logs estructurados, sin tokens ni passwords, con contexto para
+                auditoría.
+              </p>
+            </div>
+            <div class="problem-card fragment">
+              <div class="problem-icon">🧠</div>
+              <h4>Riesgos LLM</h4>
+              <p>
+                Evitar exposición de datos sensibles y exigir revisión humana
+                continua.
+              </p>
+            </div>
+          </div>
+          <aside class="notes">
+            La seguridad se alinea con OWASP y RGPD. Se prioriza defensa en
+            profundidad y validación.
+          </aside>
+        </section>

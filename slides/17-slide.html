@@ -1,0 +1,49 @@
+<section
+          data-background-gradient="linear-gradient(135deg, #0f3460 0%, #1a1a2e 100%)"
+          role="region"
+          aria-label="Gobernanza y estándares"
+        >
+          <h2>Gobernanza y Estándares (AGENTS.md)</h2>
+          <p class="slide-explainer">
+            AGENTS.md define calidad, seguridad y fuentes de verdad. Sin
+            gobernanza, la IA introduce inconsistencias.
+          </p>
+          <div class="problem-grid">
+            <div class="problem-card fragment">
+              <div class="problem-icon">🧭</div>
+              <h4>Fuentes de verdad</h4>
+              <p>
+                ADRs → OpenAPI → Storybook → reglas de negocio para asegurar
+                coherencia entre arquitectura, API y UI.
+              </p>
+            </div>
+            <div class="problem-card fragment">
+              <div class="problem-icon">🧹</div>
+              <h4>Calidad y refactor</h4>
+              <p>
+                Complejidad baja, eliminación de code smells y funciones puras
+                para mantener mantenibilidad a largo plazo.
+              </p>
+            </div>
+            <div class="problem-card fragment">
+              <div class="problem-icon">🔒</div>
+              <h4>Seguridad</h4>
+              <p>
+                MFA obligatorio, CSP y validación fail-fast con Zod como
+                controles mínimos de seguridad.
+              </p>
+            </div>
+            <div class="problem-card fragment">
+              <div class="problem-icon">🧪</div>
+              <h4>Gates de calidad</h4>
+              <p>
+                Lint, tests y PRs sin atajos ni --no-verify para garantizar
+                calidad en cada entrega.
+              </p>
+            </div>
+          </div>
+          <aside class="notes">
+            AGENTS.md actúa como contrato operativo. Sin reglas claras, la IA
+            produce código inconsistente y difícil de mantener.
+          </aside>
+        </section>

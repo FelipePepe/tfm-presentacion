@@ -1,0 +1,63 @@
+<section
+          data-background-gradient="linear-gradient(135deg, #0f3460 0%, #1a1a2e 100%)"
+          role="region"
+          aria-label="Presentación del proyecto TeamHub"
+        >
+          <h2>El proyecto TeamHub</h2>
+          <p class="slide-explainer">
+            TeamHub es el caso práctico del TFM: un sistema de gestión que
+            integra RRHH, proyectos, registro de tiempo y tareas. La aplicación
+            permite validar el desarrollo asistido por IA en un contexto real y
+            con requisitos de calidad documentados en decisiones.md.
+          </p>
+          <div class="problem-grid">
+            <div class="problem-card fragment">
+              <div class="problem-icon">🎯</div>
+              <h4>Qué es TeamHub</h4>
+              <p>
+                Sistema de gestión para organizaciones: dashboards por rol,
+                gestión de empleados, onboarding, proyectos, timetracking y
+                sistema de tareas (Jira-like). Desarrollado con Next.js 15,
+                Hono, PostgreSQL y Drizzle ORM, con API OpenAPI v1.0.0 y 149
+                endpoints documentados.
+              </p>
+            </div>
+            <div class="problem-card fragment">
+              <div class="problem-icon">👥</div>
+              <h4>Para quién</h4>
+              <p>
+                La aplicación está diseñada para cuatro roles (según ADR-049):
+                Admin, RRHH, Manager y Empleado. Cada rol dispone de un
+                dashboard específico con métricas y gráficos D3.js adaptados a
+                su contexto, con AuthProvider y estado de autenticación global.
+              </p>
+            </div>
+            <div class="problem-card fragment">
+              <div class="problem-icon">📋</div>
+              <h4>Funcionalidades clave (6 fases)</h4>
+              <p>
+                <strong>Fase 1:</strong> Auth (Login, MFA, JWT)<br>
+                <strong>Fase 2:</strong> Departamentos y Empleados<br>
+                <strong>Fase 3:</strong> Onboarding (plantillas, procesos)<br>
+                <strong>Fase 4:</strong> Proyectos (asignaciones)<br>
+                <strong>Fase 5:</strong> Timetracking (Gantt D3.js)<br>
+                <strong>Fase 6:</strong> Dashboards por rol
+              </p>
+            </div>
+            <div class="problem-card fragment">
+              <div class="problem-icon">✅</div>
+              <h4>Estado actual</h4>
+              <p>
+                Estado documentado a 14/02/2026: 1,038 tests (655 backend + 383
+                frontend), cobertura global 85.54% y decisiones registradas
+                hasta ADR-107. MFA obligatorio, diseño responsive WCAG AA y
+                evolución continua con releases v1.0.0-v1.3.0 y v1.4.0 en curso.
+              </p>
+            </div>
+          </div>
+          <aside class="notes">
+            Esta slide cumple el requisito del TFM de incluir una presentación
+            del proyecto. TeamHub es el caso práctico; las cifras y fases
+            provienen exclusivamente de decisiones.md.
+          </aside>
+        </section>

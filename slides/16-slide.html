@@ -1,0 +1,57 @@
+<section
+          data-background-gradient="linear-gradient(135deg, #0f3460 0%, #1a1a2e 100%)"
+          role="region"
+          aria-label="Ejemplos reales con Claude Opus 4.5"
+        >
+          <h2>Ejemplos Reales: Claude Opus 4.5 (ADR-064)</h2>
+          <p class="slide-explainer">
+            ADR-064 documenta el uso productivo de Opus 4.5 en fases avanzadas.
+            Entregas representativas con calidad validada: 6 módulos completos
+            (Auth, Usuarios, Onboarding, Proyectos, Timetracking, Dashboards).
+          </p>
+          <div class="problem-grid">
+            <div class="problem-card fragment">
+              <div class="problem-icon">🚀</div>
+              <h4>Proyectos y Timetracking (PR #61)</h4>
+              <p>
+                Implementación guiada por fases y checklist: primero Proyectos,
+                luego Timetracking. Hooks useProyectos (440 LOC) y
+                useTimetracking (356 LOC) alineados 100% con OpenAPI. Tests
+                pasando en ese PR.
+              </p>
+            </div>
+            <div class="problem-card fragment">
+              <div class="problem-icon">🎨</div>
+              <h4>Componentes UI (PR #64)</h4>
+              <p>
+                Componentes base tras cerrar fases funcionales: Calendar
+                (react-day-picker v9), Popover y Textarea. 104 tests frontend,
+                suite completa según decisiones.md.
+              </p>
+            </div>
+            <div class="problem-card fragment">
+              <div class="problem-icon">📊</div>
+              <h4>Gantt Chart D3.js (9512ed4)</h4>
+              <p>
+                Weekly timesheet + Gantt interactivo con zoom, tooltips, progress
+                bars. +2326 líneas en single commit. Calidad directa en primera
+                iteración (ADR-064, 065).
+              </p>
+            </div>
+            <div class="problem-card fragment">
+              <div class="problem-icon">⚡</div>
+              <h4>Onboarding: 8 PRs en 1 día</h4>
+              <p>
+                Plantillas reutilizables, editor drag&drop, procesos, tareas, modal
+                iniciar, widget dashboard. Velocidad extrema sin sacrificar
+                calidad: tests obligatorios en cada PR.
+              </p>
+            </div>
+          </div>
+          <aside class="notes">
+            Detalle técnico: PR #61 hooks use-proyectos (440 líneas) y
+            use-timetracking (356 líneas). PR #64 con 104 tests frontend. Commit
+            9512ed4: +2326 líneas, Gantt con D3. Velocidad alta con calidad
+            mantenida (ADR-064).
+          </aside>
+        </section>

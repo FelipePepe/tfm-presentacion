@@ -1,0 +1,48 @@
+      </div>
+    </div>
+
+    <script src="./vendor/reveal/dist/reveal.js"></script>
+    <script src="./vendor/reveal/plugin/notes/notes.js"></script>
+    <script src="./vendor/reveal/plugin/markdown/markdown.js"></script>
+    <script src="./vendor/reveal/plugin/highlight/highlight.js"></script>
+    <script src="./vendor/reveal/plugin/zoom/zoom.js"></script>
+    <script>
+      Reveal.initialize({
+        hash: true,
+        slideNumber: "c/t",
+        showSlideNumber: "all",
+        controls: true,
+        progress: true,
+        fragments: false,
+        center: true,
+        transition: "slide",
+        backgroundTransition: "fade",
+        plugins: [RevealNotes, RevealMarkdown, RevealHighlight, RevealZoom],
+        // Configuración para presentación de 30+ minutos
+        // ~2 minutos por slide, 22 slides
+        autoSlide: 0, // Desactivado por defecto
+        loop: false,
+        // Keyboard shortcuts
+        keyboard: {
+          27: function () {
+            // ESC - toggle overview
+            Reveal.toggleOverview();
+          },
+          66: function () {
+            // B - black screen
+            document.querySelector(".reveal").classList.toggle("blackout");
+          },
+        },
+      });
+    </script>
+
+    <!-- Service Worker for caching -->
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('./sw.js')
+          .then(reg => console.log('Service Worker registered', reg))
+          .catch(err => console.error('Service Worker registration failed', err));
+      }
+    </script>
+  </body>
+</html>

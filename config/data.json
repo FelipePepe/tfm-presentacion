@@ -1,0 +1,40 @@
+{
+  "project": {
+    "name": "TeamHub",
+    "version": "1.6.1",
+    "lastUpdate": "2026-02-16"
+  },
+  "metrics": {
+    "totalTests": 1038,
+    "backendTests": 655,
+    "frontendTests": 383,
+    "backendCoverage": "81.01%",
+    "frontendCoverage": "90.07%",
+    "globalCoverage": "85.54%",
+    "bugs": 0,
+    "vulnerabilities": 0,
+    "lastADR": 107
+  },
+  "releases": {
+    "current": "v1.6.1",
+    "stable": ["v1.0.0", "v1.1.0", "v1.2.0", "v1.3.0", "v1.4.0", "v1.5.0", "v1.6.0", "v1.6.1"],
+    "inProgress": null
+  },
+  "api": {
+    "version": "1.0.0",
+    "endpoints": 149
+  },
+  "author": {
+    "name": "Felipe José Pérez Gómez",
+    "master": "Máster en Desarrollo con IA",
+    "school": "Big School",
+    "date": "Febrero 2026"
+  },
+  "urls": {
+    "frontend": "https://teamhub-tfm.vercel.app",
+    "backend": "https://teamhub-backend-production.up.railway.app",
+    "swagger": "https://teamhub-backend-production.up.railway.app/docs",
+    "github": "https://github.com/FelipePepe/TeamHub",
+    "slides": "https://felipepepe.github.io/tfm-presentacion"
+  }
+}
