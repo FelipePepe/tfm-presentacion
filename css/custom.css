@@ -375,6 +375,15 @@ a.agenda-item:focus-visible {
   max-width: 96%;
   max-height: 100%;
   object-fit: contain;
+  min-width: 280px; /* Evita diagramas demasiado estrechos en tablets */
+}
+
+/* Ajuste específico para tablets: más espacio vertical para diagramas */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .diagram-stage {
+    height: min(68vh, 650px);
+    max-height: min(68vh, 650px);
+  }
 }
 
 .screenshot {
