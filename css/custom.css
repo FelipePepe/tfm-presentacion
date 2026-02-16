@@ -353,8 +353,8 @@ a.agenda-item:focus-visible {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: min(56vh, 525px);
-  max-height: min(56vh, 525px);
+  height: min(68vh, 620px);
+  max-height: min(68vh, 620px);
 }
 
 .diagram-slide .slide-subtitle {
@@ -1189,13 +1189,113 @@ a.agenda-item:focus-visible {
   }
 }
 
-/* --- Ajuste final de maquetación (entrega asíncrona) --- */
-.problem-grid {
-  align-items: start;
+@media (max-height: 750px) {
+  .reveal section {
+    padding: 0.6rem 1rem;
+  }
+
+  .reveal h2 {
+    font-size: clamp(1.2rem, 2.2vw, 1.8rem);
+    margin: 0 0 0.15rem 0;
+  }
+
+  .slide-explainer {
+    margin: 0.1rem auto 0.2rem;
+    font-size: clamp(0.72rem, 1vw, 0.85rem);
+  }
+
+  .problem-grid {
+    gap: 0.25rem;
+    margin-top: 0.2rem;
+  }
+
+  .problem-card {
+    padding: 0.2rem 0.35rem;
+  }
+
+  .problem-icon {
+    font-size: 0.9rem;
+  }
+
+  .problem-card h4 {
+    font-size: clamp(0.72rem, 1vw, 0.85rem);
+    margin-top: 0.08rem;
+    margin-bottom: 0.1rem;
+  }
+
+  .problem-card p {
+    font-size: clamp(0.65rem, 0.88vw, 0.76rem);
+    line-height: 1.2;
+  }
+
+  .example-grid {
+    gap: 0.25rem;
+    margin-top: 0.2rem;
+  }
+
+  .example-card {
+    padding: 0.2rem 0.35rem;
+  }
+
+  .example-icon {
+    font-size: 0.9rem;
+  }
+
+  .example-card h4 {
+    font-size: clamp(0.72rem, 1vw, 0.85rem);
+    margin-bottom: 0.1rem;
+  }
+
+  .example-card p {
+    font-size: clamp(0.65rem, 0.88vw, 0.76rem);
+    line-height: 1.2;
+  }
+
+  .solution-tagline {
+    margin-bottom: 0.3rem;
+    font-size: clamp(0.8rem, 1.1vw, 0.95rem);
+  }
+
+  .quality-grid,
+  .criteria-grid,
+  .conclusions-list,
+  .roadmap-timeline {
+    gap: 0.25rem;
+    margin-top: 0.2rem;
+  }
+
+  .quality-card,
+  .criteria-card,
+  .conclusion-item,
+  .roadmap-item {
+    padding: 0.2rem 0.35rem;
+  }
+
+  .quality-card h4,
+  .criteria-card h4 {
+    font-size: clamp(0.72rem, 1vw, 0.85rem);
+    margin-bottom: 0.1rem;
+  }
+
+  .quality-card p,
+  .criteria-card p,
+  .conclusion-item p,
+  .roadmap-item p {
+    font-size: clamp(0.65rem, 0.88vw, 0.76rem);
+    line-height: 1.2;
+  }
+
+  .quality-icon,
+  .criteria-icon,
+  .conclusion-icon {
+    font-size: 0.9rem;
+  }
 }
 
+/* --- Ajuste final de maquetación (entrega asíncrona) --- */
 .problem-card {
-  display: block;
+  display: flex;
+  flex-direction: column;
 }
 
 .problem-card h4 {
