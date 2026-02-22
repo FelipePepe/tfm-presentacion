@@ -1,23 +1,35 @@
 {
   "project": {
     "name": "TeamHub",
-    "version": "1.6.1",
-    "lastUpdate": "2026-02-16"
+    "version": "1.7.0",
+    "lastUpdate": "2026-02-22"
   },
   "metrics": {
-    "totalTests": 1038,
-    "backendTests": 655,
+    "totalTests": 1047,
+    "backendTests": 664,
     "frontendTests": 383,
     "backendCoverage": "81.01%",
     "frontendCoverage": "90.07%",
     "globalCoverage": "85.54%",
     "bugs": 0,
     "vulnerabilities": 0,
-    "lastADR": 107
+    "lastADR": 119
   },
   "releases": {
-    "current": "v1.6.1",
-    "stable": ["v1.0.0", "v1.1.0", "v1.2.0", "v1.3.0", "v1.4.0", "v1.5.0", "v1.6.0", "v1.6.1"],
+    "current": "v1.7.0",
+    "stable": [
+      "v1.0.0",
+      "v1.1.0",
+      "v1.2.0",
+      "v1.2.1",
+      "v1.3.0",
+      "v1.4.0",
+      "v1.5.0",
+      "v1.5.1",
+      "v1.6.0",
+      "v1.6.1",
+      "v1.7.0"
+    ],
     "inProgress": null
   },
   "api": {
