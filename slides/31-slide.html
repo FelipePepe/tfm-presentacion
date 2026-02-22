@@ -1,33 +1,59 @@
-<section
+        <!-- ============================================ -->
+        <!-- SLIDE 16B: SEGURIDAD AVANZADA -->
+        <!-- ============================================ -->
+        <section
           data-background-gradient="linear-gradient(135deg, #0f3460 0%, #1a1a2e 100%)"
           role="region"
-          aria-label="Cierre de la presentación"
+          aria-label="Seguridad avanzada: métricas y hardening"
         >
-          <div class="qa-slide">
-            <h1 class="gradient-text">Cierre</h1>
-            <p class="slide-explainer compact">
-              Documento final de proyecto: el proceso, las decisiones y las
-              evidencias quedan trazados para evaluación independiente.
-            </p>
-            <div class="qa-info">
-              <div class="contact-info fragment">
-                <p><strong>Felipe José Pérez Gómez</strong></p>
-                <p>Máster en Desarrollo con IA</p>
-              </div>
-              <div class="repo-link fragment">
-                <p>Repositorio del proyecto:</p>
-                <a
-                  href="https://github.com/FelipePepe/TeamHub"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <code>github.com/FelipePepe/TeamHub</code>
-                </a>
-              </div>
+          <h2>Seguridad Avanzada: Hardening y Resultados</h2>
+          <p class="slide-explainer">
+            Las versiones v1.5.0–v1.7.0 endurecieron la seguridad de forma
+            sistemática. El resultado es medible y auditado.
+          </p>
+          <div class="problem-grid">
+            <div class="problem-card fragment">
+              <div class="problem-icon">🔍</div>
+              <h4>Secrets Detection</h4>
+              <p>
+                <strong>gitleaks</strong> integrado en Husky pre-commit
+                (ADR-094). <strong>npm audit</strong> en pre-push: 0 CVEs de
+                alta severidad bloqueantes.
+              </p>
+            </div>
+            <div class="problem-card fragment">
+              <div class="problem-icon">🛡️</div>
+              <h4>SonarQube Clean</h4>
+              <p>
+                SonarQube Community Edition (ADR-096/108):
+                <strong>0 bugs · 0 vulnerabilidades · 0 hotspots</strong>.
+                Umbrales de cobertura 80% enforced en CI (ADR-097).
+              </p>
+            </div>
+            <div class="problem-card fragment">
+              <div class="problem-icon">🧪</div>
+              <h4>OWASP &amp; ReDoS</h4>
+              <p>
+                Validación OWASP Top 10: <strong>96.5%</strong> de controles
+                cubiertos. Fix ReDoS en regex email (ADR-108). AES-256-GCM
+                documentado.
+              </p>
+            </div>
+            <div class="problem-card fragment">
+              <div class="problem-icon">🔐</div>
+              <h4>Auth &amp; CORS</h4>
+              <p>
+                Fix password reset token (ADR-098). CORS con validación dinámica
+                origen (ADR-110). MFA no desactivable: protección por defecto.
+              </p>
             </div>
           </div>
           <aside class="notes">
-            Cierre documental del TFM: metodología, decisiones y evidencia de
-            ejecución quedan consolidadas para evaluación independiente.
+            v1.5.0 (10/02): Security hardening — gitleaks, CVE audit, CSRF.
+            v1.6.0 (14/02): SonarQube 0 issues, cobertura 81%/90%. v1.6.1
+            (14/02): CORS Dynamic Validation (ADR-110). ADRs clave: ADR-094,
+            ADR-096, ADR-097, ADR-098, ADR-108, ADR-110. Resultado final v1.7.0:
+            0 bugs, 0 vulnerabilidades, 0 hotspots, 0 CVEs alta severidad,
+            gitleaks activo en todos los commits.
           </aside>
         </section>

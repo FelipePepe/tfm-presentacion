@@ -1,49 +1,48 @@
 <section
           data-background-gradient="linear-gradient(135deg, #0f3460 0%, #1a1a2e 100%)"
           role="region"
-          aria-label="Lecciones aprendidas"
+          aria-label="Limitaciones y riesgos"
         >
-          <h2>Lecciones Aprendidas</h2>
+          <h2>Limitaciones y Riesgos</h2>
           <p class="slide-explainer">
-            El contexto y las reglas pesan más que el modelo. Velocidad extrema
-            es posible sin sacrificar calidad con proceso disciplinado.
+            La IA no es infalible: requiere contexto preciso y validación
+            constante. También existen riesgos de costes, privacidad y sesgos.
           </p>
           <div class="problem-grid">
             <div class="problem-card fragment">
-              <div class="problem-icon">🧭</div>
-              <h4>Fuentes de verdad ANTES</h4>
+              <div class="problem-icon">⚠️</div>
+              <h4>Dependencia del contexto</h4>
               <p>
-                AGENTS.md + ADRs + OpenAPI previos al código evitaron alucinaciones.
-                La IA fue productiva desde día 1.
-              </p>
-            </div>
-            <div class="problem-card fragment">
-              <div class="problem-icon">🔥</div>
-              <h4>Velocidad extrema con reglas</h4>
-              <p>
-                Día 5: 8 PRs Onboarding. Día 6: Gantt +2326 LOC. Reglas claras
-                permiten acelerar sin caos.
+                Prompts pobres generan código pobre si no se revisa con
+                criterio.
               </p>
             </div>
             <div class="problem-card fragment">
               <div class="problem-icon">🧪</div>
-              <h4>Tests obligatorios siempre</h4>
+              <h4>Validación obligatoria</h4>
               <p>
-                Tests obligatorios en cada PR. Sin tests, velocidad IA genera
-                deuda técnica insostenible.
+                La IA puede introducir errores sutiles que solo se detectan con
+                tests.
+              </p>
+            </div>
+            <div class="problem-card fragment">
+              <div class="problem-icon">🔐</div>
+              <h4>Privacidad y costes</h4>
+              <p>
+                Gestionar datos sensibles y consumo de API de forma controlada.
               </p>
             </div>
             <div class="problem-card fragment">
               <div class="problem-icon">🧠</div>
-              <h4>La IA no sustituye criterio</h4>
+              <h4>Sesgo de soluciones</h4>
               <p>
-                Acelera, pero requiere validación humana continua. Disciplina en
-                docs ↔ código es clave.
+                Requiere criterio humano continuo para no adoptar respuestas
+                incorrectas.
               </p>
             </div>
           </div>
           <aside class="notes">
-            La lección clave es que la IA amplifica el proceso existente: si es
-            bueno, acelera; si es malo, empeora resultados.
+            La IA no elimina la necesidad de revisión humana. De hecho, aumenta
+            la responsabilidad sobre validación y seguridad.
           </aside>
         </section>

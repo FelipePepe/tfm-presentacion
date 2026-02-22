@@ -1,48 +1,69 @@
-<section
+        <!-- ============================================ -->
+        <!-- SLIDE 15B: HISTORIAL DE RELEASES -->
+        <!-- ============================================ -->
+        <section
           data-background-gradient="linear-gradient(135deg, #0f3460 0%, #1a1a2e 100%)"
           role="region"
-          aria-label="Limitaciones y riesgos"
+          aria-label="Historial de releases de TeamHub"
         >
-          <h2>Limitaciones y Riesgos</h2>
+          <h2>Historial de Releases: v1.0.0 → v1.7.0</h2>
           <p class="slide-explainer">
-            La IA no es infalible: requiere contexto preciso y validación
-            constante. También existen riesgos de costes, privacidad y sesgos.
+            10 releases en 23 días. Cada versión representa un ciclo completo:
+            feature/bugfix → develop → PR → main → tag. Calidad y funcionalidad
+            creciendo en paralelo.
           </p>
           <div class="problem-grid">
             <div class="problem-card fragment">
-              <div class="problem-icon">⚠️</div>
-              <h4>Dependencia del contexto</h4>
+              <div class="problem-icon">🟢</div>
+              <h4>Hito inicial (ene 2026)</h4>
               <p>
-                Prompts pobres generan código pobre si no se revisa con
-                criterio.
+                <strong>v1.0.0</strong> (30/01): Fases 1-5 completas<br />
+                <strong>v1.1.0</strong> (30/01): Seed data + fix decimal<br />
+                <strong>v1.2.0</strong> (31/01): Gantt responsive + Husky<br />
+                <strong>v1.2.1</strong> (31/01): Hotfix SelectItem<br />
+                <strong>v1.3.0</strong> (31/01): Sistema Tareas + dark mode
               </p>
             </div>
             <div class="problem-card fragment">
-              <div class="problem-icon">🧪</div>
-              <h4>Validación obligatoria</h4>
+              <div class="problem-icon">🔵</div>
+              <h4>Calidad y seguridad (feb 2026)</h4>
               <p>
-                La IA puede introducir errores sutiles que solo se detectan con
-                tests.
+                <strong>v1.4.0</strong> (07/02): E2E Playwright + D3 charts<br />
+                <strong>v1.5.0</strong> (10/02): Security hardening (gitleaks,
+                CVE audit, CSRF)<br />
+                <strong>v1.5.1</strong> (14/02): Version bump<br />
+                <strong>v1.6.0</strong> (14/02): SonarQube clean + coverage
+                81%/90%<br />
+                <strong>v1.6.1</strong> (14/02): CORS dynamic + docs
+                modularización
               </p>
             </div>
             <div class="problem-card fragment">
-              <div class="problem-icon">🔐</div>
-              <h4>Privacidad y costes</h4>
+              <div class="problem-icon">🟣</div>
+              <h4>v1.7.0 — Estado actual</h4>
               <p>
-                Gestionar datos sensibles y consumo de API de forma controlada.
+                <strong>v1.7.0</strong> (22/02): N:M Proyectos-Departamentos
+                (ADR-113) · Dashboard KPI desviación presupuestaria (ADR-114) ·
+                Filtro empleados por proyecto + rol en tareas (ADR-115) · Fix
+                unicidad código soft-delete (ADR-116) · Skills modularizadas
+                (ADR-117) · 0 warnings lint (ADR-118) · Skill boy-scout
+                (ADR-119)
               </p>
             </div>
             <div class="problem-card fragment">
-              <div class="problem-icon">🧠</div>
-              <h4>Sesgo de soluciones</h4>
+              <div class="problem-icon">📈</div>
+              <h4>Evolución de calidad</h4>
               <p>
-                Requiere criterio humano continuo para no adoptar respuestas
-                incorrectas.
+                v1.0.0: tests básicos → v1.7.0: <strong>1,047 tests</strong>,
+                cobertura 85.54%, SonarQube 0 issues, 0 errores lint, 0 CVEs
+                alta severidad, gitleaks activo.
               </p>
             </div>
           </div>
           <aside class="notes">
-            La IA no elimina la necesidad de revisión humana. De hecho, aumenta
-            la responsabilidad sobre validación y seguridad.
+            10 releases en 23 días. Las primeras 5 fueron el hito inicial
+            (enero). Las 5 siguientes endurecieron la calidad, la seguridad y
+            añadieron features interdepartamentales. La calidad creció en
+            paralelo a las features.
           </aside>
         </section>

@@ -13,7 +13,7 @@
     />
     <link rel="stylesheet" href="./css/custom.css" />
     
-<!-- Build: 2026-02-22T16:24:31.801Z | Hash: 86e77832 | Version: 1.6.1 -->
+<!-- Build: 2026-02-22T16:31:30.554Z | Hash: 494d495d | Version: 1.6.1 -->
   </head>
   <body>
     <div class="reveal">
@@ -1456,6 +1456,77 @@
           </aside>
         </section>
 
+        <!-- ============================================ -->
+        <!-- SLIDE 15B: HISTORIAL DE RELEASES -->
+        <!-- ============================================ -->
+        <section
+          data-background-gradient="linear-gradient(135deg, #0f3460 0%, #1a1a2e 100%)"
+          role="region"
+          aria-label="Historial de releases de TeamHub"
+        >
+          <h2>Historial de Releases: v1.0.0 → v1.7.0</h2>
+          <p class="slide-explainer">
+            10 releases en 23 días. Cada versión representa un ciclo completo:
+            feature/bugfix → develop → PR → main → tag. Calidad y funcionalidad
+            creciendo en paralelo.
+          </p>
+          <div class="problem-grid">
+            <div class="problem-card fragment">
+              <div class="problem-icon">🟢</div>
+              <h4>Hito inicial (ene 2026)</h4>
+              <p>
+                <strong>v1.0.0</strong> (30/01): Fases 1-5 completas<br />
+                <strong>v1.1.0</strong> (30/01): Seed data + fix decimal<br />
+                <strong>v1.2.0</strong> (31/01): Gantt responsive + Husky<br />
+                <strong>v1.2.1</strong> (31/01): Hotfix SelectItem<br />
+                <strong>v1.3.0</strong> (31/01): Sistema Tareas + dark mode
+              </p>
+            </div>
+            <div class="problem-card fragment">
+              <div class="problem-icon">🔵</div>
+              <h4>Calidad y seguridad (feb 2026)</h4>
+              <p>
+                <strong>v1.4.0</strong> (07/02): E2E Playwright + D3 charts<br />
+                <strong>v1.5.0</strong> (10/02): Security hardening (gitleaks,
+                CVE audit, CSRF)<br />
+                <strong>v1.5.1</strong> (14/02): Version bump<br />
+                <strong>v1.6.0</strong> (14/02): SonarQube clean + coverage
+                81%/90%<br />
+                <strong>v1.6.1</strong> (14/02): CORS dynamic + docs
+                modularización
+              </p>
+            </div>
+            <div class="problem-card fragment">
+              <div class="problem-icon">🟣</div>
+              <h4>v1.7.0 — Estado actual</h4>
+              <p>
+                <strong>v1.7.0</strong> (22/02): N:M Proyectos-Departamentos
+                (ADR-113) · Dashboard KPI desviación presupuestaria (ADR-114) ·
+                Filtro empleados por proyecto + rol en tareas (ADR-115) · Fix
+                unicidad código soft-delete (ADR-116) · Skills modularizadas
+                (ADR-117) · 0 warnings lint (ADR-118) · Skill boy-scout
+                (ADR-119)
+              </p>
+            </div>
+            <div class="problem-card fragment">
+              <div class="problem-icon">📈</div>
+              <h4>Evolución de calidad</h4>
+              <p>
+                v1.0.0: tests básicos → v1.7.0: <strong>1,047 tests</strong>,
+                cobertura 85.54%, SonarQube 0 issues, 0 errores lint, 0 CVEs
+                alta severidad, gitleaks activo.
+              </p>
+            </div>
+          </div>
+          <aside class="notes">
+            10 releases en 23 días. Las primeras 5 fueron el hito inicial
+            (enero). Las 5 siguientes endurecieron la calidad, la seguridad y
+            añadieron features interdepartamentales. La calidad creció en
+            paralelo a las features.
+          </aside>
+        </section>
+
+
 <section
           data-background-gradient="linear-gradient(135deg, #0f3460 0%, #1a1a2e 100%)"
           role="region"
@@ -1554,6 +1625,67 @@
             bueno, acelera; si es malo, empeora resultados.
           </aside>
         </section>
+
+        <!-- ============================================ -->
+        <!-- SLIDE 16B: SEGURIDAD AVANZADA -->
+        <!-- ============================================ -->
+        <section
+          data-background-gradient="linear-gradient(135deg, #0f3460 0%, #1a1a2e 100%)"
+          role="region"
+          aria-label="Seguridad avanzada: métricas y hardening"
+        >
+          <h2>Seguridad Avanzada: Hardening y Resultados</h2>
+          <p class="slide-explainer">
+            Las versiones v1.5.0–v1.7.0 endurecieron la seguridad de forma
+            sistemática. El resultado es medible y auditado.
+          </p>
+          <div class="problem-grid">
+            <div class="problem-card fragment">
+              <div class="problem-icon">🔍</div>
+              <h4>Secrets Detection</h4>
+              <p>
+                <strong>gitleaks</strong> integrado en Husky pre-commit
+                (ADR-094). <strong>npm audit</strong> en pre-push: 0 CVEs de
+                alta severidad bloqueantes.
+              </p>
+            </div>
+            <div class="problem-card fragment">
+              <div class="problem-icon">🛡️</div>
+              <h4>SonarQube Clean</h4>
+              <p>
+                SonarQube Community Edition (ADR-096/108):
+                <strong>0 bugs · 0 vulnerabilidades · 0 hotspots</strong>.
+                Umbrales de cobertura 80% enforced en CI (ADR-097).
+              </p>
+            </div>
+            <div class="problem-card fragment">
+              <div class="problem-icon">🧪</div>
+              <h4>OWASP &amp; ReDoS</h4>
+              <p>
+                Validación OWASP Top 10: <strong>96.5%</strong> de controles
+                cubiertos. Fix ReDoS en regex email (ADR-108). AES-256-GCM
+                documentado.
+              </p>
+            </div>
+            <div class="problem-card fragment">
+              <div class="problem-icon">🔐</div>
+              <h4>Auth &amp; CORS</h4>
+              <p>
+                Fix password reset token (ADR-098). CORS con validación dinámica
+                origen (ADR-110). MFA no desactivable: protección por defecto.
+              </p>
+            </div>
+          </div>
+          <aside class="notes">
+            v1.5.0 (10/02): Security hardening — gitleaks, CVE audit, CSRF.
+            v1.6.0 (14/02): SonarQube 0 issues, cobertura 81%/90%. v1.6.1
+            (14/02): CORS Dynamic Validation (ADR-110). ADRs clave: ADR-094,
+            ADR-096, ADR-097, ADR-098, ADR-108, ADR-110. Resultado final v1.7.0:
+            0 bugs, 0 vulnerabilidades, 0 hotspots, 0 CVEs alta severidad,
+            gitleaks activo en todos los commits.
+          </aside>
+        </section>
+
 
 <section
           data-background-gradient="linear-gradient(135deg, #0f3460 0%, #1a1a2e 100%)"
