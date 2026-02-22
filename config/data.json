@@ -44,8 +44,8 @@
   },
   "urls": {
     "frontend": "https://teamhub-tfm.vercel.app",
-    "backend": "https://teamhub-backend-production.up.railway.app",
-    "swagger": "https://teamhub-backend-production.up.railway.app/docs",
+    "backend": "https://teamhub-bxi0.onrender.com",
+    "swagger": "https://teamhub-bxi0.onrender.com/docs",
     "github": "https://github.com/FelipePepe/TeamHub",
     "slides": "https://felipepepe.github.io/tfm-presentacion"
   }
