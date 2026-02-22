@@ -12,25 +12,25 @@
  *   HEADLESS=1           → ejecutar sin ventana (igual que check-slides)
  */
 
-import { chromium } from '@playwright/test';
-import fs from 'node:fs';
-import path from 'node:path';
+import { chromium } from "@playwright/test";
+import fs from "node:fs";
+import path from "node:path";
 
-const url = process.env.SLIDES_URL || 'http://localhost:8080';
+const url = process.env.SLIDES_URL || "http://localhost:8080";
 const viewportWidth = 1920;
 const viewportHeight = 1080;
 const slideDelayMs = Number(process.env.SLIDE_DELAY_MS || 2000);
-const withScreenshots = process.env.SCREENSHOTS !== '0';
-const headless = process.env.HEADLESS === '1';
+const withScreenshots = process.env.SCREENSHOTS !== "0";
+const headless = process.env.HEADLESS === "1";
 const overflowTolerancePx = 2;
 
 type IssueType =
-  | 'overflow'
-  | 'font_mismatch'
-  | 'icon_missing'
-  | 'broken_image'
-  | 'not_visible'
-  | 'console_error';
+  | "overflow"
+  | "font_mismatch"
+  | "icon_missing"
+  | "broken_image"
+  | "not_visible"
+  | "console_error";
 
 interface SlideIssue {
   slideIndex: number;
@@ -53,55 +53,67 @@ async function main() {
     viewport: { width: viewportWidth, height: viewportHeight },
   });
 
-  page.on('console', (msg) => {
-    if (msg.type() === 'error') {
-      consoleErrors.push({ slideIndex: currentSlideForErrors, text: msg.text() });
+  page.on("console", (msg) => {
+    if (msg.type() === "error") {
+      consoleErrors.push({
+        slideIndex: currentSlideForErrors,
+        text: msg.text(),
+      });
     }
   });
 
   try {
     const response = await page.goto(url, {
-      waitUntil: 'networkidle',
+      waitUntil: "networkidle",
       timeout: 15000,
     });
     if (!response || response.status() !== 200) {
-      console.error('No se pudo cargar la presentación. ¿Está el servidor en marcha? (npm run dev)');
+      console.error(
+        "No se pudo cargar la presentación. ¿Está el servidor en marcha? (npm run dev)",
+      );
       process.exit(1);
     }
   } catch {
-    console.error('Error cargando', url, '. Ejecuta antes: npm run dev');
+    console.error("Error cargando", url, ". Ejecuta antes: npm run dev");
     process.exit(1);
   }
 
   await page.waitForFunction(
     () => (globalThis as any).Reveal && (globalThis as any).Reveal.isReady(),
-    { timeout: 10000 }
+    { timeout: 10000 },
   );
 
   const total = await page.evaluate(
-    () => (globalThis as any).document.querySelectorAll('.slides > section').length
+    () =>
+      (globalThis as any).document.querySelectorAll(".slides > section").length,
   );
 
   const screenshotsDir = withScreenshots
-    ? path.resolve('review-slides-screenshots')
+    ? path.resolve("review-slides-screenshots")
     : null;
   if (screenshotsDir) {
     fs.mkdirSync(screenshotsDir, { recursive: true });
   }
 
-  console.log(`\nRevisando ${total} slides (viewport ${viewportWidth}x${viewportHeight})`);
-  console.log(`Pausa por slide: ${slideDelayMs} ms. Headless: ${headless}. Capturas: ${withScreenshots ? screenshotsDir : 'no'}\n`);
+  console.log(
+    `\nRevisando ${total} slides (viewport ${viewportWidth}x${viewportHeight})`,
+  );
+  console.log(
+    `Pausa por slide: ${slideDelayMs} ms. Headless: ${headless}. Capturas: ${withScreenshots ? screenshotsDir : "no"}\n`,
+  );
 
   for (let i = 0; i < total; i += 1) {
     currentSlideForErrors = i + 1;
     await page.evaluate((index: number) => {
       const reveal = (globalThis as any).Reveal;
       reveal.slide(index);
-      const slide = (globalThis as any).document.querySelectorAll('.slides > section')[index];
+      const slide = (globalThis as any).document.querySelectorAll(
+        ".slides > section",
+      )[index];
       if (slide) {
-        slide.querySelectorAll('.fragment').forEach((el: any) => {
-          el.classList.add('visible');
-          el.classList.remove('fragment');
+        slide.querySelectorAll(".fragment").forEach((el: any) => {
+          el.classList.add("visible");
+          el.classList.remove("fragment");
         });
       }
     }, i);
@@ -112,7 +124,9 @@ async function main() {
     const check = await page.evaluate(
       (args: { index: number; vw: number; vh: number; tol: number }) => {
         const { index, vw: vpW, vh: vpH, tol } = args;
-        const slides = (globalThis as any).document.querySelectorAll('.slides > section');
+        const slides = (globalThis as any).document.querySelectorAll(
+          ".slides > section",
+        );
         const currentSlide = slides[index];
         if (!currentSlide) {
           return {
@@ -125,9 +139,9 @@ async function main() {
         }
 
         const brokenImages: string[] = [];
-        currentSlide.querySelectorAll('img').forEach((img: any) => {
+        currentSlide.querySelectorAll("img").forEach((img: any) => {
           if (!img.complete || img.naturalWidth === 0) {
-            const src = img.getAttribute('src') || '';
+            const src = img.getAttribute("src") || "";
             if (src) brokenImages.push(src);
           }
         });
@@ -143,7 +157,7 @@ async function main() {
 
         const overflow: string[] = [];
         const walk = (el: any) => {
-          if (el && typeof el.getBoundingClientRect === 'function') {
+          if (el && typeof el.getBoundingClientRect === "function") {
             const r = el.getBoundingClientRect();
             if (r.width > 0 && r.height > 0) {
               if (
@@ -154,11 +168,11 @@ async function main() {
               ) {
                 const tag = el.tagName.toLowerCase();
                 const cls =
-                  el.className && typeof el.className === 'string'
-                    ? '.' + (el.className as string).split(' ')[0]
-                    : '';
+                  el.className && typeof el.className === "string"
+                    ? "." + (el.className as string).split(" ")[0]
+                    : "";
                 overflow.push(
-                  `${tag}${cls} (B:${Math.round(r.bottom)}${r.bottom > vpH + tol ? ' > viewport' : ''})`
+                  `${tag}${cls} (B:${Math.round(r.bottom)}${r.bottom > vpH + tol ? " > viewport" : ""})`,
                 );
               }
             }
@@ -172,17 +186,17 @@ async function main() {
         const fontMismatch: string[] = [];
         const getFontSize = (el: any) => {
           const s = (globalThis as any).getComputedStyle(el);
-          return s ? s.fontSize : '';
+          return s ? s.fontSize : "";
         };
         const selectors = [
-          '.quality-card h4',
-          '.quality-card p',
-          '.result-card .result-desc',
-          '.criteria-card h4',
-          '.criteria-card p',
-          '.agenda-content h4',
-          '.agenda-content p',
-          '.conclusion-item p',
+          ".quality-card h4",
+          ".quality-card p",
+          ".result-card .result-desc",
+          ".criteria-card h4",
+          ".criteria-card p",
+          ".agenda-content h4",
+          ".agenda-content p",
+          ".conclusion-item p",
         ];
         selectors.forEach((sel) => {
           const nodes = currentSlide.querySelectorAll(sel);
@@ -190,17 +204,39 @@ async function main() {
           const sizes = new Set<string>();
           nodes.forEach((n: any) => sizes.add(getFontSize(n)));
           if (sizes.size > 1) {
-            fontMismatch.push(`${sel}: tamaños distintos (${Array.from(sizes).join(', ')})`);
+            fontMismatch.push(
+              `${sel}: tamaños distintos (${Array.from(sizes).join(", ")})`,
+            );
           }
         });
 
         const iconMissing: string[] = [];
         const gridSelectors = [
-          { container: '.quality-grid', card: '.quality-card', icon: '.quality-icon' },
-          { container: '.results-grid', card: '.result-card', icon: '.result-icon' },
-          { container: '.criteria-grid', card: '.criteria-card', icon: '.criteria-icon' },
-          { container: '.agenda-grid', card: '.agenda-item', icon: '.agenda-number' },
-          { container: '.conclusions-list', card: '.conclusion-item', icon: '.conclusion-icon' },
+          {
+            container: ".quality-grid",
+            card: ".quality-card",
+            icon: ".quality-icon",
+          },
+          {
+            container: ".results-grid",
+            card: ".result-card",
+            icon: ".result-icon",
+          },
+          {
+            container: ".criteria-grid",
+            card: ".criteria-card",
+            icon: ".criteria-icon",
+          },
+          {
+            container: ".agenda-grid",
+            card: ".agenda-item",
+            icon: ".agenda-number",
+          },
+          {
+            container: ".conclusions-list",
+            card: ".conclusion-item",
+            icon: ".conclusion-icon",
+          },
         ];
         gridSelectors.forEach(({ container, card, icon }) => {
           const grid = currentSlide.querySelector(container);
@@ -212,14 +248,14 @@ async function main() {
           cards.forEach((c: any) => {
             const hasIcon =
               c.querySelector(icon) ||
-              (icon.includes('icon') && c.querySelector('[class*="icon"]')) ||
-              c.querySelector('img');
+              (icon.includes("icon") && c.querySelector('[class*="icon"]')) ||
+              c.querySelector("img");
             if (hasIcon) withIcon += 1;
             else withoutIcon += 1;
           });
           if (withIcon > 0 && withoutIcon > 0) {
             iconMissing.push(
-              `${container}: ${withIcon} con icono/badge, ${withoutIcon} sin (misma fila/grid)`
+              `${container}: ${withIcon} con icono/badge, ${withoutIcon} sin (misma fila/grid)`,
             );
           }
         });
@@ -237,7 +273,7 @@ async function main() {
         vw: viewportWidth,
         vh: viewportHeight,
         tol: overflowTolerancePx,
-      }
+      },
     );
 
     if (check.brokenImages.length) {
@@ -245,7 +281,7 @@ async function main() {
         issues.push({
           slideIndex: i + 1,
           slideLabel,
-          type: 'broken_image',
+          type: "broken_image",
           detail: src,
         });
       });
@@ -254,18 +290,20 @@ async function main() {
       issues.push({
         slideIndex: i + 1,
         slideLabel,
-        type: 'not_visible',
-        detail: 'La sección no es visible o tiene tamaño casi cero.',
+        type: "not_visible",
+        detail: "La sección no es visible o tiene tamaño casi cero.",
       });
     }
     if (check.overflow.length) {
       issues.push({
         slideIndex: i + 1,
         slideLabel,
-        type: 'overflow',
+        type: "overflow",
         detail:
-          check.overflow.slice(0, 6).join('; ') +
-          (check.overflow.length > 6 ? ` (+${check.overflow.length - 6} más)` : ''),
+          check.overflow.slice(0, 6).join("; ") +
+          (check.overflow.length > 6
+            ? ` (+${check.overflow.length - 6} más)`
+            : ""),
       });
     }
     if (check.fontMismatch.length) {
@@ -273,7 +311,7 @@ async function main() {
         issues.push({
           slideIndex: i + 1,
           slideLabel,
-          type: 'font_mismatch',
+          type: "font_mismatch",
           detail: d,
         });
       });
@@ -283,7 +321,7 @@ async function main() {
         issues.push({
           slideIndex: i + 1,
           slideLabel,
-          type: 'icon_missing',
+          type: "icon_missing",
           detail: d,
         });
       });
@@ -293,11 +331,11 @@ async function main() {
     const msg =
       slideIssues.length === 0
         ? `${slideLabel} OK`
-        : `${slideLabel} → ${slideIssues.map((s) => s.type).join(', ')}`;
+        : `${slideLabel} → ${slideIssues.map((s) => s.type).join(", ")}`;
     console.log(msg);
 
     if (screenshotsDir) {
-      const name = `slide-${String(i + 1).padStart(2, '0')}.png`;
+      const name = `slide-${String(i + 1).padStart(2, "0")}.png`;
       await page.screenshot({
         path: path.join(screenshotsDir, name),
         fullPage: false,
@@ -311,37 +349,37 @@ async function main() {
     const slideNum = slideIndex >= 0 ? slideIndex + 1 : 0;
     issues.push({
       slideIndex: slideNum,
-      slideLabel: slideNum ? `Slide ${slideNum}/${total}` : 'Global',
-      type: 'console_error',
+      slideLabel: slideNum ? `Slide ${slideNum}/${total}` : "Global",
+      type: "console_error",
       detail: text.slice(0, 200),
     });
   });
 
   await browser.close();
 
-  const outPath = path.resolve('review-slides-report.txt');
+  const outPath = path.resolve("review-slides-report.txt");
   const lines: string[] = [
-    'Reporte de revisión visual de slides (Playwright)',
+    "Reporte de revisión visual de slides (Playwright)",
     `URL: ${url}`,
     `Viewport: ${viewportWidth}x${viewportHeight}`,
     `Total slides: ${total}`,
     `Fecha: ${new Date().toISOString()}`,
-    '',
+    "",
   ];
 
   if (issues.length === 0) {
-    lines.push('No se detectaron problemas.');
+    lines.push("No se detectaron problemas.");
   } else {
     lines.push(
-      '[overflow] = contenido que se sale del viewport. B > 1080 = se corta por abajo.'
+      "[overflow] = contenido que se sale del viewport. B > 1080 = se corta por abajo.",
     );
     lines.push(
-      '[font_mismatch] = mismo tipo de elemento en la slide con distinto tamaño de fuente.'
+      "[font_mismatch] = mismo tipo de elemento en la slide con distinto tamaño de fuente.",
     );
     lines.push(
-      '[icon_missing] = en un mismo grid/lista, unas cards tienen icono/badge y otras no.'
+      "[icon_missing] = en un mismo grid/lista, unas cards tienen icono/badge y otras no.",
     );
-    lines.push('');
+    lines.push("");
     const bySlide = new Map<number, SlideIssue[]>();
     issues.forEach((iss) => {
       const key = iss.slideIndex;
@@ -356,16 +394,16 @@ async function main() {
         slideIssues.forEach((iss) => {
           lines.push(`  [${iss.type}] ${iss.detail}`);
         });
-        lines.push('');
+        lines.push("");
       });
   }
 
-  const report = lines.join('\n');
-  fs.writeFileSync(outPath, report, 'utf8');
-  console.log('\n' + report);
-  console.log('\nReporte guardado en:', outPath);
+  const report = lines.join("\n");
+  fs.writeFileSync(outPath, report, "utf8");
+  console.log("\n" + report);
+  console.log("\nReporte guardado en:", outPath);
   if (screenshotsDir) {
-    console.log('Capturas en:', screenshotsDir);
+    console.log("Capturas en:", screenshotsDir);
   }
   process.exit(issues.length > 0 ? 1 : 0);
 }

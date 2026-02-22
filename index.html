@@ -80,7 +80,7 @@
                 <h4>Presentación del proyecto</h4>
                 <p>
                   Qué es TeamHub, para quién va dirigido y qué funcionalidades
-                  incluye (6 fases)
+                  incluye (7 áreas, v1.7.0)
                 </p>
               </div>
             </a>
@@ -246,9 +246,9 @@
               <p>
                 Sistema de gestión para organizaciones: dashboards por rol,
                 gestión de empleados, onboarding, proyectos, timetracking y
-                sistema de tareas (Jira-like). Desarrollado con Next.js 15,
-                Hono, PostgreSQL y Drizzle ORM, con API OpenAPI v1.0.0 y 149
-                endpoints documentados.
+                sistema de tareas jerárquico (Jira-like). Desarrollado con
+                Next.js 16, Hono, PostgreSQL y Drizzle ORM, con API OpenAPI
+                v1.0.0 y <strong>157 endpoints</strong> documentados.
               </p>
             </div>
             <div class="problem-card fragment">
@@ -263,24 +263,26 @@
             </div>
             <div class="problem-card fragment">
               <div class="problem-icon">📋</div>
-              <h4>Funcionalidades clave (6 fases)</h4>
+              <h4>Funcionalidades clave (7 áreas)</h4>
               <p>
-                <strong>Fase 1:</strong> Auth (Login, MFA, JWT)<br>
-                <strong>Fase 2:</strong> Departamentos y Empleados<br>
-                <strong>Fase 3:</strong> Onboarding (plantillas, procesos)<br>
-                <strong>Fase 4:</strong> Proyectos (asignaciones)<br>
-                <strong>Fase 5:</strong> Timetracking (Gantt D3.js)<br>
-                <strong>Fase 6:</strong> Dashboards por rol
+                <strong>Auth:</strong> Login, MFA obligatorio, JWT<br />
+                <strong>RRHH:</strong> Departamentos, Empleados, Onboarding<br />
+                <strong>Proyectos:</strong> N:M departamentos, asignaciones<br />
+                <strong>Timetracking:</strong> Gantt D3.js, aprobación<br />
+                <strong>Tareas:</strong> Sistema jerárquico (Jira-like)<br />
+                <strong>Dashboards:</strong> KPI por rol, desviación
+                presupuestaria
               </p>
             </div>
             <div class="problem-card fragment">
               <div class="problem-icon">✅</div>
-              <h4>Estado actual</h4>
+              <h4>Estado actual (v1.7.0)</h4>
               <p>
-                Estado documentado a 14/02/2026: 1,038 tests (655 backend + 383
-                frontend), cobertura global 85.54% y decisiones registradas
-                hasta ADR-107. MFA obligatorio, diseño responsive WCAG AA y
-                evolución continua con releases v1.0.0-v1.3.0 y v1.4.0 en curso.
+                Versión v1.7.0 (22/02/2026): <strong>1,047 tests</strong> (664
+                backend + 383 frontend), cobertura global 85.54%, decisiones
+                registradas hasta <strong>ADR-119</strong>. MFA obligatorio,
+                SonarQube 0 issues, linting 0 errores · 0 warnings, diseño
+                responsive WCAG AA.
               </p>
             </div>
           </div>
@@ -627,7 +629,8 @@
             />
           </div>
           <aside class="notes">
-            Primera parte del flujo: Requisito → ¿ADR? → OpenAPI → Codex genera código → Tests → Hooks → PR.
+            Primera parte del flujo: Requisito → ¿ADR? → OpenAPI → Codex genera
+            código → Tests → Hooks → PR.
           </aside>
         </section>
 
@@ -647,7 +650,8 @@
             />
           </div>
           <aside class="notes">
-            Segunda parte del flujo: PR → Code Review → Merge → ¿Release? → Tag → Fin.
+            Segunda parte del flujo: PR → Code Review → Merge → ¿Release? → Tag
+            → Fin.
           </aside>
         </section>
 
@@ -666,10 +670,12 @@
               <div class="problem-icon">🌲</div>
               <h4>Branching Strategy</h4>
               <p>
-                <strong>main</strong> (producción), <strong>develop</strong>
-                (integración), <strong>feature/</strong> (nuevas
-                funcionalidades), <strong>bugfix/</strong> (correcciones),
-                <strong>release/</strong> (preparación), <strong>hotfix/</strong>
+                <strong>main</strong> (producción),
+                <strong>develop</strong> (integración),
+                <strong>feature/</strong> (nuevas funcionalidades),
+                <strong>bugfix/</strong> (correcciones),
+                <strong>release/</strong> (preparación),
+                <strong>hotfix/</strong>
                 (urgentes). Estrategia aplicada de forma consistente durante
                 toda la ejecución del proyecto.
               </p>
@@ -678,17 +684,19 @@
               <div class="problem-icon">📝</div>
               <h4>Conventional Commits</h4>
               <p>
-                Formato <code>tipo(scope): descripción</code>. Tipos:
-                feat, fix, docs, refactor, test, chore. Uso consistente del
-                formato para mantener trazabilidad del historial.
+                Formato <code>tipo(scope): descripción</code>. Tipos: feat, fix,
+                docs, refactor, test, chore. Uso consistente del formato para
+                mantener trazabilidad del historial.
               </p>
             </div>
             <div class="problem-card fragment">
               <div class="problem-icon">🔒</div>
               <h4>Quality Gates (Husky)</h4>
               <p>
-                <strong>pre-commit</strong>: ESLint + Prettier.
-                <strong>pre-push</strong>: Tests obligatorios + validación OpenAPI.
+                <strong>pre-commit</strong>: ESLint + Prettier +
+                <strong>gitleaks</strong> (secrets detection, ADR-094).
+                <strong>pre-push</strong>: Tests obligatorios + validación
+                OpenAPI + <strong>npm audit</strong> (0 CVEs alta severidad).
                 <strong>commit-msg</strong>: Validación formato. Prohibido
                 --no-verify.
               </p>
@@ -697,9 +705,13 @@
               <div class="problem-icon">📊</div>
               <h4>Resultados</h4>
               <p>
-                Integración continua mediante PRs, releases estables
-                v1.0.0-v1.3.0 y rama v1.4.0 en preparación. 0 push directo a
-                main/develop y validaciones obligatorias en cada integración.
+                Integración continua con releases v1.0.0 →
+                <strong>v1.7.0</strong>. 0 push directo a main/develop,
+                validaciones obligatorias en cada integración. Linting:
+                <strong>0 errores · 0 warnings</strong>
+                (PR #143, ADR-118). PRs recientes: #144 (skill boy-scout), #143
+                (lint 0 warnings), #141 (Skills modularización), #140 (N:M
+                proyectos + KPI desviación).
               </p>
             </div>
           </div>
@@ -717,17 +729,22 @@
           aria-label="Diagrama GitFlow"
         >
           <h2>GitFlow: Diagrama</h2>
+          <p class="slide-explainer">
+            Flujo aplicado en TeamHub: desarrollo en
+            <code>feature/bugfix</code> sobre <code>develop</code>, integración
+            por PR y promoción controlada a <code>main</code>.
+          </p>
           <div class="diagram-stage">
             <img
               src="assets/diagrams/gitflow.svg"
-              alt="Diagrama GitFlow mostrando branches main, develop, feature, release y sus merges"
+              alt="Diagrama GitFlow de TeamHub con ramas main, develop, feature, bugfix, release y hotfix integradas por pull request"
               class="diagram-img"
             />
           </div>
           <aside class="notes">
-            Visualización del GitFlow real del proyecto: main/develop como branches principales,
-            feature branches para cada funcionalidad, releases v1.0.0-v1.3.0 y
-            evolución hacia v1.4.0.
+            Visualización del GitFlow real del proyecto con ramas protegidas
+            main/develop, trabajo en feature/bugfix y releases controladas.
+            Estado actual: evolución consolidada hasta v1.7.0.
           </aside>
         </section>
 
@@ -747,31 +764,45 @@
             <div class="problem-card fragment">
               <div class="problem-icon">🖥️</div>
               <h4>IDEs: VSCode y Cursor</h4>
-              <p>Cursor para generación y mejora iterativa con AGENTS.md; VSCode para edición con extensiones.</p>
+              <p>
+                Cursor para generación y mejora iterativa con AGENTS.md; VSCode
+                para edición con extensiones.
+              </p>
             </div>
             <div class="problem-card fragment">
               <div class="problem-icon">🤖</div>
               <h4>OpenAI Codex (CLI)</h4>
-              <p>Automatización de tareas y refactorizaciones con contexto del repo.</p>
+              <p>
+                Automatización de tareas y refactorizaciones con contexto del
+                repo.
+              </p>
             </div>
             <div class="problem-card fragment">
               <div class="problem-icon">🧠</div>
               <h4>GitHub Copilot + Sonnet 4.5</h4>
-              <p>Sugerencias in-editor para acelerar la escritura sin perder intención.</p>
+              <p>
+                Sugerencias in-editor para acelerar la escritura sin perder
+                intención.
+              </p>
             </div>
             <div class="problem-card fragment">
               <div class="problem-icon">⚡</div>
               <h4>Claude CLI + Opus 4.5</h4>
-              <p>Revisión crítica y síntesis de decisiones para detectar riesgos.</p>
+              <p>
+                Revisión crítica y síntesis de decisiones para detectar riesgos.
+              </p>
             </div>
             <div class="problem-card fragment">
               <div class="problem-icon">🗂️</div>
-              <h4>Fuentes de verdad (4)</h4>
+              <h4>Fuentes de verdad (5)</h4>
               <p>
-                <strong>ADRs</strong> (74 decisiones) - Arquitectura inmutable<br>
-                <strong>OpenAPI</strong> (149 endpoints) - Contrato API<br>
-                <strong>Storybook</strong> - Componentes UI y variantes<br>
-                <strong>Business Rules</strong> - Reglas de negocio centralizadas
+                <strong>ADRs</strong> (119 decisiones) - Arquitectura
+                trazable<br />
+                <strong>OpenAPI</strong> (157 endpoints) - Contrato API<br />
+                <strong>Storybook</strong> - Componentes UI y variantes<br />
+                <strong>Business Rules</strong> - Reglas de negocio
+                centralizadas<br />
+                <strong>Skills</strong> (9 skills) - Instrucciones agentes IA
               </p>
             </div>
           </div>
@@ -818,18 +849,18 @@
               <div class="problem-icon">📊</div>
               <h4>Gantt Chart D3.js (9512ed4)</h4>
               <p>
-                Weekly timesheet + Gantt interactivo con zoom, tooltips, progress
-                bars. +2326 líneas en single commit. Calidad directa en primera
-                iteración (ADR-064, 065).
+                Weekly timesheet + Gantt interactivo con zoom, tooltips,
+                progress bars. +2326 líneas en single commit. Calidad directa en
+                primera iteración (ADR-064, 065).
               </p>
             </div>
             <div class="problem-card fragment">
               <div class="problem-icon">⚡</div>
               <h4>Onboarding: 8 PRs en 1 día</h4>
               <p>
-                Plantillas reutilizables, editor drag&drop, procesos, tareas, modal
-                iniciar, widget dashboard. Velocidad extrema sin sacrificar
-                calidad: tests obligatorios en cada PR.
+                Plantillas reutilizables, editor drag&drop, procesos, tareas,
+                modal iniciar, widget dashboard. Velocidad extrema sin
+                sacrificar calidad: tests obligatorios en cada PR.
               </p>
             </div>
           </div>
@@ -931,9 +962,8 @@
               <div class="problem-icon">📊</div>
               <h4>Día 6-7: Visualizaciones</h4>
               <p>
-                Proyectos + Timetracking (PR #61). Gantt D3.js +2326 LOC
-                (commit 9512ed4). Sistema tareas jerárquico y cierre del MVP
-                inicial.
+                Proyectos + Timetracking (PR #61). Gantt D3.js +2326 LOC (commit
+                9512ed4). Sistema tareas jerárquico y cierre del MVP inicial.
               </p>
             </div>
           </div>
@@ -944,23 +974,100 @@
           </aside>
         </section>
 
-<section
-          class="diagram-slide"
+        <!-- ============================================ -->
+        <!-- SLIDE 14B: DIAGRAMA CRONOLOGÍA -->
+        <!-- ============================================ -->
+        <section
+          class="diagram-slide chrono-pr-slide"
           data-background-gradient="linear-gradient(135deg, #0f3460 0%, #1a1a2e 100%)"
           role="region"
           aria-label="Diagrama de cronología"
         >
-          <h2>Cronología: Diagrama Gantt</h2>
+          <h2>Cronología global: Diagrama Gantt por PRs</h2>
+          <p class="slide-explainer">
+            Vista ejecutiva por bloques: se muestran PRs ancla para evitar ruido
+            y facilitar la lectura del progreso.
+          </p>
           <div class="diagram-stage">
             <img
               src="assets/diagrams/cronologia.svg"
-              alt="Diagrama Gantt mostrando la cronología de implementación del 25 al 31 de enero"
+              alt="Diagrama Gantt global del proyecto TeamHub por bloques de pull requests, desde el inicio hasta la release v1.7.0"
               class="diagram-img"
             />
           </div>
           <aside class="notes">
-            Gantt del hito inicial (25-31 enero). El día 5 (barra roja) muestra
-            el pico de velocidad con 8 PRs de Onboarding en un solo día.
+            Gantt ejecutivo por bloques: PRs ancla como evidencia y detalle
+            completo en decisiones.md.
+          </aside>
+        </section>
+
+        <!-- ============================================ -->
+        <!-- SLIDE 15B: HISTORIAL DE RELEASES -->
+        <!-- ============================================ -->
+        <section
+          data-background-gradient="linear-gradient(135deg, #0f3460 0%, #1a1a2e 100%)"
+          role="region"
+          aria-label="Historial de releases de TeamHub"
+        >
+          <h2>Historial de Releases: v1.0.0 → v1.7.0</h2>
+          <p class="slide-explainer">
+            10 releases en 23 días. Cada versión representa un ciclo completo:
+            feature/bugfix → develop → PR → main → tag. Calidad y funcionalidad
+            creciendo en paralelo.
+          </p>
+          <div class="problem-grid">
+            <div class="problem-card fragment">
+              <div class="problem-icon">🟢</div>
+              <h4>Hito inicial (ene 2026)</h4>
+              <p>
+                <strong>v1.0.0</strong> (30/01): Fases 1-5 completas<br />
+                <strong>v1.1.0</strong> (30/01): Seed data + fix decimal<br />
+                <strong>v1.2.0</strong> (31/01): Gantt responsive + Husky<br />
+                <strong>v1.2.1</strong> (31/01): Hotfix SelectItem<br />
+                <strong>v1.3.0</strong> (31/01): Sistema Tareas + dark mode
+              </p>
+            </div>
+            <div class="problem-card fragment">
+              <div class="problem-icon">🔵</div>
+              <h4>Calidad y seguridad (feb 2026)</h4>
+              <p>
+                <strong>v1.4.0</strong> (07/02): E2E Playwright + D3 charts<br />
+                <strong>v1.5.0</strong> (10/02): Security hardening (gitleaks,
+                CVE audit, CSRF)<br />
+                <strong>v1.5.1</strong> (14/02): Version bump<br />
+                <strong>v1.6.0</strong> (14/02): SonarQube clean + coverage
+                81%/90%<br />
+                <strong>v1.6.1</strong> (14/02): CORS dynamic + docs
+                modularización
+              </p>
+            </div>
+            <div class="problem-card fragment">
+              <div class="problem-icon">🟣</div>
+              <h4>v1.7.0 — Estado actual</h4>
+              <p>
+                <strong>v1.7.0</strong> (22/02): N:M Proyectos-Departamentos
+                (ADR-113) · Dashboard KPI desviación presupuestaria (ADR-114) ·
+                Filtro empleados por proyecto + rol en tareas (ADR-115) · Fix
+                unicidad código soft-delete (ADR-116) · Skills modularizadas
+                (ADR-117) · 0 warnings lint (ADR-118) · Skill boy-scout
+                (ADR-119)
+              </p>
+            </div>
+            <div class="problem-card fragment">
+              <div class="problem-icon">📈</div>
+              <h4>Evolución de calidad</h4>
+              <p>
+                v1.0.0: tests básicos → v1.7.0: <strong>1,047 tests</strong>,
+                cobertura 85.54%, SonarQube 0 issues, 0 errores lint, 0 CVEs
+                alta severidad, gitleaks activo.
+              </p>
+            </div>
+          </div>
+          <aside class="notes">
+            10 releases en 23 días. Las primeras 5 fueron el hito inicial
+            (enero). Las 5 siguientes endurecieron la calidad, la seguridad y
+            añadieron features interdepartamentales. La calidad creció en
+            paralelo a las features.
           </aside>
         </section>
 
@@ -979,16 +1086,18 @@
               <div class="problem-icon">📚</div>
               <h4>ADRs como contrato</h4>
               <p>
-                El registro llega hasta ADR-107 e incluye cambios, riesgos y
-                consecuencias para justificar cada elección técnica.
+                El registro llega hasta <strong>ADR-119</strong> e incluye
+                cambios, riesgos y consecuencias para justificar cada elección
+                técnica. 119 decisiones desde el inicio hasta v1.7.0.
               </p>
             </div>
             <div class="problem-card fragment">
               <div class="problem-icon">🧩</div>
               <h4>Decisiones clave</h4>
               <p>
-                Next.js 15, Hono, Drizzle ORM, MFA siempre activo por criterios
-                de rendimiento y control.
+                Next.js 16, Hono, Drizzle ORM, MFA siempre activo, SonarQube
+                Community Edition, gitleaks + npm audit en Husky, Skills
+                modularizados (ADR-117).
               </p>
             </div>
             <div class="problem-card fragment">
@@ -1065,7 +1174,70 @@
           </aside>
         </section>
 
-<section
+        <!-- ============================================ -->
+        <!-- SLIDE 16B: SEGURIDAD AVANZADA -->
+        <!-- ============================================ -->
+        <section
+          data-background-gradient="linear-gradient(135deg, #0f3460 0%, #1a1a2e 100%)"
+          role="region"
+          aria-label="Seguridad avanzada: métricas y hardening"
+        >
+          <h2>Seguridad Avanzada: Hardening y Resultados</h2>
+          <p class="slide-explainer">
+            Las versiones v1.5.0–v1.7.0 endurecieron la seguridad de forma
+            sistemática. El resultado es medible y auditado.
+          </p>
+          <div class="problem-grid">
+            <div class="problem-card fragment">
+              <div class="problem-icon">🔍</div>
+              <h4>Secrets Detection</h4>
+              <p>
+                <strong>gitleaks</strong> integrado en Husky pre-commit
+                (ADR-094). <strong>npm audit</strong> en pre-push: 0 CVEs de
+                alta severidad bloqueantes.
+              </p>
+            </div>
+            <div class="problem-card fragment">
+              <div class="problem-icon">🛡️</div>
+              <h4>SonarQube Clean</h4>
+              <p>
+                SonarQube Community Edition (ADR-096/108):
+                <strong>0 bugs · 0 vulnerabilidades · 0 hotspots</strong>.
+                Umbrales de cobertura 80% enforced en CI (ADR-097).
+              </p>
+            </div>
+            <div class="problem-card fragment">
+              <div class="problem-icon">🧪</div>
+              <h4>OWASP &amp; ReDoS</h4>
+              <p>
+                Validación OWASP Top 10: <strong>96.5%</strong> de controles
+                cubiertos. Fix ReDoS en regex email (ADR-108). AES-256-GCM
+                documentado.
+              </p>
+            </div>
+            <div class="problem-card fragment">
+              <div class="problem-icon">🔐</div>
+              <h4>Auth &amp; CORS</h4>
+              <p>
+                Fix password reset token (ADR-098). CORS con validación dinámica
+                origen (ADR-110). MFA no desactivable: protección por defecto.
+              </p>
+            </div>
+          </div>
+          <aside class="notes">
+            v1.5.0 (10/02): Security hardening — gitleaks, CVE audit, CSRF.
+            v1.6.0 (14/02): SonarQube 0 issues, cobertura 81%/90%. v1.6.1
+            (14/02): CORS Dynamic Validation (ADR-110). ADRs clave: ADR-094,
+            ADR-096, ADR-097, ADR-098, ADR-108, ADR-110. Resultado final v1.7.0:
+            0 bugs, 0 vulnerabilidades, 0 hotspots, 0 CVEs alta severidad,
+            gitleaks activo en todos los commits.
+          </aside>
+        </section>
+
+        <!-- ============================================ -->
+        <!-- SLIDE 18: STACK TECNOLÓGICO -->
+        <!-- ============================================ -->
+        <section
           data-background-gradient="linear-gradient(135deg, #0f3460 0%, #1a1a2e 100%)"
           role="region"
           aria-label="Stack tecnológico resultante"
@@ -1086,7 +1258,7 @@
                     alt="Next.js"
                     class="tech-logo"
                   />
-                  <span>Next.js 15</span>
+                  <span>Next.js 16</span>
                 </div>
                 <div class="tech-item">
                   <img
@@ -1111,6 +1283,22 @@
                     class="tech-logo"
                   />
                   <span>Tailwind CSS</span>
+                </div>
+                <div class="tech-item">
+                  <img
+                    src="assets/images/reactquery.svg"
+                    alt="TanStack Query"
+                    class="tech-logo"
+                  />
+                  <span>TanStack Query v5</span>
+                </div>
+                <div class="tech-item">
+                  <img
+                    src="assets/images/zod.svg"
+                    alt="Zod"
+                    class="tech-logo"
+                  />
+                  <span>Zod v3</span>
                 </div>
               </div>
             </div>
@@ -1162,7 +1350,7 @@
             </div>
             <div class="problem-card fragment">
               <div class="problem-icon">📊</div>
-              <h4>Visualización</h4>
+              <h4>Visualización &amp; Observabilidad</h4>
               <div class="tech-items">
                 <div class="tech-item">
                   <img
@@ -1170,15 +1358,15 @@
                     alt="D3.js"
                     class="tech-logo"
                   />
-                  <span>D3.js</span>
+                  <span>D3.js v7</span>
                 </div>
                 <div class="tech-item">
                   <img
-                    src="assets/images/recharts.svg"
-                    alt="Recharts"
+                    src="assets/images/sentry.svg"
+                    alt="Sentry"
                     class="tech-logo"
                   />
-                  <span>Recharts</span>
+                  <span>Sentry v9/v10</span>
                 </div>
               </div>
             </div>
@@ -1242,7 +1430,7 @@
               <div class="problem-icon">🖥️</div>
               <h4>Frontend</h4>
               <p>
-                Next.js 15 · React 19. Interfaz de usuario con SSR y componentes
+                Next.js 16 · React 19. Interfaz de usuario con SSR y componentes
                 reutilizables.
               </p>
             </div>
@@ -1309,8 +1497,9 @@
             />
           </div>
           <aside class="notes">
-            Parte 1: Frontend (Next.js 15 + React 19) con Pages, Components, Hooks, Auth.
-            API Layer (Hono 4.6) con OpenAPI, Routes, Middleware HMAC+JWT.
+            Parte 1: Frontend (Next.js 16 + React 19) con Pages, Components,
+            Hooks, Auth. API Layer (Hono 4.6) con OpenAPI, Routes, Middleware
+            HMAC+JWT.
           </aside>
         </section>
 
@@ -1330,9 +1519,9 @@
             />
           </div>
           <aside class="notes">
-            Parte 2: Backend Logic (Services, Business Rules, Zod).
-            Data Layer (Drizzle ORM, PostgreSQL 16). Governance (ADRs hasta
-            ADR-107, AGENTS.md).
+            Parte 2: Backend Logic (Services, Business Rules, Zod). Data Layer
+            (Drizzle ORM, PostgreSQL 16). Governance (ADRs hasta ADR-119,
+            AGENTS.md, 9 Skills modularizadas).
           </aside>
         </section>
 
@@ -1350,10 +1539,12 @@
           <div class="problem-grid">
             <div class="problem-card fragment">
               <div class="problem-icon">🧪</div>
-              <h4>Testing: 1,038 tests pasando</h4>
+              <h4>Testing: 1,047 tests pasando</h4>
               <p>
-                Estado a 14/02/2026: 655 backend + 383 frontend. Pruebas
-                unitarias, integración y E2E para validar comportamiento y
+                Estado v1.7.0 (22/02/2026):
+                <strong>664 backend + 383 frontend</strong>. Cobertura backend
+                81.01%, frontend 90.07%, global 85.54%. Pruebas unitarias,
+                integración y E2E (Playwright MFA) para validar comportamiento y
                 evitar regresiones.
               </p>
             </div>
@@ -1361,16 +1552,19 @@
               <div class="problem-icon">🧯</div>
               <h4>Quality Gates y SonarQube</h4>
               <p>
-                CI obligatorio. Lint, coverage, indicaciones de SonarQube y PRs
-                revisadas como filtros antes de merge.
+                SonarQube Community Edition:
+                <strong>0 bugs · 0 vulnerabilities · 0 hotspots</strong>.
+                gitleaks activo en pre-commit, npm audit en pre-push. Linting:
+                <strong>0 errores · 0 warnings</strong> (PR #143, ADR-118).
               </p>
             </div>
             <div class="problem-card fragment">
               <div class="problem-icon">📚</div>
-              <h4>Documentación: ADR-107</h4>
+              <h4>Documentación: ADR-119</h4>
               <p>
-                Trazabilidad auditada en decisiones.md con histórico de
-                decisiones y actualizaciones continuas hasta febrero 2026.
+                Trazabilidad auditada en decisiones.md, modularizado en 7
+                ficheros. Histórico de decisiones hasta ADR-119 con contexto,
+                decisión y consecuencias documentadas.
               </p>
             </div>
             <div class="problem-card fragment">
@@ -1395,57 +1589,62 @@
         >
           <h2>Resultados del Proceso</h2>
           <p class="slide-explainer">
-            Resultado consolidado a 14/02/2026: hito inicial de 7 días +
-            evolución posterior en calidad, cobertura y deuda técnica.
+            Resultado consolidado a 22/02/2026 (v1.7.0): hito inicial de 7 días
+            + evolución posterior en calidad, cobertura, nuevas features y deuda
+            técnica.
           </p>
           <div class="problem-grid">
             <div class="problem-card fragment">
               <div class="problem-icon">📊</div>
               <h4>Código y documentación</h4>
               <p>
-                Hito inicial con alto volumen de implementación, endpoints
-                OpenAPI documentados y decisiones trazadas hasta ADR-107 para
-                cubrir evolución técnica y operativa.
+                157 endpoints OpenAPI documentados. Decisiones trazadas hasta
+                <strong>ADR-119</strong>, modularizadas en 7 ficheros. 9 Skills
+                para agentes IA (ADR-117).
               </p>
             </div>
             <div class="problem-card fragment">
               <div class="problem-icon">✅</div>
               <h4>Calidad verificada</h4>
               <p>
-                1,038 tests pasando (655 backend + 383 frontend). Cobertura:
-                backend 81.01%, frontend 90.07%, global 85.54% (14/02/2026).
+                <strong>1,047 tests</strong> pasando (664 backend + 383
+                frontend). Cobertura: backend 81.01%, frontend 90.07%, global
+                85.54%. SonarQube: 0 bugs · 0 vulnerabilities · 0 hotspots.
+                Linting: 0 errores · 0 warnings.
               </p>
             </div>
             <div class="problem-card fragment">
               <div class="problem-icon">🚀</div>
               <h4>Velocidad extraordinaria</h4>
               <p>
-                6 módulos en 7 días. Día 5: 8 PRs Onboarding. Día 6: Gantt +2326
-                LOC. Base creada en enero y endurecida en febrero con SonarQube
-                y mejoras de cobertura.
+                7 áreas funcionales completas. Día 5: 8 PRs Onboarding. Día 6:
+                Gantt +2326 LOC. Base creada en enero y endurecida en febrero
+                con SonarQube, cobertura, gitleaks y nuevas features.
               </p>
             </div>
             <div class="problem-card fragment">
               <div class="problem-icon">🎯</div>
-              <h4>MVP completo</h4>
+              <h4>MVP completo (v1.7.0)</h4>
               <p>
-                Auth (MFA), Usuarios, Departamentos, Onboarding, Proyectos,
-                Timetracking, Dashboards. Responsive mobile-first.
+                Auth (MFA), Empleados, Onboarding, Proyectos N:M departamentos,
+                Timetracking (Gantt D3.js), Tareas jerárquicas (Jira-like),
+                Dashboards KPI con desviación presupuestaria.
               </p>
             </div>
             <div class="problem-card fragment">
               <div class="problem-icon">📘</div>
               <h4>Proceso reproducible</h4>
               <p>
-                AGENTS.md + 4 fuentes verdad + tests obligatorios = calidad
-                sostenible con IA.
+                AGENTS.md + 5 fuentes verdad + tests obligatorios + Skills =
+                calidad sostenible con IA. PRs recientes: #140 (N:M + KPI), #141
+                (Skills), #143 (0 warnings lint), #144 (boy-scout skill).
               </p>
             </div>
             <div class="problem-card fragment">
               <div class="problem-icon">🧰</div>
               <h4>Stack justificado</h4>
               <p>
-                Next.js 15, React 19, Hono 4.6, PostgreSQL 16. Cada tecnología
+                Next.js 16, React 19, Hono 4.6, PostgreSQL 16. Cada tecnología
                 con ADR que justifica su elección.
               </p>
             </div>
@@ -1520,8 +1719,8 @@
               <div class="problem-icon">🧭</div>
               <h4>Fuentes de verdad ANTES</h4>
               <p>
-                AGENTS.md + ADRs + OpenAPI previos al código evitaron alucinaciones.
-                La IA fue productiva desde día 1.
+                AGENTS.md + ADRs + OpenAPI previos al código evitaron
+                alucinaciones. La IA fue productiva desde día 1.
               </p>
             </div>
             <div class="problem-card fragment">

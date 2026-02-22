@@ -24,13 +24,14 @@
 2. **Formato uniforme**: Todas las slides deben tener el mismo formato; todas las cards deben ser iguales (mismas clases, misma estructura: icono, título, texto). No mezclar variantes de cards ni layouts distintos.
 3. No modificar estilos dentro de `node_modules/reveal.js`; solo en `css/custom.css`.
 4. Rutas de assets relativas desde la raíz: `assets/images/...`, `assets/diagrams/...`.
-5. Comentarios de slide en orden: `<!-- SLIDE 1 -->` … `<!-- SLIDE 22 -->` según posición real (22 slides).
+5. Comentarios de slide en orden: `<!-- SLIDE 1 -->` … `<!-- SLIDE 25 -->` según posición real (25 slides).
 6. Contenido y documentación en español.
 7. **Responsive y A11y**: Diseño responsive; cumplir WCAG AA (contraste, alt en imágenes, semántica, teclado, ARIA). No romper responsive ni accesibilidad.
 
 ## Fuente de verdad (única)
 
 - **decisiones.md** es la **única fuente de verdad** para decisiones, datos, cifras, ADRs, hechos del TFM/TeamHub y **las acciones que se realizaron para generar el proyecto**. No inventar nada; solo usar lo que figure en `decisiones.md`. Si no está ahí, no afirmarlo.
+- **Ubicación**: El fichero está en el repo del proyecto TFM, carpeta **docs**. Ruta por defecto (relativa a la raíz de este repo): **`../tfm/docs/decisiones.md`**. Para otra estructura de carpetas: variable de entorno **`DECISIONES_PATH`** con la ruta al fichero.
 
 ## Documentación
 
@@ -40,5 +41,5 @@
 
 ## Restricciones
 
-- **No alucinar**: No inventar datos, cifras, decisiones ni hechos. Única fuente de verdad: `decisiones.md`.
+- **No alucinar**: No inventar datos, cifras, decisiones ni hechos. Única fuente de verdad: `decisiones.md` (ruta: `../tfm/docs/decisiones.md` o `DECISIONES_PATH`).
 - Mantener **responsive** y **WCAG AA / A11y**: no introducir cambios que rompan diseño responsive ni accesibilidad.

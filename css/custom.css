@@ -9,7 +9,7 @@
   --success: #4ade80;
   --warning: #fbbf24;
   --danger: #f87171;
-  --shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  --shadow: 0 6px 16px rgba(0, 0, 0, 0.24);
   --card-padding: 1rem;
   --card-radius: 14px;
   --card-bg: rgba(255, 255, 255, 0.06);
@@ -1293,9 +1293,30 @@ a.agenda-item:focus-visible {
 }
 
 /* --- Ajuste final de maquetación (entrega asíncrona) --- */
-.problem-card {
-  display: flex;
-  flex-direction: column;
+/* Igualar altura por fila sin forzar alturas absolutas (evita solapes) */
+.agenda-grid,
+.problem-grid,
+.criteria-grid,
+.example-grid,
+.quality-grid,
+.results-grid,
+.roadmap-timeline,
+.conclusions-list,
+.demo-screenshots {
+  align-items: stretch;
+}
+
+.agenda-item,
+.problem-card,
+.criteria-card,
+.example-card,
+.quality-card,
+.result-card,
+.roadmap-item,
+.conclusion-item,
+.screenshot-container {
+  height: auto;
+  min-height: 0;
 }
 
 .problem-card h4 {
@@ -1315,4 +1336,59 @@ a.agenda-item:focus-visible {
     transition: none !important;
     animation: none !important;
   }
+}
+
+/* Cronologia PR slide: bring diagram slightly upward */
+.chrono-pr-slide .slide-explainer {
+  margin: 0.15rem auto 0.15rem;
+}
+
+.chrono-pr-slide .diagram-stage {
+  align-items: flex-start;
+}
+
+/* Agenda slide: no scroll, full 8 cards visible in one view */
+.reveal section.agenda-slide {
+  padding: 0.85rem 1.35rem;
+}
+
+.agenda-slide h2 {
+  margin: 0 0 0.12rem;
+  font-size: clamp(1.3rem, 2.1vw, 1.95rem);
+}
+
+.agenda-slide .slide-explainer {
+  margin: 0.08rem auto 0.28rem;
+  font-size: clamp(0.78rem, 1.05vw, 0.92rem);
+  line-height: 1.3;
+}
+
+.agenda-slide .agenda-grid {
+  margin-top: 0.28rem;
+  gap: 0.38rem;
+  max-height: none !important;
+  overflow: visible !important;
+  padding-right: 0;
+}
+
+.agenda-slide .agenda-item {
+  padding: 0.26rem 0.4rem;
+  gap: 0.14rem;
+}
+
+.agenda-slide .agenda-number {
+  width: 28px;
+  height: 28px;
+  font-size: 0.75rem;
+}
+
+.agenda-slide .agenda-content h4 {
+  font-size: clamp(0.8rem, 1.05vw, 0.93rem);
+  line-height: 1.2;
+}
+
+.agenda-slide .agenda-content p {
+  font-size: clamp(0.72rem, 0.95vw, 0.83rem);
+  line-height: 1.24;
+  margin: 0;
 }

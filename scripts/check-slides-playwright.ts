@@ -9,11 +9,11 @@
  * Uso: npx ts-node scripts/check-slides-playwright.ts
  */
 
-import { chromium } from '@playwright/test';
-import fs from 'node:fs';
-import path from 'node:path';
+import { chromium } from "@playwright/test";
+import fs from "node:fs";
+import path from "node:path";
 
-const url = process.env.SLIDES_URL || 'http://localhost:8080';
+const url = process.env.SLIDES_URL || "http://localhost:8080";
 const viewportWidth = 1920;
 const viewportHeight = 1080;
 const overflowTolerancePx = 2;
@@ -21,7 +21,7 @@ const overflowTolerancePx = 2;
 interface SlideIssue {
   slideIndex: number;
   slideLabel: string;
-  type: 'broken_image' | 'overflow' | 'console_error' | 'not_visible';
+  type: "broken_image" | "overflow" | "console_error" | "not_visible";
   detail: string;
 }
 
@@ -35,33 +35,39 @@ async function main() {
     viewport: { width: viewportWidth, height: viewportHeight },
   });
 
-  page.on('console', (msg) => {
-    if (msg.type() === 'error') {
-      consoleErrors.push({ slideIndex: currentSlideForErrors, text: msg.text() });
+  page.on("console", (msg) => {
+    if (msg.type() === "error") {
+      consoleErrors.push({
+        slideIndex: currentSlideForErrors,
+        text: msg.text(),
+      });
     }
   });
 
   try {
     const response = await page.goto(url, {
-      waitUntil: 'networkidle',
+      waitUntil: "networkidle",
       timeout: 15000,
     });
     if (!response || response.status() !== 200) {
-      console.error('No se pudo cargar la presentación. ¿Está el servidor en marcha? (npm run dev)');
+      console.error(
+        "No se pudo cargar la presentación. ¿Está el servidor en marcha? (npm run dev)",
+      );
       process.exit(1);
     }
   } catch {
-    console.error('Error cargando', url, '. Ejecuta antes: npm run dev');
+    console.error("Error cargando", url, ". Ejecuta antes: npm run dev");
     process.exit(1);
   }
 
   await page.waitForFunction(
     () => (globalThis as any).Reveal && (globalThis as any).Reveal.isReady(),
-    { timeout: 10000 }
+    { timeout: 10000 },
   );
 
   const total = await page.evaluate(
-    () => (globalThis as any).document.querySelectorAll('.slides > section').length
+    () =>
+      (globalThis as any).document.querySelectorAll(".slides > section").length,
   );
 
   for (let i = 0; i < total; i += 1) {
@@ -69,11 +75,13 @@ async function main() {
     await page.evaluate((index: number) => {
       const reveal = (globalThis as any).Reveal;
       reveal.slide(index);
-      const slide = (globalThis as any).document.querySelectorAll('.slides > section')[index];
+      const slide = (globalThis as any).document.querySelectorAll(
+        ".slides > section",
+      )[index];
       if (slide) {
-        slide.querySelectorAll('.fragment').forEach((el: any) => {
-          el.classList.add('visible');
-          el.classList.remove('fragment');
+        slide.querySelectorAll(".fragment").forEach((el: any) => {
+          el.classList.add("visible");
+          el.classList.remove("fragment");
         });
       }
     }, i);
@@ -84,16 +92,22 @@ async function main() {
     const check = await page.evaluate(
       (args: { index: number; vw: number; vh: number; tol: number }) => {
         const { index, vw: vpW, vh: vpH, tol } = args;
-        const slides = (globalThis as any).document.querySelectorAll('.slides > section');
+        const slides = (globalThis as any).document.querySelectorAll(
+          ".slides > section",
+        );
         const currentSlide = slides[index];
         if (!currentSlide) {
-          return { brokenImages: [] as string[], overflow: [] as string[], notVisible: false };
+          return {
+            brokenImages: [] as string[],
+            overflow: [] as string[],
+            notVisible: false,
+          };
         }
 
         const brokenImages: string[] = [];
-        currentSlide.querySelectorAll('img').forEach((img: any) => {
+        currentSlide.querySelectorAll("img").forEach((img: any) => {
           if (!img.complete || img.naturalWidth === 0) {
-            const src = img.getAttribute('src') || '';
+            const src = img.getAttribute("src") || "";
             if (src) brokenImages.push(src);
           }
         });
@@ -109,7 +123,7 @@ async function main() {
 
         const overflow: string[] = [];
         const walk = (el: any) => {
-          if (el && typeof el.getBoundingClientRect === 'function') {
+          if (el && typeof el.getBoundingClientRect === "function") {
             const r = el.getBoundingClientRect();
             if (r.width > 0 && r.height > 0) {
               if (
@@ -119,13 +133,13 @@ async function main() {
                 r.bottom > vpH + tol
               ) {
                 const tag = el.tagName.toLowerCase();
-                const id = el.id ? `#${el.id}` : '';
+                const id = el.id ? `#${el.id}` : "";
                 const cls =
-                  el.className && typeof el.className === 'string'
-                    ? '.' + (el.className as string).split(' ')[0]
-                    : '';
+                  el.className && typeof el.className === "string"
+                    ? "." + (el.className as string).split(" ")[0]
+                    : "";
                 overflow.push(
-                  `${tag}${id}${cls} (L:${Math.round(r.left)} R:${Math.round(r.right)} T:${Math.round(r.top)} B:${Math.round(r.bottom)})`
+                  `${tag}${id}${cls} (L:${Math.round(r.left)} R:${Math.round(r.right)} T:${Math.round(r.top)} B:${Math.round(r.bottom)})`,
                 );
               }
             }
@@ -143,7 +157,7 @@ async function main() {
         vw: viewportWidth,
         vh: viewportHeight,
         tol: overflowTolerancePx,
-      }
+      },
     );
 
     if (check.brokenImages.length) {
@@ -151,7 +165,7 @@ async function main() {
         issues.push({
           slideIndex: i + 1,
           slideLabel,
-          type: 'broken_image',
+          type: "broken_image",
           detail: src,
         });
       });
@@ -160,18 +174,21 @@ async function main() {
       issues.push({
         slideIndex: i + 1,
         slideLabel,
-        type: 'not_visible',
-        detail: 'La sección de la slide no es visible o tiene tamaño casi cero.',
+        type: "not_visible",
+        detail:
+          "La sección de la slide no es visible o tiene tamaño casi cero.",
       });
     }
     if (check.overflow.length) {
       issues.push({
         slideIndex: i + 1,
         slideLabel,
-        type: 'overflow',
+        type: "overflow",
         detail:
-          check.overflow.slice(0, 5).join('; ') +
-          (check.overflow.length > 5 ? ` (+${check.overflow.length - 5} más)` : ''),
+          check.overflow.slice(0, 5).join("; ") +
+          (check.overflow.length > 5
+            ? ` (+${check.overflow.length - 5} más)`
+            : ""),
       });
     }
   }
@@ -180,30 +197,36 @@ async function main() {
     const slideNum = slideIndex >= 0 ? slideIndex + 1 : 0;
     issues.push({
       slideIndex: slideNum,
-      slideLabel: slideNum ? `Slide ${slideNum}/${total}` : 'Global',
-      type: 'console_error',
+      slideLabel: slideNum ? `Slide ${slideNum}/${total}` : "Global",
+      type: "console_error",
       detail: text.slice(0, 200),
     });
   });
 
   await browser.close();
 
-  const outPath = path.resolve('check-slides-report.txt');
+  const outPath = path.resolve("check-slides-report.txt");
   const lines: string[] = [
-    'Reporte de revisión de slides (Playwright)',
+    "Reporte de revisión de slides (Playwright)",
     `URL: ${url}`,
     `Viewport: ${viewportWidth}x${viewportHeight}`,
     `Total slides: ${total}`,
     `Fecha: ${new Date().toISOString()}`,
-    '',
+    "",
   ];
 
   if (issues.length === 0) {
-    lines.push('No se detectaron problemas. Todas las slides se visualizan correctamente.');
+    lines.push(
+      "No se detectaron problemas. Todas las slides se visualizan correctamente.",
+    );
   } else {
-    lines.push('Nota: [overflow] = contenido que se sale del viewport (1920x1080). B > 1080 = se corta por abajo.');
-    lines.push('Nota: [not_visible] puede deberse a transición en curso; [broken_image] = imagen no cargada.');
-    lines.push('');
+    lines.push(
+      "Nota: [overflow] = contenido que se sale del viewport (1920x1080). B > 1080 = se corta por abajo.",
+    );
+    lines.push(
+      "Nota: [not_visible] puede deberse a transición en curso; [broken_image] = imagen no cargada.",
+    );
+    lines.push("");
     const bySlide = new Map<number, SlideIssue[]>();
     issues.forEach((iss) => {
       const key = iss.slideIndex;
@@ -218,14 +241,14 @@ async function main() {
         slideIssues.forEach((iss) => {
           lines.push(`  [${iss.type}] ${iss.detail}`);
         });
-        lines.push('');
+        lines.push("");
       });
   }
 
-  const report = lines.join('\n');
-  fs.writeFileSync(outPath, report, 'utf8');
+  const report = lines.join("\n");
+  fs.writeFileSync(outPath, report, "utf8");
   console.log(report);
-  console.log('\nReporte guardado en:', outPath);
+  console.log("\nReporte guardado en:", outPath);
   process.exit(issues.length > 0 ? 1 : 0);
 }
 

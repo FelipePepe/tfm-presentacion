@@ -4,7 +4,7 @@ Proyecto: **tfm-presentation** – Presentación TFM sobre desarrollo de softwar
 
 ## Resumen
 
-- **Qué es**: Slides para defensa del TFM. 22 slides en un único `index.html` con Reveal.js.
+- **Qué es**: Slides para defensa del TFM. 25 slides en un único `index.html` con Reveal.js.
 - **Requisito TFM**: Las slides deben incluir una presentación del proyecto (obligatorio según criterios del TFM).
 - **Tecnologías**: Reveal.js 5, HTML5, CSS3, TypeScript solo en `scripts/` (captura de slides/screenshots).
 - **Salida**: Presentación en navegador (puerto 8080), opcionalmente PDF vía decktape.
@@ -31,16 +31,16 @@ tfm-presentation/
 
 ## Comandos esenciales
 
-| Comando | Descripción |
-|---------|-------------|
-| `npm install` | Instalar dependencias |
-| `npm run start` | Servir presentación en http://localhost:8080 |
-| `npm run dev` | Igual con CORS (capturas/PDF) |
-| `npm run screenshots` | Ejecutar captura masiva (ts-node) |
-| `npm run capture-slide` | Capturar una slide concreta |
-| `npm run pdf` | Generar PDF (servidor en 8080 + decktape) |
-| `npm run lint` | Comprobar formato (Prettier) |
-| `npm run format` | Aplicar formato (Prettier) |
+| Comando                 | Descripción                                                           |
+| ----------------------- | --------------------------------------------------------------------- |
+| `npm install`           | Instalar dependencias                                                 |
+| `npm run start`         | Servir presentación en [http://localhost:8080](http://localhost:8080) |
+| `npm run dev`           | Igual con CORS (capturas/PDF)                                         |
+| `npm run screenshots`   | Ejecutar captura masiva (ts-node)                                     |
+| `npm run capture-slide` | Capturar una slide concreta                                           |
+| `npm run pdf`           | Generar PDF (servidor en 8080 + decktape)                             |
+| `npm run lint`          | Comprobar formato (Prettier)                                          |
+| `npm run format`        | Aplicar formato (Prettier)                                            |
 
 ## Convenciones de código
 
@@ -55,6 +55,7 @@ tfm-presentation/
 ## Fuente de verdad (única)
 
 - **decisiones.md** es la **única fuente de verdad** para decisiones, datos, cifras, ADRs, hechos del TFM/TeamHub y **las acciones que se realizaron para generar el proyecto**. Todo contenido que dependa de decisiones, datos o del historial de acciones debe basarse exclusivamente en `decisiones.md`. No inventar ni asumir nada que no figure ahí.
+- **Ubicación del fichero**: El fichero está en el repositorio del proyecto TFM, dentro de la carpeta **docs**. Ruta por defecto (relativa a la raíz de este repositorio): `**../tfm/docs/decisiones.md**`. Para otro layout de carpetas, definir la variable de entorno `**DECISIONES_PATH**` con la ruta absoluta o relativa al fichero.
 
 ## Documentación de referencia
 
@@ -64,7 +65,7 @@ tfm-presentation/
 
 ## Restricciones
 
-- **No alucinar**: No inventar datos, cifras, decisiones, ADRs ni hechos. Solo usar lo que está en `decisiones.md`. Si no está ahí, no afirmarlo; en duda, consultar `decisiones.md` o indicar que no hay fuente.
+- **No alucinar**: No inventar datos, cifras, decisiones, ADRs ni hechos. Solo usar lo que está en `decisiones.md`. Si no está ahí, no afirmarlo; en duda, consultar `decisiones.md` (ruta: `../tfm/docs/decisiones.md` o `DECISIONES_PATH`) o indicar que no hay fuente.
 - No añadir dependencias sin necesidad; el proyecto debe seguir siendo ligero.
 - No modificar la estructura interna de `node_modules/reveal.js`.
 - Mantener accesibilidad: no quitar `aria-label` ni `role="region"` de las secciones.

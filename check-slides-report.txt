@@ -1,59 +1,11 @@
 Reporte de revisión de slides (Playwright)
 URL: http://localhost:8080
 Viewport: 1920x1080
-Total slides: 21
-Fecha: 2026-02-01T11:34:14.786Z
+Total slides: 31
+Fecha: 2026-02-14T19:17:38.811Z
 
---- Slide 1/21 ---
-  [overflow] section.present (L:249 R:1671 T:22 B:1297); div.title-slide (L:301 R:1619 T:27 B:1198); div.author-info (L:349 R:1571 T:846 B:1121); p.date (L:349 R:1571 T:1075 B:1121)
+Nota: [overflow] = contenido que se sale del viewport (1920x1080). B > 1080 = se corta por abajo.
+Nota: [not_visible] puede deberse a transición en curso; [broken_image] = imagen no cargada.
 
---- Slide 2/21 ---
-  [not_visible] La sección de la slide no es visible o tiene tamaño casi cero.
-  [overflow] section.agenda-slide (L:2382 R:3804 T:22 B:1282); h2 (L:2434 R:3752 T:74 B:153); p.slide-explainer (L:2434 R:3752 T:183 B:275); div.agenda-grid (L:2434 R:3752 T:323 B:1230); div.agenda-item (L:2434 R:3079 T:323 B:528) (+34 más)
-
---- Slide 3/21 ---
-  [not_visible] La sección de la slide no es visible o tiene tamaño casi cero.
-  [overflow] section.present (L:2382 R:3804 T:97 B:982); h2 (L:2434 R:3752 T:149 B:229); p.slide-explainer (L:2434 R:3752 T:258 B:351); div.problem-grid (L:2434 R:3752 T:380 B:930); div.problem-card (L:2434 R:3081 T:380 B:643) (+15 más)
-
---- Slide 4/21 ---
-  [not_visible] La sección de la slide no es visible o tiene tamaño casi cero.
-  [overflow] section.context-slide (L:2382 R:3804 T:60 B:1020); h2 (L:2434 R:3752 T:112 B:192); p.slide-explainer (L:2434 R:3752 T:221 B:314); div.problem-grid (L:2434 R:3752 T:343 B:968); div.problem-card (L:2434 R:3081 T:343 B:644) (+15 más)
-
---- Slide 5/21 ---
-  [overflow] section.present (L:1022 R:2444 T:79 B:1001); h2 (L:1074 R:2392 T:131 B:210); p.slide-explainer (L:1074 R:2392 T:240 B:332); div.problem-grid (L:1074 R:2392 T:362 B:949); div.problem-card (L:1745 R:2392 T:362 B:662) (+7 más)
-
---- Slide 6/21 ---
-  [overflow] section.present (L:666 R:2088 T:22 B:1144); h2 (L:718 R:2036 T:74 B:153); p.slide-explainer (L:718 R:2036 T:183 B:275); p.solution-tagline (L:718 R:2036 T:305 B:351); div.criteria-grid (L:718 R:2036 T:381 B:1092) (+13 más)
-
---- Slide 7/21 ---
-  [overflow] section.present (L:549 R:1971 T:97 B:982)
-
---- Slide 8/21 ---
-  [overflow] section.present (L:517 R:1939 T:99 B:981)
-
---- Slide 9/21 ---
-  [overflow] section.present (L:461 R:1883 T:22 B:1200); div.quality-grid (L:514 R:1831 T:305 B:1147); div.quality-card (L:514 R:1161 T:775 B:1147); p (L:539 R:1135 T:954 B:1093); div.quality-card (L:1184 R:1831 T:775 B:1147) (+1 más)
-
---- Slide 12/21 ---
-  [overflow] section.present (L:517 R:1939 T:22 B:1125)
-
---- Slide 13/21 ---
-  [overflow] section.present (L:517 R:1939 T:22 B:1158); div.quality-grid (L:569 R:1886 T:385 B:1106); div.quality-card (L:569 R:1216 T:780 B:1106); div.quality-card (L:1239 R:1886 T:780 B:1106)
-
---- Slide 14/21 ---
-  [overflow] section.stack-slide (L:488 R:1910 T:22 B:1134)
-
---- Slide 16/21 ---
-  [overflow] section.present (L:488 R:1910 T:22 B:1144); div.quality-grid (L:540 R:1858 T:259 B:1092); div.quality-card (L:540 R:1187 T:687 B:1092); div.quality-card (L:1211 R:1858 T:687 B:1092)
-
---- Slide 18/21 ---
-  [overflow] section.present (L:488 R:1910 T:22 B:1282); div.conclusions-list (L:540 R:1858 T:305 B:1230); div.conclusion-item (L:540 R:1858 T:1013 B:1230); p (L:577 R:1821 T:1127 B:1175); strong (L:577 R:858 T:1130 B:1172)
-
---- Slide 19/21 ---
-  [overflow] section.present (L:488 R:1910 T:22 B:1236); div.conclusions-list (L:540 R:1858 T:259 B:1184); div.conclusion-item (L:540 R:1858 T:967 B:1184); p (L:751 R:1647 T:1081 B:1129); strong (L:751 R:1106 T:1084 B:1126)
-
---- Slide 20/21 ---
-  [overflow] section.present (L:584 R:2006 T:89 B:991); h2 (L:636 R:1954 T:141 B:221); p.slide-explainer (L:636 R:1954 T:250 B:343); div.roadmap-timeline (L:636 R:1954 T:372 B:939); div.roadmap-item (L:1530 R:1954 T:372 B:939) (+5 más)
-
---- Slide 21/21 ---
-  [overflow] section.present (L:517 R:1939 T:196 B:884)
+--- Slide 2/31 ---
+  [overflow] section.agenda-slide (L:1376 R:2798 T:220 B:860); h2 (L:1408 R:2766 T:240 B:296); p.slide-explainer (L:1420 R:2753 T:298 B:355); div.agenda-grid (L:1408 R:2766 T:362 B:840); a.agenda-item (L:1408 R:2083 T:362 B:476) (+35 más)

@@ -50,7 +50,8 @@ npm run format       # Prettier write
 
 ## Fuente de verdad (única)
 
-**`decisiones.md`** es la **única fuente de verdad** para decisiones, datos, cifras, ADRs, hechos del TFM/TeamHub y las acciones que se realizaron para generar el proyecto. No inventar ni asumir nada que no figure ahí.
+- **decisiones.md** es la **única fuente de verdad** para decisiones, datos, cifras, ADRs, hechos del TFM/TeamHub y **las acciones que se realizaron para generar el proyecto**. Cualquier contenido que dependa de decisiones, datos o del historial de acciones del proyecto debe basarse exclusivamente en lo que está escrito en `decisiones.md`. No inventar ni asumir nada que no figure ahí.
+- **Ubicación del fichero**: En el repositorio del proyecto TFM, carpeta **docs**. Ruta por defecto (relativa a la raíz de este repositorio): **`../tfm/docs/decisiones.md`**. Para otro layout: variable de entorno **`DECISIONES_PATH`** con la ruta absoluta o relativa al fichero.
 
 ## Documentación de apoyo
 
@@ -60,7 +61,7 @@ npm run format       # Prettier write
 
 ## Qué no hacer
 
-- **No alucinar**: No inventar datos, cifras, decisiones, ADRs ni hechos. Si algo no está en `decisiones.md`, no afirmarlo.
+- **No alucinar**: No inventar datos, cifras, decisiones, ADRs ni hechos. Si algo no está en `decisiones.md`, no afirmarlo ni escribirlo en slides o documentación. En caso de duda, consultar solo `decisiones.md` (ruta: `../tfm/docs/decisiones.md` o `DECISIONES_PATH`) o indicar que no hay fuente.
 - **No editar `index.html` directamente**: Es generado por el build. Editar `slides/`, `templates/` o `config/data.json`.
 - No añadir dependencias nuevas sin justificación (el proyecto es deliberadamente ligero).
 - No eliminar atributos de accesibilidad (`aria-label`, `role`) de las slides.
